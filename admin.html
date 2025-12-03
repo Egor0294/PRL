@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель | Мероприятия Про</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        nav ul li a.active {
+            background-color: var(--primary-color);
+        }
+        
+        /* Main Content */
+        .page-title {
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--secondary-color);
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .form-container, .events-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-group input {
+            width: auto;
+            margin-right: 0.5rem;
+        }
+        
+        /* Image Upload Styles */
+        .image-upload-container {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            margin-bottom: 1rem;
+        }
+        
+        .image-upload-container:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .image-upload-container.dragover {
+            border-color: var(--primary-color);
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        
+        .upload-icon {
+            font-size: 3rem;
+            color: #ddd;
+            margin-bottom: 1rem;
+        }
+        
+        .upload-text {
+            margin-bottom: 1rem;
+            color: #777;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .image-preview {
+            max-width: 100%;
+            max-height: 300px;
+            margin-top: 1rem;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .upload-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .btn-secondary {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d5dbdb;
+        }
+        
+        .btn-danger {
+            background-color: var(--accent-color);
+        }
+        
+        .btn-danger:hover {
+            background-color: #c0392b;
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+        }
+        
+        .btn-success:hover {
+            background-color: #219955;
+        }
+        
+        .btn-warning {
+            background-color: var(--warning-color);
+        }
+        
+        .btn-warning:hover {
+            background-color: #e67e22;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        /* Events Grid */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .event-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .event-card.featured {
+            border-color: var(--warning-color);
+        }
+        
+        .featured-badge {
+            background-color: var(--warning-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+        
+        .event-image {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 0.9rem;
+            overflow: hidden;
+        }
+        
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .event-content {
+            padding: 1.5rem;
+        }
+        
+        .event-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .event-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .event-location {
+            color: #777;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .event-description {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .event-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #777;
+        }
+        
+        .event-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .event-actions .btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            flex: 1;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #777;
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .upload-actions {
+                flex-direction: column;
+            }
+            
+            .event-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="admin.html" class="logo">Мероприятия <span>Про</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="admin.html" class="active">Админ-панель</a></li>
+                        <li><a href="public.html">Публичный сайт</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Админ-панель управления мероприятиями</h1>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="add-event">Добавить мероприятие</div>
+            <div class="tab" data-tab="manage-events">Управление мероприятиями</div>
+        </div>
+        
+        <div id="add-event" class="tab-content active">
+            <div class="form-container">
+                <form id="event-form">
+                    <input type="hidden" id="event-id" name="event-id">
+                    <div class="form-group">
+                        <label for="event-title">Название мероприятия *</label>
+                        <input type="text" id="event-title" name="event-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="event-description">Описание мероприятия *</label>
+                        <textarea id="event-description" name="event-description" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="event-date">Дата мероприятия *</label>
+                            <input type="date" id="event-date" name="event-date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="event-time">Время мероприятия *</label>
+                            <input type="time" id="event-time" name="event-time" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="event-location">Место проведения *</label>
+                            <input type="text" id="event-location" name="event-location" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="event-category">Категория *</label>
+                            <select id="event-category" name="event-category" required>
+                                <option value="">Выберите категорию</option>
+                                <option value="music">Музыка</option>
+                                <option value="dance">Танцы</option>
+                                <option value="art">Искусство</option>
+                                <option value="sport">Спорт</option>
+                                <option value="education">Образование</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="event-price">Стоимость участия (руб.)</label>
+                            <input type="number" id="event-price" name="event-price" min="0" value="0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="event-max-participants">Максимальное количество участников</label>
+                            <input type="number" id="event-max-participants" name="event-max-participants" min="1">
+                        </div>
+                    </div>
+                    
+                    <!-- Блок загрузки изображения -->
+                    <div class="form-group">
+                        <label>Изображение мероприятия</label>
+                        <div class="image-upload-container" id="image-upload-area">
+                            <div class="upload-icon">📁</div>
+                            <p class="upload-text">Перетащите изображение сюда или нажмите для выбора</p>
+                            <input type="file" id="image-upload" class="file-input" accept="image/*">
+                            <button type="button" class="btn btn-secondary" onclick="document.getElementById('image-upload').click()">
+                                Выбрать файл
+                            </button>
+                            <img id="image-preview" class="image-preview" alt="Предпросмотр">
+                            <div class="upload-actions" id="upload-actions" style="display: none;">
+                                <button type="button" class="btn btn-success" onclick="uploadImage()">Загрузить</button>
+                                <button type="button" class="btn btn-secondary" onclick="clearImage()">Отмена</button>
+                            </div>
+                        </div>
+                        <input type="hidden" id="event-image" name="event-image">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="event-organizer">Организатор *</label>
+                        <input type="text" id="event-organizer" name="event-organizer" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="event-contact">Контактная информация *</label>
+                        <input type="text" id="event-contact" name="event-contact" placeholder="Email или телефон" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="event-featured" name="event-featured">
+                            <label for="event-featured">Выделить мероприятие (рекомендуемое)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-block" id="submit-button">Добавить мероприятие</button>
+                        <button type="button" class="btn btn-secondary btn-block" onclick="resetForm()">Очистить форму</button>
+                        <button type="button" class="btn btn-warning btn-block" id="cancel-edit" style="display: none;" onclick="cancelEdit()">Отменить редактирование</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div id="manage-events" class="tab-content">
+            <div class="events-container">
+                <h2>Управление мероприятиями</h2>
+                <div id="admin-events-list" class="events-grid">
+                    <!-- События будут загружены сюда -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно для подтверждения удаления -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Подтверждение удаления</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <p>Вы уверены, что хотите удалить это мероприятие? Это действие нельзя отменить.</p>
+            <div class="form-actions">
+                <button id="confirm-delete" class="btn btn-danger">Удалить</button>
+                <button class="btn btn-secondary close-modal">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Хранилище данных (в реальном приложении заменить на серверную часть)
+        let events = JSON.parse(localStorage.getItem('events')) || [];
+        let eventToDelete = null;
+        let selectedImageFile = null;
+        let isEditing = false;
+        let currentEditId = null;
+        
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Установка минимальной даты как сегодняшней
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('event-date').setAttribute('min', today);
+            
+            // Загрузка мероприятий
+            loadEvents();
+            
+            // Обработчики вкладок
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Активация вкладки
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Показ соответствующего контента
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.getElementById(this.dataset.tab).classList.add('active');
+                });
+            });
+            
+            // Обработчик отправки формы
+            document.getElementById('event-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (isEditing) {
+                    updateEvent();
+                } else {
+                    addEvent();
+                }
+            });
+            
+            // Обработчики модального окна
+            document.querySelectorAll('.close-modal').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.getElementById('delete-modal').style.display = 'none';
+                });
+            });
+            
+            document.getElementById('confirm-delete').addEventListener('click', function() {
+                if (eventToDelete !== null) {
+                    deleteEvent(eventToDelete);
+                    document.getElementById('delete-modal').style.display = 'none';
+                    eventToDelete = null;
+                }
+            });
+            
+            // Обработчики загрузки изображения
+            setupImageUpload();
+        });
+        
+        // Настройка загрузки изображения
+        function setupImageUpload() {
+            const uploadArea = document.getElementById('image-upload-area');
+            const fileInput = document.getElementById('image-upload');
+            
+            // Обработчик клика по области загрузки
+            uploadArea.addEventListener('click', function(e) {
+                if (e.target !== fileInput) {
+                    fileInput.click();
+                }
+            });
+            
+            // Обработчик выбора файла
+            fileInput.addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    selectedImageFile = this.files[0];
+                    previewImage(selectedImageFile);
+                }
+            });
+            
+            // Обработчики drag & drop
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadArea.classList.add('dragover');
+            });
+            
+            uploadArea.addEventListener('dragleave', function() {
+                uploadArea.classList.remove('dragover');
+            });
+            
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+                
+                if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                    selectedImageFile = e.dataTransfer.files[0];
+                    previewImage(selectedImageFile);
+                }
+            });
+        }
+        
+        // Предпросмотр изображения
+        function previewImage(file) {
+            const reader = new FileReader();
+            const preview = document.getElementById('image-preview');
+            const uploadActions = document.getElementById('upload-actions');
+            
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+                uploadActions.style.display = 'flex';
+            };
+            
+            reader.readAsDataURL(file);
+        }
+        
+        // Загрузка изображения (в реальном приложении отправка на сервер)
+        function uploadImage() {
+            if (!selectedImageFile) return;
+            
+            // В реальном приложении здесь будет код для отправки на сервер
+            // Для демонстрации создаем локальный URL
+            const imageUrl = URL.createObjectURL(selectedImageFile);
+            document.getElementById('event-image').value = imageUrl;
+            
+            alert('Изображение успешно загружено!');
+            document.getElementById('upload-actions').style.display = 'none';
+        }
+        
+        // Очистка изображения
+        function clearImage() {
+            selectedImageFile = null;
+            document.getElementById('image-preview').style.display = 'none';
+            document.getElementById('image-upload').value = '';
+            document.getElementById('upload-actions').style.display = 'none';
+            document.getElementById('event-image').value = '';
+        }
+        
+        // Функция добавления мероприятия
+        function addEvent() {
+            const form = document.getElementById('event-form');
+            const formData = new FormData(form);
+            
+            const event = {
+                id: Date.now(), // Простой ID на основе времени
+                title: formData.get('event-title'),
+                description: formData.get('event-description'),
+                date: formData.get('event-date'),
+                time: formData.get('event-time'),
+                location: formData.get('event-location'),
+                category: formData.get('event-category'),
+                price: parseInt(formData.get('event-price')) || 0,
+                maxParticipants: parseInt(formData.get('event-max-participants')) || null,
+                image: formData.get('event-image'),
+                organizer: formData.get('event-organizer'),
+                contact: formData.get('event-contact'),
+                featured: formData.get('event-featured') === 'on',
+                createdAt: new Date().toISOString()
+            };
+            
+            events.push(event);
+            saveEvents();
+            resetForm();
+            loadEvents();
+            
+            alert('Мероприятие успешно добавлено!');
+        }
+        
+        // Функция редактирования мероприятия
+        function editEvent(eventId) {
+            const event = events.find(e => e.id === eventId);
+            if (!event) return;
+            
+            // Заполняем форму данными мероприятия
+            document.getElementById('event-id').value = event.id;
+            document.getElementById('event-title').value = event.title;
+            document.getElementById('event-description').value = event.description;
+            document.getElementById('event-date').value = event.date;
+            document.getElementById('event-time').value = event.time;
+            document.getElementById('event-location').value = event.location;
+            document.getElementById('event-category').value = event.category;
+            document.getElementById('event-price').value = event.price;
+            document.getElementById('event-max-participants').value = event.maxParticipants || '';
+            document.getElementById('event-organizer').value = event.organizer;
+            document.getElementById('event-contact').value = event.contact;
+            document.getElementById('event-featured').checked = event.featured;
+            
+            // Загружаем изображение если есть
+            if (event.image) {
+                document.getElementById('event-image').value = event.image;
+                document.getElementById('image-preview').src = event.image;
+                document.getElementById('image-preview').style.display = 'block';
+            }
+            
+            // Переключаем режим на редактирование
+            isEditing = true;
+            currentEditId = eventId;
+            document.getElementById('submit-button').textContent = 'Обновить мероприятие';
+            document.getElementById('cancel-edit').style.display = 'block';
+            
+            // Переключаемся на вкладку добавления
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelector('[data-tab="add-event"]').classList.add('active');
+            document.getElementById('add-event').classList.add('active');
+        }
+        
+        // Функция обновления мероприятия
+        function updateEvent() {
+            const form = document.getElementById('event-form');
+            const formData = new FormData(form);
+            
+            const eventIndex = events.findIndex(e => e.id === currentEditId);
+            if (eventIndex === -1) return;
+            
+            events[eventIndex] = {
+                ...events[eventIndex],
+                title: formData.get('event-title'),
+                description: formData.get('event-description'),
+                date: formData.get('event-date'),
+                time: formData.get('event-time'),
+                location: formData.get('event-location'),
+                category: formData.get('event-category'),
+                price: parseInt(formData.get('event-price')) || 0,
+                maxParticipants: parseInt(formData.get('event-max-participants')) || null,
+                image: formData.get('event-image'),
+                organizer: formData.get('event-organizer'),
+                contact: formData.get('event-contact'),
+                featured: formData.get('event-featured') === 'on',
+                updatedAt: new Date().toISOString()
+            };
+            
+            saveEvents();
+            resetForm();
+            loadEvents();
+            
+            alert('Мероприятие успешно обновлено!');
+        }
+        
+        // Функция отмены редактирования
+        function cancelEdit() {
+            resetForm();
+        }
+        
+        // Функция загрузки мероприятий в админ-панель
+        function loadEvents() {
+            const eventsList = document.getElementById('admin-events-list');
+            eventsList.innerHTML = '';
+            
+            if (events.length === 0) {
+                eventsList.innerHTML = `
+                    <div class="empty-state">
+                        <i>📅</i>
+                        <h3>Нет мероприятий</h3>
+                        <p>Добавьте первое мероприятие, используя форму выше.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Сортируем мероприятия по дате (сначала ближайшие)
+            const sortedEvents = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            sortedEvents.forEach(event => {
+                const eventDate = new Date(event.date);
+                const formattedDate = eventDate.toLocaleDateString('ru-RU', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+                
+                const eventCard = document.createElement('div');
+                eventCard.className = `event-card ${event.featured ? 'featured' : ''}`;
+                eventCard.innerHTML = `
+                    <div class="event-image">
+                        ${event.image ? `<img src="${event.image}" alt="${event.title}">` : '📅'}
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">
+                            ${event.title}
+                            ${event.featured ? '<span class="featured-badge">Рекомендуемое</span>' : ''}
+                        </h3>
+                        <div class="event-date">${formattedDate} в ${event.time}</div>
+                        <div class="event-location">${event.location}</div>
+                        <div class="event-description">${event.description.substring(0, 100)}...</div>
+                        <div class="event-meta">
+                            <span>Категория: ${getCategoryName(event.category)}</span>
+                            <span>${event.price > 0 ? event.price + ' руб.' : 'Бесплатно'}</span>
+                        </div>
+                        <div class="event-actions">
+                            <button class="btn btn-warning" onclick="editEvent(${event.id})">Редактировать</button>
+                            <button class="btn btn-danger" onclick="confirmDelete(${event.id})">Удалить</button>
+                        </div>
+                    </div>
+                `;
+                
+                eventsList.appendChild(eventCard);
+            });
+        }
+        
+        // Функция получения названия категории
+        function getCategoryName(category) {
+            const categories = {
+                'music': 'Музыка',
+                'dance': 'Танцы',
+                'art': 'Искусство',
+                'sport': 'Спорт',
+                'education': 'Образование',
+                'other': 'Другое'
+            };
+            
+            return categories[category] || 'Неизвестно';
+        }
+        
+        // Функция сохранения мероприятий в localStorage
+        function saveEvents() {
+            localStorage.setItem('events', JSON.stringify(events));
+        }
+        
+        // Функция сброса формы
+        function resetForm() {
+            document.getElementById('event-form').reset();
+            clearImage();
+            document.getElementById('event-id').value = '';
+            document.getElementById('submit-button').textContent = 'Добавить мероприятие';
+            document.getElementById('cancel-edit').style.display = 'none';
+            isEditing = false;
+            currentEditId = null;
+        }
+        
+        // Функция подтверждения удаления
+        function confirmDelete(eventId) {
+            eventToDelete = eventId;
+            document.getElementById('delete-modal').style.display = 'flex';
+        }
+        
+        // Функция удаления мероприятия
+        function deleteEvent(eventId) {
+            events = events.filter(event => event.id !== eventId);
+            saveEvents();
+            loadEvents();
+        }
+    </script>
+</body>
+</html>

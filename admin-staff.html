@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель - Управление командой</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f6fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .admin-nav {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-btn {
+            padding: 8px 16px;
+            background: #3498DB;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #2980B9;
+        }
+        
+        .main-content {
+            padding: 30px 0;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #2C3E50;
+            text-align: center;
+        }
+        
+        .admin-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background: #27AE60;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #219A52;
+        }
+        
+        .btn-secondary {
+            background: #3498DB;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #2980B9;
+        }
+        
+        .btn-danger {
+            background: #E74C3C;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #C0392B;
+        }
+        
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .staff-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498DB;
+        }
+        
+        .staff-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .staff-photo-preview {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid #3498DB;
+        }
+        
+        .staff-photo-placeholder {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            margin-right: 15px;
+        }
+        
+        .staff-info-main {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+        
+        .staff-text-info {
+            flex: 1;
+        }
+        
+        .staff-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2C3E50;
+        }
+        
+        .staff-position {
+            color: #7F8C8D;
+            margin-bottom: 10px;
+        }
+        
+        .staff-info {
+            margin-bottom: 15px;
+        }
+        
+        .staff-field {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .staff-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 3px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .edit-btn {
+            background: #F39C12;
+            color: white;
+        }
+        
+        .edit-btn:hover {
+            background: #E67E22;
+        }
+        
+        .delete-btn {
+            background: #E74C3C;
+            color: white;
+        }
+        
+        .delete-btn:hover {
+            background: #C0392B;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2C3E50;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2C3E50;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #BDC3C7;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+        
+        .form-textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #BDC3C7;
+            border-radius: 5px;
+            font-size: 16px;
+            min-height: 100px;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-textarea:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+        
+        .photo-upload-area {
+            border: 2px dashed #BDC3C7;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .photo-upload-area:hover {
+            border-color: #3498DB;
+            background: #f8f9fa;
+        }
+        
+        .photo-upload-area.dragover {
+            border-color: #27AE60;
+            background: #D5F4E6;
+        }
+        
+        .photo-preview {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 50%;
+            margin: 10px auto;
+            display: none;
+        }
+        
+        .upload-icon {
+            font-size: 48px;
+            color: #BDC3C7;
+            margin-bottom: 10px;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .alert-success {
+            background: #D5F4E6;
+            color: #27AE60;
+            border: 1px solid #27AE60;
+        }
+        
+        .alert-error {
+            background: #FADBD8;
+            color: #E74C3C;
+            border: 1px solid #E74C3C;
+        }
+        
+        .export-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .export-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2C3E50;
+        }
+        
+        .export-code {
+            background: #2C3E50;
+            color: #ECF0F1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin-bottom: 15px;
+            white-space: pre-wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .staff-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-actions {
+                flex-direction: column;
+            }
+            
+            .admin-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .staff-info-main {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .staff-photo-preview,
+            .staff-photo-placeholder {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="admin-header">
+                <div class="logo">АДМИН-ПАНЕЛЬ | ПЕРВЫЙ РИТМ</div>
+                <div class="admin-nav">
+                    <a href="staff.html" class="nav-btn" target="_blank">Просмотр сайта</a>
+                    <a href="https://perviy-ritm.ru" class="nav-btn" target="_blank">Главный сайт</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <h1 class="section-title">👥 Управление командой преподавателей</h1>
+            
+            <div id="alertContainer"></div>
+            
+            <div class="admin-actions">
+                <button class="btn btn-primary" onclick="openAddModal()">+ Добавить преподавателя</button>
+                <div>
+                    <button class="btn btn-secondary" onclick="exportData()">📋 Экспорт данных</button>
+                    <button class="btn btn-danger" onclick="clearAllData()">🗑️ Очистить все</button>
+                </div>
+            </div>
+
+            <div id="staffContainer" class="staff-grid">
+                <!-- Карточки преподавателей будут загружены через JavaScript -->
+            </div>
+
+            <div class="export-section">
+                <h3 class="export-title">Код для вставки на сайт</h3>
+                <div class="export-code" id="exportCode">
+                    // Данные будут сгенерированы автоматически
+                </div>
+                <button class="btn btn-secondary" onclick="copyExportCode()">📋 Копировать код</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно добавления/редактирования -->
+    <div id="staffModal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title" id="modalTitle">Добавить преподавателя</h2>
+            <form id="staffForm">
+                <input type="hidden" id="staffId">
+                
+                <div class="form-group">
+                    <label class="form-label" for="staffName">ФИО преподавателя *</label>
+                    <input type="text" id="staffName" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="staffPosition">Должность *</label>
+                    <input type="text" id="staffPosition" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="staffExperience">Опыт работы *</label>
+                    <input type="text" id="staffExperience" class="form-input" placeholder="Опыт: X лет" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="staffSpecialization">Специализация *</label>
+                    <input type="text" id="staffSpecialization" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="staffDescription">Описание *</label>
+                    <textarea id="staffDescription" class="form-textarea" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Фотография преподавателя</label>
+                    <div class="photo-upload-area" id="photoUploadArea" onclick="document.getElementById('photoInput').click()">
+                        <div class="upload-icon">📷</div>
+                        <p>Нажмите для загрузки фото или перетащите сюда</p>
+                        <p style="font-size: 12px; color: #7F8C8D;">Рекомендуется квадратное фото 300x300px</p>
+                        <img id="photoPreview" class="photo-preview" alt="Предпросмотр">
+                    </div>
+                    <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                    <input type="hidden" id="staffPhotoUrl">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" onclick="closeModal()">Отмена</button>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let staffData = [];
+        let editingId = null;
+        let currentPhotoFile = null;
+
+        // Загрузка данных при запуске
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStaffData();
+            renderStaff();
+            updateExportCode();
+            initPhotoUpload();
+        });
+
+        // Инициализация загрузки фото
+        function initPhotoUpload() {
+            const uploadArea = document.getElementById('photoUploadArea');
+            const photoInput = document.getElementById('photoInput');
+            const photoPreview = document.getElementById('photoPreview');
+
+            // Обработка клика
+            uploadArea.addEventListener('click', function(e) {
+                if (e.target !== photoPreview) {
+                    photoInput.click();
+                }
+            });
+
+            // Обработка выбора файла
+            photoInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    handlePhotoUpload(file);
+                }
+            });
+
+            // Обработка drag and drop
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadArea.classList.add('dragover');
+            });
+
+            uploadArea.addEventListener('dragleave', function() {
+                uploadArea.classList.remove('dragover');
+            });
+
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+                
+                const file = e.dataTransfer.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    handlePhotoUpload(file);
+                } else {
+                    showAlert('Пожалуйста, выберите файл изображения', 'error');
+                }
+            });
+        }
+
+        // Обработка загрузки фото
+        function handlePhotoUpload(file) {
+            if (!file.type.startsWith('image/')) {
+                showAlert('Пожалуйста, выберите файл изображения', 'error');
+                return;
+            }
+
+            // Проверка размера файла (максимум 5MB)
+            if (file.size > 5 * 1024 * 1024) {
+                showAlert('Размер файла не должен превышать 5MB', 'error');
+                return;
+            }
+
+            currentPhotoFile = file;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const photoPreview = document.getElementById('photoPreview');
+                photoPreview.src = e.target.result;
+                photoPreview.style.display = 'block';
+                document.getElementById('staffPhotoUrl').value = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Получить инициалы для заглушки
+        function getInitials(name) {
+            return name.split(' ').map(word => word[0]).join('').toUpperCase();
+        }
+
+        // Загрузка данных из localStorage
+        function loadStaffData() {
+            const savedData = localStorage.getItem('staffData');
+            if (savedData) {
+                staffData = JSON.parse(savedData);
+            } else {
+                // Начальные данные
+                staffData = [
+                    {
+                        id: 1,
+                        name: "Степан Васильев",
+                        position: "Главный хореограф",
+                        experience: "Опыт: 14 лет",
+                        specialization: "Современные танцы, постановка выступлений",
+                        description: "Профессиональный хореограф с международным опытом. Ученики - победители всероссийских конкурсов.",
+                        photoUrl: ""
+                    },
+                    {
+                        id: 2,
+                        name: "Алина Козлова",
+                        position: "Педагог детских групп",
+                        experience: "Опыт: 8 лет",
+                        specialization: "Детская хореография, развивающие танцы",
+                        description: "Специалист по работе с детьми. Находит подход к каждому ребенку через игру и творчество.",
+                        photoUrl: ""
+                    }
+                ];
+                saveStaffData();
+            }
+        }
+
+        // Сохранение данных в localStorage
+        function saveStaffData() {
+            localStorage.setItem('staffData', JSON.stringify(staffData));
+            updateExportCode();
+        }
+
+        // Отображение списка преподавателей
+        function renderStaff() {
+            const container = document.getElementById('staffContainer');
+            container.innerHTML = '';
+
+            staffData.forEach(staff => {
+                const card = document.createElement('div');
+                card.className = 'staff-card';
+                
+                let photoContent = '';
+                if (staff.photoUrl) {
+                    photoContent = `<img src="${staff.photoUrl}" alt="${staff.name}" class="staff-photo-preview" onerror="this.style.display='none';">`;
+                } else {
+                    photoContent = `<div class="staff-photo-placeholder">${getInitials(staff.name)}</div>`;
+                }
+                
+                card.innerHTML = `
+                    <div class="staff-header">
+                        <div class="staff-info-main">
+                            ${photoContent}
+                            <div class="staff-text-info">
+                                <div class="staff-name">${staff.name}</div>
+                                <div class="staff-position">${staff.position}</div>
+                            </div>
+                        </div>
+                        <div class="staff-actions">
+                            <button class="action-btn edit-btn" onclick="editStaff(${staff.id})">✏️</button>
+                            <button class="action-btn delete-btn" onclick="deleteStaff(${staff.id})">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-field"><strong>Опыт:</strong> ${staff.experience}</div>
+                        <div class="staff-field"><strong>Специализация:</strong> ${staff.specialization}</div>
+                        <div class="staff-field"><strong>Описание:</strong> ${staff.description}</div>
+                        <div class="staff-field"><strong>Фото:</strong> ${staff.photoUrl ? 'Загружено' : 'Нет'}</div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Открытие модального окна для добавления
+        function openAddModal() {
+            editingId = null;
+            currentPhotoFile = null;
+            document.getElementById('modalTitle').textContent = 'Добавить преподавателя';
+            document.getElementById('staffForm').reset();
+            document.getElementById('staffId').value = '';
+            document.getElementById('photoPreview').style.display = 'none';
+            document.getElementById('staffModal').style.display = 'block';
+        }
+
+        // Редактирование преподавателя
+        function editStaff(id) {
+            const staff = staffData.find(s => s.id === id);
+            if (staff) {
+                editingId = id;
+                currentPhotoFile = null;
+                document.getElementById('modalTitle').textContent = 'Редактировать преподавателя';
+                document.getElementById('staffId').value = staff.id;
+                document.getElementById('staffName').value = staff.name;
+                document.getElementById('staffPosition').value = staff.position;
+                document.getElementById('staffExperience').value = staff.experience;
+                document.getElementById('staffSpecialization').value = staff.specialization;
+                document.getElementById('staffDescription').value = staff.description;
+                
+                const photoPreview = document.getElementById('photoPreview');
+                if (staff.photoUrl) {
+                    photoPreview.src = staff.photoUrl;
+                    photoPreview.style.display = 'block';
+                    document.getElementById('staffPhotoUrl').value = staff.photoUrl;
+                } else {
+                    photoPreview.style.display = 'none';
+                    document.getElementById('staffPhotoUrl').value = '';
+                }
+                
+                document.getElementById('staffModal').style.display = 'block';
+            }
+        }
+
+        // Удаление преподавателя
+        function deleteStaff(id) {
+            if (confirm('Вы уверены, что хотите удалить этого преподавателя?')) {
+                staffData = staffData.filter(s => s.id !== id);
+                saveStaffData();
+                renderStaff();
+                showAlert('Преподаватель успешно удален', 'success');
+            }
+        }
+
+        // Закрытие модального окна
+        function closeModal() {
+            document.getElementById('staffModal').style.display = 'none';
+        }
+
+        // Обработка формы
+        document.getElementById('staffForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                id: editingId || Date.now(),
+                name: document.getElementById('staffName').value,
+                position: document.getElementById('staffPosition').value,
+                experience: document.getElementById('staffExperience').value,
+                specialization: document.getElementById('staffSpecialization').value,
+                description: document.getElementById('staffDescription').value,
+                photoUrl: document.getElementById('staffPhotoUrl').value || ''
+            };
+
+            if (editingId) {
+                // Редактирование
+                const index = staffData.findIndex(s => s.id === editingId);
+                if (index !== -1) {
+                    staffData[index] = formData;
+                }
+            } else {
+                // Добавление
+                staffData.push(formData);
+            }
+
+            saveStaffData();
+            renderStaff();
+            closeModal();
+            showAlert(`Преподаватель ${editingId ? 'отредактирован' : 'добавлен'} успешно`, 'success');
+        });
+
+        // Показать уведомление
+        function showAlert(message, type) {
+            const container = document.getElementById('alertContainer');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            container.appendChild(alert);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+
+        // Очистка всех данных
+        function clearAllData() {
+            if (confirm('ВНИМАНИЕ! Это действие удалит всех преподавателей. Продолжить?')) {
+                staffData = [];
+                saveStaffData();
+                renderStaff();
+                showAlert('Все данные успешно очищены', 'success');
+            }
+        }
+
+        // Экспорт данных
+        function exportData() {
+            const dataStr = JSON.stringify(staffData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = 'staff_data.json';
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            showAlert('Данные успешно экспортированы', 'success');
+        }
+
+        // Обновление кода для экспорта
+        function updateExportCode() {
+            const code = `const staffData = ${JSON.stringify(staffData, null, 2)};`;
+            document.getElementById('exportCode').textContent = code;
+        }
+
+        // Копирование кода
+        function copyExportCode() {
+            const code = document.getElementById('exportCode').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                showAlert('Код скопирован в буфер обмена', 'success');
+            });
+        }
+
+        // Закрытие модального окна при клике вне его
+        window.onclick = function(event) {
+            const modal = document.getElementById('staffModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

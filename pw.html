@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мероприятия | Мероприятия Про</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        nav ul li a.active {
+            background-color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Main Content */
+        .page-title {
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--secondary-color);
+        }
+        
+        .events-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .event-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .event-image {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 0.9rem;
+            overflow: hidden;
+        }
+        
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .event-content {
+            padding: 1.5rem;
+        }
+        
+        .event-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .event-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .event-location {
+            color: #777;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .event-description {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .event-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+        
+        .event-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .btn-secondary {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d5dbdb;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #777;
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+        
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        .filter-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 2rem auto;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: modalAppear 0.3s ease-out;
+        }
+        
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #777;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .close-modal:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .modal-body {
+            padding: 0 2rem 2rem;
+        }
+        
+        .event-detail-image {
+            width: 100%;
+            height: 300px;
+            background-color: #eee;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .event-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .event-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .event-detail-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .info-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+        
+        .info-content h4 {
+            margin-bottom: 0.25rem;
+            color: var(--secondary-color);
+        }
+        
+        .info-content p {
+            color: #666;
+            margin: 0;
+        }
+        
+        .event-full-description {
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .featured-badge {
+            background-color: #f39c12;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filters {
+                flex-direction: column;
+            }
+            
+            .event-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .modal-content {
+                margin: 1rem auto;
+                width: 95%;
+            }
+            
+            .modal-header {
+                padding: 1.5rem 1.5rem 1rem;
+            }
+            
+            .modal-body {
+                padding: 0 1.5rem 1.5rem;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="public.html" class="logo">Мероприятия <span>Про</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="public.html" class="active">Мероприятия</a></li>
+                        <li><a href="admin.html">Для организаторов</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Предстоящие мероприятия</h1>
+            <p>Откройте для себя самые интересные события в вашем городе. Присоединяйтесь к сообществу единомышленников!</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="filters">
+            <div class="filter-group">
+                <label for="category-filter">Категория</label>
+                <select id="category-filter">
+                    <option value="">Все категории</option>
+                    <option value="music">Музыка</option>
+                    <option value="dance">Танцы</option>
+                    <option value="art">Искусство</option>
+                    <option value="sport">Спорт</option>
+                    <option value="education">Образование</option>
+                    <option value="other">Другое</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="date-filter">Дата</label>
+                <select id="date-filter">
+                    <option value="">Все даты</option>
+                    <option value="today">Сегодня</option>
+                    <option value="week">На этой неделе</option>
+                    <option value="month">В этом месяце</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="price-filter">Стоимость</label>
+                <select id="price-filter">
+                    <option value="">Любая</option>
+                    <option value="free">Бесплатные</option>
+                    <option value="paid">Платные</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="events-container">
+            <div id="public-events-list" class="events-grid">
+                <!-- События будут загружены сюда -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно деталей мероприятия -->
+    <div id="event-detail-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-event-title">
+                    <!-- Заголовок будет вставлен сюда -->
+                </h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="event-detail-image" id="modal-event-image">
+                    <!-- Изображение будет вставлено сюда -->
+                </div>
+                
+                <div class="event-detail-grid">
+                    <div class="event-detail-info">
+                        <div class="info-item">
+                            <div class="info-icon">📅</div>
+                            <div class="info-content">
+                                <h4>Дата и время</h4>
+                                <p id="modal-event-datetime"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-content">
+                                <h4>Место проведения</h4>
+                                <p id="modal-event-location"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">👤</div>
+                            <div class="info-content">
+                                <h4>Организатор</h4>
+                                <p id="modal-event-organizer"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-detail-info">
+                        <div class="info-item">
+                            <div class="info-icon">💰</div>
+                            <div class="info-content">
+                                <h4>Стоимость</h4>
+                                <p id="modal-event-price"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">👥</div>
+                            <div class="info-content">
+                                <h4>Участники</h4>
+                                <p id="modal-event-participants"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">📞</div>
+                            <div class="info-content">
+                                <h4>Контакты</h4>
+                                <p id="modal-event-contact"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="event-full-description" id="modal-event-description">
+                    <!-- Полное описание будет вставлено сюда -->
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="btn btn-block" id="modal-participate-btn">Участвовать</button>
+                    <button class="btn btn-secondary btn-block close-modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Мероприятия Про</h3>
+                    <p>Профессиональная система управления мероприятиями. Найдите и посетите самые интересные события в вашем городе.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="public.html">Мероприятия</a></li>
+                        <li><a href="admin.html">Для организаторов</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li>Email: info@events-pro.ru</li>
+                        <li>Телефон: +7 (XXX) XXX-XX-XX</li>
+                        <li>Адрес: г. Москва, ул. Примерная, д. 1</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Мероприятия Про. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentEventId = null;
+        
+        // Загрузка мероприятий при открытии страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPublicEvents();
+            
+            // Обработчики фильтров
+            document.getElementById('category-filter').addEventListener('change', loadPublicEvents);
+            document.getElementById('date-filter').addEventListener('change', loadPublicEvents);
+            document.getElementById('price-filter').addEventListener('change', loadPublicEvents);
+            
+            // Обработчики модального окна
+            document.querySelectorAll('.close-modal').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.getElementById('event-detail-modal').style.display = 'none';
+                });
+            });
+            
+            // Закрытие модального окна при клике вне его
+            document.getElementById('event-detail-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
+                }
+            });
+            
+            // Обработчик кнопки "Участвовать"
+            document.getElementById('modal-participate-btn').addEventListener('click', function() {
+                if (currentEventId) {
+                    participateInEvent(currentEventId);
+                }
+            });
+        });
+        
+        // Функция загрузки мероприятий на публичный сайт
+        function loadPublicEvents() {
+            const eventsList = document.getElementById('public-events-list');
+            eventsList.innerHTML = '';
+            
+            // Получаем мероприятия из localStorage
+            const events = JSON.parse(localStorage.getItem('events')) || [];
+            
+            // Получаем значения фильтров
+            const categoryFilter = document.getElementById('category-filter').value;
+            const dateFilter = document.getElementById('date-filter').value;
+            const priceFilter = document.getElementById('price-filter').value;
+            
+            // Фильтруем мероприятия
+            let filteredEvents = events.filter(event => {
+                // Фильтр по категории
+                if (categoryFilter && event.category !== categoryFilter) {
+                    return false;
+                }
+                
+                // Фильтр по дате
+                const eventDate = new Date(event.date);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                
+                if (dateFilter === 'today') {
+                    const eventDay = new Date(eventDate);
+                    eventDay.setHours(0, 0, 0, 0);
+                    if (eventDay.getTime() !== today.getTime()) {
+                        return false;
+                    }
+                } else if (dateFilter === 'week') {
+                    const weekEnd = new Date(today);
+                    weekEnd.setDate(today.getDate() + 7);
+                    if (eventDate < today || eventDate > weekEnd) {
+                        return false;
+                    }
+                } else if (dateFilter === 'month') {
+                    const monthEnd = new Date(today);
+                    monthEnd.setMonth(today.getMonth() + 1);
+                    if (eventDate < today || eventDate > monthEnd) {
+                        return false;
+                    }
+                }
+                
+                // Фильтр по цене
+                if (priceFilter === 'free' && event.price > 0) {
+                    return false;
+                } else if (priceFilter === 'paid' && event.price === 0) {
+                    return false;
+                }
+                
+                // Показываем только будущие мероприятия
+                return eventDate >= today;
+            });
+            
+            if (filteredEvents.length === 0) {
+                eventsList.innerHTML = `
+                    <div class="empty-state">
+                        <i>📅</i>
+                        <h3>Нет мероприятий</h3>
+                        <p>По выбранным фильтрам мероприятий не найдено. Попробуйте изменить параметры поиска.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Сортируем мероприятия по дате (сначала ближайшие)
+            filteredEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            // Отображаем мероприятия
+            filteredEvents.forEach(event => {
+                const eventDate = new Date(event.date);
+                const formattedDate = eventDate.toLocaleDateString('ru-RU', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+                
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                eventCard.innerHTML = `
+                    <div class="event-image">
+                        ${event.image ? `<img src="${event.image}" alt="${event.title}">` : '📅'}
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">
+                            ${event.title}
+                            ${event.featured ? '<span class="featured-badge">Рекомендуемое</span>' : ''}
+                        </h3>
+                        <div class="event-date">${formattedDate} в ${event.time}</div>
+                        <div class="event-location">${event.location}</div>
+                        <div class="event-description">${event.description}</div>
+                        <div class="event-meta">
+                            <span>${getCategoryName(event.category)}</span>
+                            <span>${event.price > 0 ? event.price + ' руб.' : 'Бесплатно'}</span>
+                        </div>
+                        <div class="event-actions">
+                            <button class="btn" onclick="participateInEvent(${event.id})">Участвовать</button>
+                            <button class="btn btn-secondary" onclick="showEventDetails(${event.id})">Подробнее</button>
+                        </div>
+                    </div>
+                `;
+                
+                eventsList.appendChild(eventCard);
+            });
+        }
+        
+        // Функция показа деталей мероприятия
+        function showEventDetails(eventId) {
+            const events = JSON.parse(localStorage.getItem('events')) || [];
+            const event = events.find(e => e.id === eventId);
+            
+            if (!event) return;
+            
+            currentEventId = eventId;
+            
+            // Заполняем модальное окно данными
+            const eventDate = new Date(event.date);
+            const formattedDate = eventDate.toLocaleDateString('ru-RU', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+                weekday: 'long'
+            });
+            
+            // Заголовок
+            document.getElementById('modal-event-title').innerHTML = `
+                ${event.title}
+                ${event.featured ? '<span class="featured-badge">Рекомендуемое</span>' : ''}
+            `;
+            
+            // Изображение
+            const imageContainer = document.getElementById('modal-event-image');
+            if (event.image) {
+                imageContainer.innerHTML = `<img src="${event.image}" alt="${event.title}">`;
+            } else {
+                imageContainer.innerHTML = '📅 Изображение не загружено';
+                imageContainer.style.display = 'flex';
+                imageContainer.style.alignItems = 'center';
+                imageContainer.style.justifyContent = 'center';
+                imageContainer.style.fontSize = '1.2rem';
+                imageContainer.style.color = '#777';
+            }
+            
+            // Дата и время
+            document.getElementById('modal-event-datetime').textContent = 
+                `${formattedDate} в ${event.time}`;
+            
+            // Место проведения
+            document.getElementById('modal-event-location').textContent = event.location;
+            
+            // Организатор
+            document.getElementById('modal-event-organizer').textContent = event.organizer;
+            
+            // Стоимость
+            document.getElementById('modal-event-price').textContent = 
+                event.price > 0 ? `${event.price} руб.` : 'Бесплатно';
+            
+            // Участники
+            document.getElementById('modal-event-participants').textContent = 
+                event.maxParticipants ? `До ${event.maxParticipants} участников` : 'Без ограничений';
+            
+            // Контакты
+            document.getElementById('modal-event-contact').textContent = event.contact;
+            
+            // Описание
+            document.getElementById('modal-event-description').textContent = event.description;
+            
+            // Показываем модальное окно
+            document.getElementById('event-detail-modal').style.display = 'block';
+        }
+        
+        // Функция участия в мероприятии
+        function participateInEvent(eventId) {
+            const events = JSON.parse(localStorage.getItem('events')) || [];
+            const event = events.find(e => e.id === eventId);
+            
+            if (!event) return;
+            
+            // В реальном приложении здесь будет форма регистрации
+            // Сейчас просто покажем сообщение
+            alert(`Вы записались на мероприятие "${event.title}"!\n\nОрганизатор свяжется с вами по контактам: ${event.contact}`);
+            
+            // Закрываем модальное окно если оно открыто
+            document.getElementById('event-detail-modal').style.display = 'none';
+        }
+        
+        // Функция получения названия категории
+        function getCategoryName(category) {
+            const categories = {
+                'music': 'Музыка',
+                'dance': 'Танцы',
+                'art': 'Искусство',
+                'sport': 'Спорт',
+                'education': 'Образование',
+                'other': 'Другое'
+            };
+            
+            return categories[category] || 'Неизвестно';
+        }
+    </script>
+</body>
+</html>

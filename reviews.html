@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы о Первом Ритме</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --border-radius: 10px;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--secondary);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .page-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .stats-section {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            min-width: 180px;
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+        
+        .content-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        @media (max-width: 900px) {
+            .content-section {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .add-review-form {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .form-title {
+            margin-bottom: 25px;
+            color: var(--primary);
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .rating-container {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 5px;
+        }
+        
+        .rating-input {
+            display: none;
+        }
+        
+        .rating-label {
+            font-size: 30px;
+            color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .rating-input:checked ~ .rating-label,
+        .rating-label:hover,
+        .rating-label:hover ~ .rating-label {
+            color: #ffc107;
+        }
+        
+        .btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: var(--transition);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-icon {
+            font-size: 18px;
+        }
+        
+        .reviews-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .review-card {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .review-author {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .review-date {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .review-rating {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .review-text {
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .review-highlight {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--secondary);
+        }
+        
+        .empty-reviews {
+            text-align: center;
+            padding: 60px 40px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .empty-icon {
+            font-size: 4rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .empty-text {
+            font-size: 1.3rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+        
+        .empty-subtext {
+            color: #999;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .filter-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .filter-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+        
+        .filter-btn.active {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .filter-btn:hover:not(.active) {
+            background: #f5f5f5;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        
+        .success-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2ecc71;
+            color: white;
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+        
+        .success-message.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">★</span>
+                Первый Ритм
+            </div>
+            <p class="tagline">Ваши отзывы помогают нам становиться лучше каждый день</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Отзывы наших клиентов</h1>
+        
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-value" id="averageRating">0.0</div>
+                <div class="stat-label">Средняя оценка</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalReviews">0</div>
+                <div class="stat-label">Всего отзывов</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="recommendPercent">0%</div>
+                <div class="stat-label">Рекомендуют</div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <div class="add-review-form">
+                <h2 class="form-title">Оставить отзыв</h2>
+                <form id="reviewForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Ваше имя</label>
+                        <input type="text" id="name" class="form-control" placeholder="Введите ваше имя" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="Введите ваш email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Оценка</label>
+                        <div class="rating-container">
+                            <input type="radio" id="star5" name="rating" value="5" class="rating-input">
+                            <label for="star5" class="rating-label">★</label>
+                            <input type="radio" id="star4" name="rating" value="4" class="rating-input">
+                            <label for="star4" class="rating-label">★</label>
+                            <input type="radio" id="star3" name="rating" value="3" class="rating-input">
+                            <label for="star3" class="rating-label">★</label>
+                            <input type="radio" id="star2" name="rating" value="2" class="rating-input">
+                            <label for="star2" class="rating-label">★</label>
+                            <input type="radio" id="star1" name="rating" value="1" class="rating-input">
+                            <label for="star1" class="rating-label">★</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="review" class="form-label">Текст отзыва</label>
+                        <textarea id="review" class="form-control" placeholder="Поделитесь вашими впечатлениями..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn">
+                        <span class="btn-icon">✏️</span>
+                        Отправить отзыв
+                    </button>
+                </form>
+            </div>
+            
+            <div class="reviews-content">
+                <div class="filter-section">
+                    <div class="filter-title">Фильтр отзывов:</div>
+                    <div class="filter-options">
+                        <button class="filter-btn active" data-filter="all">Все отзывы</button>
+                        <button class="filter-btn" data-filter="5">5 звезд</button>
+                        <button class="filter-btn" data-filter="4">4 звезды</button>
+                        <button class="filter-btn" data-filter="3">3 звезды</button>
+                    </div>
+                </div>
+                
+                <div class="reviews-container" id="reviewsList">
+                    <div class="empty-reviews">
+                        <div class="empty-icon">💬</div>
+                        <div class="empty-text">Пока нет отзывов</div>
+                        <p class="empty-subtext">Будьте первым, кто поделится своим мнением о нашей компании!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Первый Ритм. Все права защищены.</p>
+            <p>Спасибо, что делитесь своим мнением!</p>
+        </div>
+    </footer>
+
+    <div class="success-message" id="successMessage">
+        Ваш отзыв успешно добавлен!
+    </div>
+
+    <script>
+        // Массив для хранения отзывов (изначально пустой)
+        let reviews = [];
+
+        // Функция для отображения звезд рейтинга
+        function renderRating(rating) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= rating) {
+                    stars += '★';
+                } else {
+                    stars += '☆';
+                }
+            }
+            return stars;
+        }
+
+        // Функция для отображения отзывов
+        function displayReviews(reviewsToShow = reviews) {
+            const reviewsList = document.getElementById('reviewsList');
+            
+            if (reviewsToShow.length === 0) {
+                reviewsList.innerHTML = `
+                    <div class="empty-reviews">
+                        <div class="empty-icon">💬</div>
+                        <div class="empty-text">Пока нет отзывов</div>
+                        <p class="empty-subtext">Будьте первым, кто поделится своим мнением о нашей компании!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            reviewsList.innerHTML = '';
+            
+            reviewsToShow.forEach(review => {
+                const reviewElement = document.createElement('div');
+                reviewElement.className = 'review-card';
+                reviewElement.innerHTML = `
+                    <div class="review-highlight"></div>
+                    <div class="review-header">
+                        <div class="review-author">${review.name}</div>
+                        <div class="review-date">${review.date}</div>
+                    </div>
+                    <div class="review-rating">${renderRating(review.rating)}</div>
+                    <div class="review-text">${review.text}</div>
+                `;
+                reviewsList.appendChild(reviewElement);
+            });
+        }
+
+        // Функция для показа сообщения об успехе
+        function showSuccessMessage() {
+            const message = document.getElementById('successMessage');
+            message.classList.add('show');
+            
+            setTimeout(() => {
+                message.classList.remove('show');
+            }, 3000);
+        }
+
+        // Функция для обновления статистики
+        function updateStats() {
+            const totalReviews = reviews.length;
+            
+            if (totalReviews === 0) {
+                document.getElementById('averageRating').textContent = '0.0';
+                document.getElementById('totalReviews').textContent = '0';
+                document.getElementById('recommendPercent').textContent = '0%';
+                return;
+            }
+            
+            const averageRating = (reviews.reduce((sum, review) => sum + review.rating, 0) / totalReviews).toFixed(1);
+            const recommendPercentage = Math.round((reviews.filter(review => review.rating >= 4).length / totalReviews) * 100);
+            
+            // Обновляем значения в статистике
+            document.getElementById('averageRating').textContent = averageRating;
+            document.getElementById('totalReviews').textContent = totalReviews;
+            document.getElementById('recommendPercent').textContent = `${recommendPercentage}%`;
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            displayReviews();
+            updateStats();
+            
+            // Обработка формы добавления отзыва
+            const reviewForm = document.getElementById('reviewForm');
+            reviewForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const rating = document.querySelector('input[name="rating"]:checked');
+                const reviewText = document.getElementById('review').value;
+                
+                if (!rating) {
+                    alert('Пожалуйста, выберите оценку');
+                    return;
+                }
+                
+                const newReview = {
+                    id: reviews.length + 1,
+                    name: name,
+                    email: email,
+                    date: new Date().toLocaleDateString('ru-RU'),
+                    rating: parseInt(rating.value),
+                    text: reviewText
+                };
+                
+                reviews.unshift(newReview);
+                displayReviews();
+                
+                // Обновление статистики
+                updateStats();
+                
+                // Очистка формы
+                reviewForm.reset();
+                
+                // Показ сообщения об успехе
+                showSuccessMessage();
+            });
+            
+            // Обработка фильтров
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Удаляем активный класс у всех кнопок
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Добавляем активный класс текущей кнопке
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    if (filter === 'all') {
+                        displayReviews();
+                    } else {
+                        const filteredReviews = reviews.filter(review => review.rating >= parseInt(filter));
+                        displayReviews(filteredReviews);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
