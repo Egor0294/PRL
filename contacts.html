@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты - Первый ритм Ленинского</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="initIframe()">
+    <div class="section contacts-section">
+        <h2 class="section-title">📞 <span class="highlight-text">КОНТАКТЫ И РЕКВИЗИТЫ</span></h2>
+        
+        <div class="contacts-grid">
+            <div class="contact-card">
+                <div class="contact-title">📞 КОНТАКТНЫЕ ДАННЫЕ</div>
+                <div class="contact-info"><strong>Основной телефон:</strong><br>
+                    <span class="highlight-number">+7 (904) 123-31-75</span>
+                </div>
+                <div class="contact-info"><strong>Телефон администратора:</strong><br>
+                    <span class="highlight-number">+7 (952) 873-07-92</span>
+                </div>
+                <div class="contact-info"><strong>Email:</strong> info@perviy-ritm.ru</div>
+                <div class="contact-info"><strong>Сайт:</strong> www.perviy-ritm.ru</div>
+                <div class="contact-info"><strong>Адрес:</strong> г. Иркутск, ул. 1-й Ленинский квартал д. 1</div>
+                
+                <div class="contact-title" style="margin-top: 20px;">🕒 РЕЖИМ РАБОТЫ</div>
+                <div class="contact-info"><strong>Понедельник-Пятница:</strong> 8:00 - 22:00</div>
+                <div class="contact-info"><strong>Суббота:</strong> 9:00 - 21:00</div>
+                <div class="contact-info"><strong>Воскресенье:</strong> 9:00 - 20:00</div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-title">📍 КАК НАС НАЙТИ</div>
+                
+                <div class="map-container">
+                    <img src="https://via.placeholder.com/600x400/667eea/ffffff?text=СКРИНШОТ+КАРТЫ+2ГИС" 
+                         alt="Скриншот карты расположения студии" 
+                         class="map-screenshot">
+                    <div style="margin-top: 10px; font-size: 12px; color: #666;">
+                        📍 Скриншот карты для ориентира
+                    </div>
+                </div>
+                
+                <div class="location-info">
+                    <h4>📍 Информация о местоположении:</h4>
+                    <p>Студия находится в 5 минутах ходьбы от остановки "Норильская"</p>
+                    
+                    <div class="location-features">
+                        <div class="location-feature">
+                            <i>🚗</i> Бесплатная парковка на 20 машиномест
+                        </div>
+                        <div class="location-feature">
+                            <i>🚌</i> Остановка общественного транспорта рядом
+                        </div>
+                        <div class="location-feature">
+                            <i>🏪</i> Продуктовые магазины рядом
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-title" style="margin-top: 20px;">💬 МЫ В СОЦСЕТЯХ</div>
+                <div class="social-links">
+                    <a href="https://vk.com/club233766207" class="social-link" target="_blank">ВКонтакте</a>
+                    <a href="https://t.me/perviy_ritm" class="social-link" target="_blank">Telegram</a>
+                </div>
+            </div>
+        </div>
+        
+        <button class="btn-yclients" onclick="parent.openYclientsWidget()">
+            📞 ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
+        </button>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
