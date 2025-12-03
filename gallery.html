@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Галерея - Первый ритм Ленинского</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="initIframe()">
+    <div class="section gallery-section">
+        <h2 class="section-title">📸 <span class="highlight-text">ГАЛЕРЕЯ СТУДИИ</span></h2>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="parent.openModal()">
+                <div style="background: #FFE6EE; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; font-size: 16px;">
+                    Зал для занятий 1
+                </div>
+                <div class="gallery-caption">Основной зал для групповых занятий</div>
+            </div>
+            <div class="gallery-item" onclick="parent.openModal()">
+                <div style="background: #AED6F1; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; font-size: 16px;">
+                    Зал для занятий 2
+                </div>
+                <div class="gallery-caption">Зал для индивидуальных занятий</div>
+            </div>
+            <div class="gallery-item" onclick="parent.openModal()">
+                <div style="background: #FFF3E0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; font-size: 16px;">
+                    Детская группа
+                </div>
+                <div class="gallery-caption">Занятие "Танцы-игра" для детей 3-4 лет</div>
+            </div>
+            <div class="gallery-item" onclick="parent.openModal()">
+                <div style="background: #F3E5F5; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; font-size: 16px;">
+                    Взрослая группа
+                </div>
+                <div class="gallery-caption">Занятие "Танцы для души"</div>
+            </div>
+            <div class="gallery-item" onclick="parent.openModal()">
+                <div style="background: #FFF8E1; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; font-size: 16px;">
+                    Растяжка
+                </div>
+                <div class="gallery-caption">Группа по растяжке для всех возрастов</div>
+            </div>
+            <div class="gallery-item" onclick="parent.openModal()">
+                <div style="background: #E8F5E9; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; font-size: 16px;">
+                    Выступление
+                </div>
+                <div class="gallery-caption">Наши ученики на конкурсе</div>
+            </div>
+            <div class="gallery-item" onclick="parent.openModal()">
+                <div style="background: #E3F2FD; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; font-size: 16px;">
+                    Студия
+                </div>
+                <div class="gallery-caption">Ресепшен и зона ожидания</div>
+            </div>
+            <div class="gallery-item" onclick="parent.openModal()">
+                <div style="background: #FFEBEE; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; font-size: 16px;">
+                    Раздевалки
+                </div>
+                <div class="gallery-caption">Комфортные раздевалки для учеников</div>
+            </div>
+        </div>
+        
+        <button class="btn-yclients" onclick="parent.openYclientsWidget()">
+            📸 ЗАПИСАТЬСЯ НА ЭКСКУРСИЮ
+        </button>
+        
+        <div class="highlight">
+            🎭 Приходите на экскурсию и посмотрите нашу студию лично! Убедитесь в оснащении и атмосфере.
+        </div>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
