@@ -11,7 +11,261 @@
     
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Дополнительные стили для главной страницы */
+        /* Дополнительные стили для новых вкладок */
+        .staff-section {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FAD7A0 100%);
+            border: 3px solid #FAD7A0;
+        }
+        
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .staff-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .staff-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .staff-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #667eea;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .staff-name {
+            font-weight: bold;
+            color: #2C3E50;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        
+        .staff-position {
+            color: #667eea;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .staff-experience {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        
+        .reviews-section {
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            border: 3px solid #FFB74D;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .review-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .reviewer-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #667eea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .reviewer-info {
+            flex: 1;
+        }
+        
+        .reviewer-name {
+            font-weight: bold;
+            color: #2C3E50;
+        }
+        
+        .review-date {
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .review-rating {
+            color: #FFD700;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .events-section {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            border: 3px solid #81C784;
+        }
+        
+        .events-timeline {
+            margin: 20px 0;
+        }
+        
+        .event-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .event-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .event-date {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 80px;
+        }
+        
+        .event-day {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1;
+        }
+        
+        .event-month {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        .event-content {
+            flex: 1;
+        }
+        
+        .contract-section {
+            background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+            border: 3px solid #FFD54F;
+        }
+        
+        .contract-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        
+        .contract-article {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .contract-article:last-child {
+            border-bottom: none;
+        }
+        
+        .contract-article h3 {
+            color: #2C3E50;
+            margin-bottom: 15px;
+            font-size: 18px;
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .contract-clause {
+            margin-left: 20px;
+        }
+        
+        .contract-clause p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .contract-requisites {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .requisites-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .contract-actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        /* Адаптивность для новых секций */
+        @media (max-width: 768px) {
+            .staff-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-item {
+                flex-direction: column;
+            }
+            
+            .event-date {
+                align-self: flex-start;
+            }
+            
+            .requisites-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Герой-секция */
         .hero-section {
             text-align: center;
             padding: 40px 20px;
@@ -172,8 +426,12 @@
                     <a href="#schedule" class="nav-link" onclick="loadPage('schedule.html')">📅 Расписание</a>
                     <a href="#prices" class="nav-link" onclick="loadPage('prices.html')">💰 Цены</a>
                     <a href="#booking" class="nav-link" onclick="loadPage('booking.html')">🔄 Онлайн-запись</a>
+                    <a href="#staff" class="nav-link" onclick="loadPage('staff.html')">👥 Команда</a>
+                    <a href="#reviews" class="nav-link" onclick="loadPage('reviews.html')">⭐ Отзывы</a>
+                    <a href="#events" class="nav-link" onclick="loadPage('events.html')">🎭 Мероприятия</a>
                     <a href="#gallery" class="nav-link" onclick="loadPage('gallery.html')">📸 Галерея</a>
                     <a href="#faq" class="nav-link" onclick="loadPage('faq.html')">❓ FAQ</a>
+                    <a href="#contract" class="nav-link" onclick="loadPage('contract.html')">📄 Договор-оферта</a>
                     <a href="#contacts" class="nav-link" onclick="loadPage('contacts.html')">📞 Контакты</a>
                     <a href="#rules" class="nav-link" onclick="loadPage('rules.html')">📋 Правила</a>
                 </div>
@@ -249,7 +507,7 @@
             </div>
             
             <p style="margin-top: 15px;">
-                <a href="https://egor0294.github.io/perviy-ritm/contract" target="_blank" style="color: #667eea; text-decoration: underline;">
+                <a href="#contract" onclick="loadPage('contract.html')" style="color: #667eea; text-decoration: underline;">
                     📄 Ознакомиться с Договором-офертой
                 </a>
             </p>
@@ -387,6 +645,28 @@
                 navLinks.classList.remove('show');
             }
         });
+        
+        // Функции для быстрых действий
+        function quickEnroll(direction) {
+            if (confirm(`Хотите записаться на пробное занятие по направлению "${direction}"?`)) {
+                openModal();
+            }
+        }
+        
+        function subscribeNewsletter() {
+            const email = prompt('Введите ваш email для подписки на новости:');
+            if (email && validateEmail(email)) {
+                // Здесь можно добавить отправку на сервер
+                alert('Спасибо за подписку! Теперь вы будете получать уведомления о наших мероприятиях.');
+            } else if (email) {
+                alert('Пожалуйста, введите корректный email адрес.');
+            }
+        }
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
     </script>
 </body>
 </html>
