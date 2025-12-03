@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Направления - Первый ритм Ленинского</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="initIframe()">
+    <div class="section directions-section">
+        <h2 class="section-title">🎯 <span class="highlight-text">НАПРАВЛЕНИЯ ОБУЧЕНИЯ</span></h2>
+        
+        <div class="directions-grid">
+            <div>
+                <div class="direction-category">
+                    <div class="category-title">
+                        👶 <span class="highlight-text">ДЕТСКИЕ НАПРАВЛЕНИЯ</span> 
+                        <span class="highlight-number">(3-16 лет)</span>
+                    </div>
+                    <ul class="direction-list">
+                        <li data-direction="dance-game">
+                            <strong>ТАНЕЦ-ИГРА</strong> <span class="highlight-number">(3-4 года)</span> - развитие координации и чувства ритма через игру
+                        </li>
+                        <li data-direction="first-steps">
+                            <strong>ПЕРВЫЕ ПА</strong> <span class="highlight-number">(5-7 лет)</span> - основы хореографии, развитие музыкальности
+                        </li>
+                        <li data-direction="young-dancer">
+                            <strong>ЮНЫЙ ТАНЦОР</strong> <span class="highlight-number">(8-10 лет)</span> - изучение базовых танцевальных стилей
+                        </li>
+                        <li data-direction="dance-expression">
+                            <strong>ТАНЕЦ-ЭКСПРЕССИЯ</strong> <span class="highlight-number">(11-13 лет)</span> - развитие артистизма и техники
+                        </li>
+                        <li data-direction="dance-drive">
+                            <strong>ТАНЕЦ-ДРАЙВ</strong> <span class="highlight-number">(14-16 лет)</span> - современные направления, подготовка к выступлениям
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="direction-category">
+                    <div class="category-title">
+                        👩‍🦱 <span class="highlight-text">ВЗРОСЛЫЕ НАПРАВЛЕНИЯ</span> 
+                        <span class="highlight-number">(17+, 25+ лет)</span>
+                    </div>
+                    <ul class="direction-list">
+                        <li data-direction="dance-for-soul">
+                            <strong>ТАНЕЦ ДЛЯ ДУШИ</strong> <span class="highlight-number">(17+)</span> - снятие стресса, улучшение настроения
+                        </li>
+                        <li data-direction="conscious-body">
+                            <strong>ОСОЗНАННОЕ ТЕЛО</strong> <span class="highlight-number">(25+)</span> - работа с осанкой, грацией, пластикой
+                        </li>
+                        <li data-direction="heels">
+                            <strong>HEELS</strong> (ХИЛС) <span class="highlight-number">(25+)</span> - танец на каблуках, развитие женственности
+                        </li>                               
+                    </ul>
+                </div>
+            </div>
+            
+            <div>
+                <div class="direction-category">
+                    <div class="category-title">🧘 <span class="highlight-text">РАСТЯЖКА И ГИБКОСТЬ</span></div>
+                    <ul class="direction-list">
+                        <li data-direction="stretching">
+                            <strong>ГИБКОЕ ТЕЛО</strong> <span class="highlight-number">(5-10 лет)</span> - безопасная растяжка для детей
+                        </li>
+                        <li data-direction="stretching">
+                            <strong>ГИБКИЙ ПОДРОСТОК</strong> <span class="highlight-number">(11-16 лет)</span> - развитие гибкости для танцев
+                        </li>
+                        <li data-direction="stretching">
+                            <strong>СВОБОДА ДВИЖЕНИЙ</strong> <span class="highlight-number">(17+)</span> - увеличение мобильности суставов
+                        </li>
+                        <li data-direction="stretching">
+                            <strong>ГИБКОСТЬ И ГРАЦИЯ</strong> <span class="highlight-number">(25+ лет)</span> - коррекция осанки, грациозность
+                        </li>
+                        <li data-direction="stretching">
+                            <strong>ПЛАСТИКА</strong> <span class="highlight-number">(45+)</span> - поддержание гибкости в зрелом возрасте
+                        </li>
+                        <li data-direction="stretching">
+                            <strong>СЕМЕЙНАЯ РАСТЯЖКА</strong> - совместные занятия для детей и родителей
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="direction-category">
+                    <div class="category-title">💪 <span class="highlight-text">ФИТНЕС-НАПРАВЛЕНИЯ</span> <span class="highlight-number">(17+, 25+, 45+ лет)</span></div>
+                    <ul class="direction-list">
+                        <li>
+                            <strong>ФУНКЦИОНАЛЬНЫЙ ТОНУС</strong> - укрепление мышц, улучшение рельефа
+                        </li>
+                        <li data-direction="stretching">
+                            <strong>ГИБКОСТЬ ДЛЯ ВСЕХ</strong> - доступная растяжка для любого уровня
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="direction-category">
+                    <div class="category-title">👵 <span class="highlight-text">СЕРЕБРЯНЫЙ ВОЗРАСТ</span> <span class="highlight-number">(45+)</span></div>
+                    <ul class="direction-list">
+                        <li data-direction="silver-age">
+                            <strong>ТАНЦУЕМ ВСЕЙ ДУШОЙ</strong> - парные танцы для общения и новых знакомств
+                        </li>
+                        <li data-direction="stretching">
+                            <strong>РАСТЯЖКА ДЛЯ ДУШИ</strong> - поддержание здоровья суставов
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="highlight">
+            💡 <strong>ПОДСКАЗКА:</strong> Наведите курсор на любое направление, чтобы увидеть подробное описание
+        </div>
+        
+        <button class="btn-yclients" onclick="parent.openYclientsWidget()">
+            🎯 ВЫБРАТЬ НАПРАВЛЕНИЕ И ЗАПИСАТЬСЯ ОНЛАЙН
+        </button>
+        
+        <div class="highlight">
+            💫 <span class="highlight-text">ПРОФЕССИОНАЛЬНЫЕ ПЕДАГОГИ</span> с опытом работы 
+            <span class="highlight-number">от 3 лет</span>
+        </div>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
