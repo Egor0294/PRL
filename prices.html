@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Цены - Первый ритм Ленинского</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="initIframe()">
+    <div class="section prices-section">
+        <h2 class="section-title">💰 <span class="highlight-text">СТОИМОСТЬ ЗАНЯТИЙ</span></h2>
+        
+        <div class="main-container">
+            <!-- Левый столбец -->
+            <div class="column">
+                <!-- Пробное занятие -->
+                <div class="price-section trial-section">
+                    <h2 class="section-title">🎁 <span class="highlight-sale">ПРОБНОЕ ЗАНЯТИЕ ОТ</span></h2>
+                    <div class="trial-price"><span class="highlight-number">300 ₽</span></div>
+                    <div class="description">Любое направление • Консультация преподавателя</div>
+                </div>
+
+                <!-- Детские направления -->
+                <div class="price-section kids-section">
+                    <h2 class="section-title">👶 <span class="highlight-text">ДЕТСКИЕ НАПРАВЛЕНИЯ</span></h2>
+                    <div class="description"><span class="highlight-number">(3-16 лет)</span></div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">Пробное занятие</div>
+                        <div class="price-value"><span class="highlight-number">350 ₽</span></div>
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">Разовое посещение</div>
+                        <div class="price-value"><span class="highlight-number">400 ₽</span></div>
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">Абонемент на <span class="highlight-text">8 занятий</span></div>
+                        <div class="price-value"><span class="highlight-number">2 800 ₽</span> <span class="best-price">ВЫГОДА</span></div>
+                    </div>
+                </div>
+
+                <!-- Растяжка -->
+                <div class="price-section stretching-section">
+                    <h2 class="section-title">🧘 <span class="highlight-text">РАСТЯЖКА</span></h2>
+                   
+                    <div class="price-item">
+                        <div class="price-name">Пробное утреннее занятие</div>
+                        <div class="price-value"><span class="highlight-number">320 ₽</span></div>
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">Разовое посещение утреннее</div>
+                        <div class="price-value"><span class="highlight-number">375 ₽</span></div>
+                    </div>
+
+                    <div class="price-item">
+                        <div class="price-name">Утренняя растяжка (8 занятий)</div>
+                        <div class="price-value"><span class="highlight-number">2800 ₽</span> <span class="best-price">ВЫГОДА</span></div>
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">Пробное посещение Воскресного занятия</div>
+                        <div class="price-value"><span class="highlight-number">550 ₽</span></div>
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">Разовое посещение Воскресного занятия</div>
+                        <div class="price-value"><span class="highlight-number">600 ₽</span></div>
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">Абонемент Воскресный на 4 занятия</div>
+                        <div class="price-value"><span class="highlight-number">2200 ₽</span> <span class="best-price">ВЫГОДА</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правый столбец -->
+            <div class="column">
+                <!-- Взрослые направления -->
+                <div class="price-section adults-section">
+                    <h2 class="section-title">👩‍🦱 <span class="highlight-text">ВЗРОСЛЫЕ НАПРАВЛЕНИЯ</span></h2>
+                    <div class="description"><span class="highlight-number">(17+ лет)</span></div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">Разовое посещение</div>
+                        <div class="price-value"><span class="highlight-number">500 ₽</span></div>
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">Абонемент на <span class="highlight-text">8 занятий</span></div>
+                        <div class="price-value"><span class="highlight-number">3 200 ₽</span> <span class="best-price">ВЫГОДА</span></div>
+                    </div>
+                </div>
+
+                <!-- Индивидуальные занятия -->
+                <div class="price-section individual-section">
+                    <h2 class="section-title">💫 <span class="highlight-text">ИНДИВИДУАЛЬНЫЕ ЗАНЯТИЯ</span></h2>
+                    
+                    <div class="price-item">
+                        <div class="price-name">1 занятие (60 минут)</div>
+                        <div class="price-value"><span class="highlight-number">1 500 ₽</span></div>
+                    </div>
+                </div>
+
+                <!-- Комплексные пакеты -->
+                <div class="price-section packages-section">
+                    <h2 class="section-title">🏆 <span class="highlight-text">КОМПЛЕКСНЫЕ ПАКЕТЫ</span></h2>
+                    
+                    <div class="price-item">
+                        <div class="price-name">«Детский +»<br><small>танцы 8 занятий + растяжка 4</small></div>
+                        <div class="price-value"><span class="highlight-number">4250 ₽</span> <span class="best-price">-15%</span></div> 
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">«Взрослый +»<br><small>танцы 8 занятий + растяжка 4</small></div>
+                        <div class="price-value"><span class="highlight-number">4860 ₽</span> <span class="best-price">-10%</span></div> 
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">«Семейная растяжка»<br><small>2 человека, 8 занятий</small></div>
+                        <div class="price-value"><span class="highlight-number">2040 ₽</span> <span class="best-price">-15%</span></div> 
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">«Полный»<br><small>3 абонимента в одном 17+</small></div>
+                        <div class="price-value"><span class="highlight-number">6560 ₽</span> <span class="best-price">-30%</span></div> 
+                    </div>
+                    
+                    <div class="description">Экономия до 30% по сравнению с отдельными абонементами</div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="btn-yclients" onclick="parent.openYclientsWidget()">
+            💰 ЗАБРОНИРОВАТЬ АБОНЕМЕНТ ОНЛАЙН
+        </button>
+
+        <div class="price-section conditions-section">
+            <h2 class="section-title">📋 <span class="highlight-text">УСЛОВИЯ ОБСЛУЖИВАНИЯ</span></h2>
+            
+            <div class="condition-item">Абонементы действуют 30 календарных дней</div>
+            <div class="condition-item">Заморозка на 7 дней в месяц</div>
+            <div class="condition-item">Предварительная запись обязательна</div>
+            <div class="condition-item">Скидки для многодетных семей</div>
+            <div class="condition-item">Групповые скидки от 3 человек</div>
+            <div class="condition-item">Возврат средств согласно Политике возвратов</div>
+        </div>
+        
+        <div class="highlight">
+            💫 <strong>АКЦИЯ!</strong> При покупке абонемента в день 
+            <span class="highlight-sale">пробного занятия</span> - 
+            <span class="highlight-number">скидка 15%</span>
+        </div>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
