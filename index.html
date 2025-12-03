@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студия танцев Первый ритм Ленинского | Иркутск</title>
+    <meta name="description" content="Студия танцев Первый ритм Ленинского в Иркутске. Детские и взрослые группы, растяжка, фитнес. Профессиональные педагоги. Запись на пробное занятие.">
+    
+    <!-- YClients Widget -->
+    <script type="text/javascript" src="https://w1729530.yclients.com/widgetJS" charset="UTF-8"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Дополнительные стили для главной страницы */
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .content-container {
+            min-height: 800px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        #content-frame {
+            width: 100%;
+            height: 100%;
+            min-height: 800px;
+            border: none;
+            display: block;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            font-size: 18px;
+            color: #666;
+        }
+        
+        .hero-title {
+            color: #2C3E50;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .btn-call {
+            background: #32CD32;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(50,205,50,0.3);
+        }
+        
+        .btn-call:hover {
+            background: #28a428;
+            box-shadow: 0 6px 20px rgba(50,205,50,0.4);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 24px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .content-container {
+                min-height: 600px;
+            }
+            
+            #content-frame {
+                min-height: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Шапка с логотипом -->
+        <div class="header">
+            <div class="logo">ПЕРВЫЙ РИТМ ЛЕНИНСКОГО</div>
+            <h1 class="main-title">ИНФОРМАЦИОННЫЙ СТЕНД СТУДИИ ТАНЦЕВ</h1>
+            <p class="subtitle">От первых па до профессиональных вершин. Танцуют все!</p>
+            
+            <!-- Кнопка записи с отправкой в Telegram -->
+            <button class="btn-enroll" onclick="openModal()">
+                📝 ЗАПИСАТЬСЯ ОТ <span class="highlight-number">300₽</span>
+            </button>
+            
+            <!-- Альтернативная кнопка для быстрой записи -->
+            <button class="btn-yclients" onclick="openYclientsWidget()" style="margin-top: 10px;">
+                🎯 ОНЛАЙН-ЗАПИСЬ ЧЕРЕЗ YCLIENTS
+            </button>
+        </div>
+
+        <!-- Навигационное меню -->
+        <nav class="main-nav">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">🏠 Главная</a>
+                <div class="nav-links">
+                    <a href="#directions" class="nav-link" onclick="loadPage('directions.html')">🎯 Направления</a>
+                    <a href="#schedule" class="nav-link" onclick="loadPage('schedule.html')">📅 Расписание</a>
+                    <a href="#prices" class="nav-link" onclick="loadPage('prices.html')">💰 Цены</a>
+                    <a href="#booking" class="nav-link" onclick="loadPage('booking.html')">🔄 Онлайн-запись</a>
+                    <a href="#gallery" class="nav-link" onclick="loadPage('gallery.html')">📸 Галерея</a>
+                    <a href="#faq" class="nav-link" onclick="loadPage('faq.html')">❓ FAQ</a>
+                    <a href="#contacts" class="nav-link" onclick="loadPage('contacts.html')">📞 Контакты</a>
+                    <a href="#rules" class="nav-link" onclick="loadPage('rules.html')">📋 Правила</a>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            </div>
+        </nav>
+
+        <!-- Герой-секция на главной -->
+        <div class="hero-section">
+            <h2 class="hero-title">💃 Научитесь танцевать в любом возрасте!</h2>
+            <p class="hero-subtitle">
+                Профессиональные педагоги, индивидуальный подход, современное оборудование. 
+                Приходите на пробное занятие всего за 300 рублей!
+            </p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">лет опыта работы</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">довольных учеников</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">направлений танцев</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3-65</div>
+                    <div class="stat-label">лет возраст учеников</div>
+                </div>
+            </div>
+            
+            <div class="hero-buttons">
+                <button class="btn-enroll" onclick="openModal()">
+                    📝 ОСТАВИТЬ ЗАЯВКУ
+                </button>
+                <button class="btn-yclients" onclick="openYclientsWidget()">
+                    🎯 ОНЛАЙН-ЗАПИСЬ
+                </button>
+                <button class="btn-call" onclick="window.open('tel:+79041233175')">
+                    📞 Позвонить нам
+                </button>
+            </div>
+        </div>
+
+        <!-- Контейнер для контента страниц -->
+        <div class="content-container">
+            <div class="loading" id="loading">
+                Загрузка...
+            </div>
+            <iframe src="directions.html" frameborder="0" id="content-frame" 
+                    onload="document.getElementById('loading').style.display='none';"
+                    style="display:none;"></iframe>
+        </div>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <p><strong>Студия танцев «Первый ритм Ленинского»</strong> • г. Иркутск, ул. 1-й Ленинский квартал д. 1</p>
+            <p>📞 Телефон: <span class="highlight-number">+7 (904) 123-31-75</span> • Все направления в одном месте!</p>
+            
+            <div class="quick-actions">
+                <button class="btn" onclick="quickEnroll('Танцы для души')">
+                    💃 Пробное занятие
+                </button>
+                <button class="btn" onclick="subscribeNewsletter()">
+                    📧 Подписаться
+                </button>
+                <button class="btn" onclick="window.open('https://vk.com/club233766207', '_blank')">
+                    👥 ВКонтакте
+                </button>
+            </div>
+            
+            <p style="margin-top: 15px;">
+                <a href="https://egor0294.github.io/perviy-ritm/contract" target="_blank" style="color: #667eea; text-decoration: underline;">
+                    📄 Ознакомиться с Договором-офертой
+                </a>
+            </p>
+            <p style="font-size: 12px; color: #888; margin-top: 10px;">
+                © 2024 Студия танцев "Первый ритм Ленинского". Все права защищены.
+            </p>
+        </footer>
+    </div>
+
+    <!-- Модальное окно записи -->
+    <div id="enrollModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 20px; color: #667eea;">📝 ЗАПИСЬ НА ЗАНЯТИЕ</h2>
+            
+            <form id="enrollForm">
+                <div class="form-group">
+                    <label for="name">Ваше имя *</label>
+                    <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+7 (900) 123-45-67">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="ivan@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">Возрастная группа</label>
+                    <select id="age" name="age">
+                        <option value="">Выберите возрастную группу</option>
+                        <option value="3-4">Дети 3-4 года (Танцы-игра)</option>
+                        <option value="5-7">Дети 5-7 лет (Первые па)</option>
+                        <option value="8-10">Дети 8-10 лет (Юный танцор)</option>
+                        <option value="11-13">Дети 11-13 лет (Танец-экспрессия)</option>
+                        <option value="14-16">Подростки 14-16 лет (Танец-драйв)</option>
+                        <option value="17+">Взрослые 17+ (Танец для души)</option>
+                        <option value="25+">Взрослые 25+ (Осознанное тело)</option>
+                        <option value="45+">Серебряный возраст 45+</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="direction">Направление</label>
+                    <select id="direction" name="direction">
+                        <option value="">Выберите направление</option>
+                        <option value="trial">Пробное занятие (300 ₽)</option>
+                        <option value="dance">Танцы</option>
+                        <option value="stretching">Растяжка</option>
+                        <option value="fitness">Фитнес</option>
+                        <option value="individual">Индивидуальное занятие</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Дополнительная информация</label>
+                    <textarea id="message" name="message" rows="3" placeholder="Ваши пожелания или вопросы..."></textarea>
+                </div>
+                
+                <button type="submit" class="form-submit">ОТПРАВИТЬ ЗАЯВКУ</button>
+                
+                <div style="text-align: center; margin-top: 15px; font-size: 12px; color: #666;">
+                    Наш администратор свяжется с вами в течение 2 часов<br>
+                    <small>Заявка также будет отправлена в наш Telegram</small>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Загрузка контента страниц
+        document.addEventListener('DOMContentLoaded', function() {
+            // Обработка кликов по навигации
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    
+                    if (href.startsWith('#')) {
+                        const page = href.substring(1) + '.html';
+                        loadPage(page);
+                        
+                        // Обновление активного состояния
+                        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                    
+                    // Закрытие мобильного меню
+                    document.querySelector('.nav-links').classList.remove('show');
+                });
+            });
+            
+            // Загружаем страницу направлений по умолчанию
+            loadPage('directions.html');
+            document.querySelector('[href="#directions"]').classList.add('active');
+        });
+
+        function loadPage(page) {
+            const loading = document.getElementById('loading');
+            const frame = document.getElementById('content-frame');
+            
+            loading.style.display = 'flex';
+            frame.style.display = 'none';
+            
+            frame.src = page;
+            frame.onload = function() {
+                loading.style.display = 'none';
+                frame.style.display = 'block';
+                
+                // Плавная прокрутка к началу
+                window.scrollTo({ 
+                    top: document.querySelector('.content-container').offsetTop - 20, 
+                    behavior: 'smooth' 
+                });
+            };
+        }
+
+        function toggleMobileMenu() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        }
+        
+        // Закрытие мобильного меню при клике вне его
+        document.addEventListener('click', function(event) {
+            const navLinks = document.querySelector('.nav-links');
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (navLinks.classList.contains('show') && 
+                !navLinks.contains(event.target) && 
+                !mobileBtn.contains(event.target)) {
+                navLinks.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
