@@ -3,1227 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Студия танцев Первый ритм Ленинского | Иркутск | Танцы для детей и взрослых</title>
-    <meta name="description" content="Студия танцев Первый ритм Ленинского в Иркутске. Детские и взрослые группы, растяжка, фитнес. Профессиональные педагоги. Запись на пробное занятие от 300 рублей.">
-    <meta name="keywords" content="танцы Иркутск, детские танцы, студия танцев, танцы для взрослых, растяжка, фитнес, хореография, балет, хип-хоп, contemporary">
-    <meta name="author" content="Студия танцев Первый ритм Ленинского">
+    <title>Студия танцев Первый ритм Ленинского | Иркутск</title>
+    <meta name="description" content="Студия танцев Первый ритм Ленинского в Иркутске. Детские и взрослые группы, растяжка, фитнес. Профессиональные педагоги. Запись на пробное занятие.">
     
     <!-- YClients Widget -->
     <script type="text/javascript" src="https://w1729530.yclients.com/widgetJS" charset="UTF-8"></script>
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💃</text></svg>">
-    
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Глобальные стили */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Дополнительные стили для новых вкладок */
+        .staff-section {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FAD7A0 100%);
+            border: 3px solid #FAD7A0;
         }
         
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .dashboard-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        /* Стили шапки */
-        .header {
-            text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px 20px;
-            border-radius: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="white"/></svg>');
-            background-size: 50px;
-        }
-        
-        .logo {
-            font-size: 32px;
-            font-weight: 900;
-            letter-spacing: 1.5px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            position: relative;
-        }
-        
-        .logo:after {
-            content: '💃';
-            margin-left: 10px;
-            font-size: 28px;
-        }
-        
-        .main-title {
-            font-size: 28px;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-            position: relative;
-        }
-        
-        .subtitle {
-            font-size: 18px;
-            opacity: 0.95;
-            margin-bottom: 25px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-        }
-        
-        .header-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            position: relative;
-        }
-        
-        .btn-enroll, .btn-yclients {
-            background: #FF5722;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(255,87,34,0.3);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .btn-yclients {
-            background: #4CAF50;
-            box-shadow: 0 6px 20px rgba(76,175,80,0.3);
-        }
-        
-        .btn-enroll:hover {
-            background: #E64A19;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255,87,34,0.4);
-        }
-        
-        .btn-yclients:hover {
-            background: #388E3C;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(76,175,80,0.4);
-        }
-        
-        .highlight-number {
-            color: #FFEB3B;
-            font-weight: bold;
-            font-size: 22px;
-        }
-        
-        /* Навигация */
-        .main-nav {
-            background: white;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            overflow: hidden;
-            position: sticky;
-            top: 20px;
-            z-index: 1000;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        
-        .nav-logo {
-            font-size: 20px;
-            font-weight: bold;
-            color: #667eea;
-            text-decoration: none;
-            padding: 15px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 5px;
-            padding: 10px 0;
-        }
-        
-        .nav-link {
-            padding: 12px 18px;
-            text-decoration: none;
-            color: #555;
-            font-weight: 500;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .nav-link:hover, .nav-link.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(102,126,234,0.3);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-menu-btn:hover {
-            transform: scale(1.05);
-        }
-        
-        /* Контейнер для всех вкладок */
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Общие стили для страниц */
-        .page-container {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            min-height: 600px;
-        }
-        
-        .page-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 50px 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .page-header:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="40" fill="white"/></svg>');
-            background-size: 80px;
-        }
-        
-        .page-title {
-            font-size: 36px;
-            margin-bottom: 15px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-            position: relative;
-        }
-        
-        .page-subtitle {
-            font-size: 18px;
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .page-body {
-            padding: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* Карточки */
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #eee;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-        
-        .card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, #667eea, #764ba2);
-        }
-        
-        .card-title {
-            color: #2C3E50;
-            margin-bottom: 15px;
-            font-size: 22px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        /* Сетки */
-        .grid-2, .grid-3, .grid-4 {
+        .staff-grid {
             display: grid;
-            gap: 25px;
-            margin: 30px 0;
-        }
-        
-        .grid-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        
-        .grid-3 {
-            grid-template-columns: repeat(3, 1fr);
-        }
-        
-        .grid-4 {
-            grid-template-columns: repeat(4, 1fr);
-        }
-        
-        /* Кнопки */
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            text-decoration: none;
-            margin: 5px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn:before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .btn:hover:before {
-            width: 300px;
-            height: 300px;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(102,126,234,0.4);
-        }
-        
-        .btn-small {
-            padding: 8px 15px;
-            font-size: 14px;
-        }
-        
-        .btn-large {
-            padding: 15px 35px;
-            font-size: 18px;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .btn-success {
-            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-        }
-        
-        .btn-warning {
-            background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
-        }
-        
-        .btn-danger {
-            background: linear-gradient(135deg, #F44336 0%, #D32F2F 100%);
-        }
-        
-        .btn-info {
-            background: linear-gradient(135deg, #2196F3 0%, #0D47A1 100%);
-        }
-        
-        /* Слайдер галереи */
-        .gallery-slider-section {
-            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
-            border-radius: 20px;
-            margin: 40px auto;
-            padding: 30px;
-            max-width: 1200px;
-            box-shadow: 0 10px 30px rgba(33,150,243,0.15);
-            border: 3px solid #2196F3;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .gallery-slider-section:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.03"><rect width="100" height="100" fill="white"/></svg>');
-            background-size: 100px;
-        }
-        
-        .section-title {
-            text-align: center;
-            color: #2196F3;
-            margin-bottom: 25px;
-            font-size: 32px;
-            position: relative;
-        }
-        
-        .gallery-slider {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-        
-        .slider-container {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .slide {
-            min-width: 100%;
-            position: relative;
-        }
-        
-        .slide img {
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .slide-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 20px;
-            font-size: 18px;
-            text-align: center;
-        }
-        
-        .slider-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            margin-top: 25px;
-        }
-        
-        .slider-btn {
-            background: #2196F3;
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(33,150,243,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .slider-btn:before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .slider-btn:hover:before {
-            width: 100px;
-            height: 100px;
-        }
-        
-        .slider-btn:hover {
-            background: #1976D2;
-            transform: scale(1.1);
-            box-shadow: 0 6px 15px rgba(33,150,243,0.4);
-        }
-        
-        .slider-dots {
-            display: flex;
-            gap: 12px;
-        }
-        
-        .dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #ccc;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .dot.active {
-            background: #2196F3;
-            transform: scale(1.3);
-        }
-        
-        .dot:hover {
-            background: #2196F3;
-        }
-        
-        /* Мероприятия */
-        .events-section {
-            background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
-            border-radius: 20px;
-            margin: 40px auto;
-            padding: 30px;
-            max-width: 1200px;
-            box-shadow: 0 10px 30px rgba(156,39,176,0.15);
-            border: 3px solid #9C27B0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .events-section:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.03"><circle cx="50" cy="50" r="40" fill="white"/></svg>');
-            background-size: 100px;
-        }
-        
-        .events-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .events-filters {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .event-filter {
-            background: white;
-            border: 2px solid #9C27B0;
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 16px;
-            font-weight: 500;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .event-filter:before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(156,39,176,0.1);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .event-filter:hover:before {
-            width: 200px;
-            height: 200px;
-        }
-        
-        .event-filter.active {
-            background: #9C27B0;
-            color: white;
-            box-shadow: 0 4px 10px rgba(156,39,176,0.3);
-        }
-        
-        .event-filter:hover:not(.active) {
-            background: #F3E5F5;
-            transform: translateY(-2px);
-        }
-        
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
-        }
-        
-        .event-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-        
-        .event-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, #9C27B0, #E1BEE7);
-        }
-        
-        .event-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-        
-        .event-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .event-card:hover .event-image {
-            transform: scale(1.05);
-        }
-        
-        .event-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .event-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        
-        .event-date {
-            background: #9C27B0;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-            text-align: center;
-            min-width: 120px;
-        }
-        
-        .event-type {
-            background: #E1BEE7;
-            color: #9C27B0;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        
-        .event-title {
-            font-weight: bold;
-            color: #2C3E50;
-            margin-bottom: 15px;
-            font-size: 18px;
-            line-height: 1.4;
-            flex-grow: 1;
-        }
-        
-        .event-description {
-            color: #666;
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        
-        .event-details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .event-detail {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #555;
-            font-size: 14px;
-        }
-        
-        .event-detail i {
-            color: #9C27B0;
-            width: 20px;
-        }
-        
-        .event-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: auto;
-        }
-        
-        .events-load-more {
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .load-more-btn {
-            background: #9C27B0;
-            color: white;
-            border: none;
-            padding: 15px 35px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 15px rgba(156,39,176,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .load-more-btn:before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .load-more-btn:hover:before {
-            width: 300px;
-            height: 300px;
-        }
-        
-        .load-more-btn:hover {
-            background: #7B1FA2;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(156,39,176,0.4);
-        }
-        
-        /* Герой секция */
-        .hero-section {
-            text-align: center;
-            padding: 50px 30px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            border-radius: 20px;
-            margin: 40px auto;
-            max-width: 1200px;
-            border: 3px solid #667eea;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-section:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.03"><polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="white"/></svg>');
-            background-size: 100px;
-        }
-        
-        .hero-title {
-            color: #2C3E50;
-            margin-bottom: 25px;
-            font-size: 36px;
-            position: relative;
-        }
-        
-        .hero-subtitle {
-            font-size: 20px;
-            color: #666;
-            max-width: 900px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-            position: relative;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin: 50px 0;
-            position: relative;
-        }
-        
-        .stat-card {
-            background: white;
-            padding: 30px 20px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .stat-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, #667eea, #764ba2);
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            border-color: #667eea;
-        }
-        
-        .stat-number {
-            font-size: 42px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 15px;
-        }
-        
-        .stat-label {
-            color: #666;
-            font-size: 16px;
-            font-weight: 500;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-            position: relative;
-        }
-        
-        .btn-call {
-            background: #32CD32;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 15px rgba(50,205,50,0.3);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .btn-call:before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .btn-call:hover:before {
-            width: 300px;
-            height: 300px;
-        }
-        
-        .btn-call:hover {
-            background: #28a428;
-            box-shadow: 0 10px 20px rgba(50,205,50,0.4);
-            transform: translateY(-3px);
-        }
-        
-        /* Футер */
-        .footer {
-            text-align: center;
-            background: linear-gradient(135deg, #2C3E50 0%, #1A252F 100%);
-            color: white;
-            padding: 40px 20px;
-            border-radius: 20px;
-            margin-top: 50px;
-            box-shadow: 0 -5px 25px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .footer:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.03"><rect x="10" y="10" width="80" height="80" fill="white"/></svg>');
-            background-size: 100px;
-        }
-        
-        .footer p {
-            margin: 15px 0;
-            font-size: 16px;
-            position: relative;
-        }
-        
-        .footer .highlight-number {
-            color: #FFD700;
-            font-size: 20px;
-        }
-        
-        .quick-actions {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-            position: relative;
-        }
-        
-        /* Модальное окно */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .modal-content {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            width: 100%;
-            max-width: 500px;
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            max-height: 90vh;
-            overflow-y: auto;
-            animation: slideIn 0.3s ease;
-        }
-        
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 30px;
-            cursor: pointer;
-            color: #666;
-            transition: color 0.3s ease;
-        }
-        
-        .close:hover {
-            color: #f44336;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #555;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: #667eea;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
-        }
-        
-        .form-submit {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .form-submit:before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .form-submit:hover:before {
-            width: 300px;
-            height: 300px;
-        }
-        
-        .form-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(102,126,234,0.4);
-        }
-        
-        /* Стили для конкретных вкладок */
-        .direction-card {
-            text-align: center;
-            padding: 30px;
-        }
-        
-        .direction-icon {
-            font-size: 48px;
-            color: #667eea;
-            margin-bottom: 20px;
-        }
-        
-        .schedule-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .schedule-table th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px;
-            text-align: left;
-        }
-        
-        .schedule-table td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .schedule-table tr:hover {
-            background: #f8f9fa;
-        }
-        
-        .price-card {
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .price-amount {
-            font-size: 42px;
-            font-weight: bold;
-            color: #667eea;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin: 20px 0;
-        }
-        
-        .price-period {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        
-        .price-features {
-            text-align: left;
-            margin: 20px 0;
-            padding-left: 0;
-            list-style: none;
-        }
-        
-        .price-features li {
-            margin-bottom: 10px;
-            padding-left: 30px;
-            position: relative;
-        }
-        
-        .price-features li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4CAF50;
-            font-weight: bold;
-            width: 20px;
-            height: 20px;
-            background: #E8F5E9;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         
         .staff-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .staff-card:hover {
+            transform: translateY(-5px);
         }
         
         .staff-photo {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 0 auto 20px;
+            background: #667eea;
+            margin: 0 auto 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 48px;
-            border: 5px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .staff-name {
+            font-weight: bold;
+            color: #2C3E50;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        
+        .staff-position {
+            color: #667eea;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .staff-experience {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        
+        .reviews-section {
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            border: 3px solid #FFB74D;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
         }
         
         .review-card {
-            padding: 25px;
-            position: relative;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
         
-        .review-rating {
-            color: #FFD700;
-            font-size: 20px;
-            margin-bottom: 15px;
+        .review-card:hover {
+            transform: translateY(-5px);
         }
         
-        .review-author {
+        .review-header {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-top: 20px;
+            margin-bottom: 15px;
         }
         
-        .author-avatar {
-            width: 50px;
-            height: 50px;
+        .reviewer-photo {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: #667eea;
             display: flex;
@@ -1231,251 +111,289 @@
             justify-content: center;
             color: white;
             font-weight: bold;
+            font-size: 14px;
         }
         
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .reviewer-info {
+            flex: 1;
         }
         
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        .reviewer-name {
+            font-weight: bold;
+            color: #2C3E50;
         }
         
-        .faq-item {
-            margin-bottom: 15px;
-            cursor: pointer;
+        .review-date {
+            color: #666;
+            font-size: 12px;
         }
         
-        .faq-question {
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
+        .review-rating {
+            color: #FFD700;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .events-section {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            border: 3px solid #81C784;
+        }
+        
+        .events-timeline {
+            margin: 20px 0;
+        }
+        
+        .event-item {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        
-        .faq-question:hover {
-            background: #e9ecef;
-        }
-        
-        .faq-answer {
-            padding: 15px;
-            display: none;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
             background: white;
-            border-radius: 0 0 10px 10px;
-            border: 1px solid #eee;
-            border-top: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
         
-        /* Анимации */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .event-item:hover {
+            transform: translateX(10px);
         }
         
-        .pulse {
-            animation: pulse 2s infinite;
+        .event-date {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 80px;
         }
         
-        /* Адаптивность */
-        @media (max-width: 1200px) {
-            .grid-4 {
-                grid-template-columns: repeat(3, 1fr);
-            }
+        .event-day {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1;
         }
         
-        @media (max-width: 992px) {
-            .grid-3, .grid-4 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .page-body {
-                padding: 30px;
-            }
-            
-            .page-title {
-                font-size: 32px;
-            }
-            
-            .hero-title {
-                font-size: 30px;
-            }
-            
-            .slide img {
-                height: 350px;
-            }
-            
-            .events-grid {
+        .event-month {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        .event-content {
+            flex: 1;
+        }
+        
+        .contract-section {
+            background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+            border: 3px solid #FFD54F;
+        }
+        
+        .contract-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        
+        .contract-article {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .contract-article:last-child {
+            border-bottom: none;
+        }
+        
+        .contract-article h3 {
+            color: #2C3E50;
+            margin-bottom: 15px;
+            font-size: 18px;
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .contract-clause {
+            margin-left: 20px;
+        }
+        
+        .contract-clause p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .contract-requisites {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .requisites-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .contract-actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        /* Адаптивность для новых секций */
+        @media (max-width: 768px) {
+            .staff-grid {
                 grid-template-columns: 1fr;
             }
             
-            .section-title {
-                font-size: 28px;
+            .reviews-grid {
+                grid-template-columns: 1fr;
             }
+            
+            .event-item {
+                flex-direction: column;
+            }
+            
+            .event-date {
+                align-self: flex-start;
+            }
+            
+            .requisites-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Герой-секция */
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .content-container {
+            min-height: 800px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        #content-frame {
+            width: 100%;
+            height: 100%;
+            min-height: 800px;
+            border: none;
+            display: block;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            font-size: 18px;
+            color: #666;
+        }
+        
+        .hero-title {
+            color: #2C3E50;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .btn-call {
+            background: #32CD32;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(50,205,50,0.3);
+        }
+        
+        .btn-call:hover {
+            background: #28a428;
+            box-shadow: 0 6px 20px rgba(50,205,50,0.4);
+            transform: translateY(-2px);
         }
         
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                background: white;
-                width: 100%;
-                top: 100%;
-                left: 0;
-                padding: 20px;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                z-index: 100;
-                border-radius: 0 0 15px 15px;
-            }
-            
-            .nav-links.show {
-                display: flex;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .grid-2, .grid-3, .grid-4 {
-                grid-template-columns: 1fr;
-            }
-            
             .hero-title {
-                font-size: 26px;
+                font-size: 24px;
             }
             
-            .page-title {
-                font-size: 28px;
+            .hero-subtitle {
+                font-size: 16px;
             }
             
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
             }
             
-            .slide img {
-                height: 250px;
+            .content-container {
+                min-height: 600px;
             }
             
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .hero-buttons .btn-enroll,
-            .hero-buttons .btn-yclients,
-            .hero-buttons .btn-call {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .quick-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .quick-actions .btn {
-                width: 100%;
-                max-width: 250px;
-            }
-            
-            .events-filters {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .event-filter {
-                width: 100%;
-                max-width: 250px;
-                text-align: center;
-            }
-            
-            .event-details {
-                grid-template-columns: 1fr;
-            }
-            
-            .header-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .header-buttons .btn-enroll,
-            .header-buttons .btn-yclients {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .event-actions {
-                flex-direction: column;
-            }
-            
-            .event-actions .btn {
-                width: 100%;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            
-            .header {
-                padding: 20px 15px;
-            }
-            
-            .logo {
-                font-size: 24px;
-            }
-            
-            .main-title {
-                font-size: 24px;
-            }
-            
-            .subtitle {
-                font-size: 16px;
-            }
-            
-            .btn-enroll, .btn-yclients {
-                padding: 12px 25px;
-                font-size: 16px;
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-section {
-                padding: 30px 20px;
-            }
-            
-            .footer {
-                padding: 30px 15px;
-            }
-            
-            .modal-content {
-                padding: 30px 20px;
-            }
-            
-            .page-header {
-                padding: 30px 20px;
-            }
-            
-            .section-title {
-                font-size: 24px;
-            }
-            
-            .page-body {
-                padding: 20px;
+            #content-frame {
+                min-height: 600px;
             }
         }
     </style>
@@ -1483,126 +401,50 @@
 <body>
     <div class="dashboard-container">
         <!-- Шапка с логотипом -->
-        <header class="header">
+        <div class="header">
             <div class="logo">ПЕРВЫЙ РИТМ ЛЕНИНСКОГО</div>
             <h1 class="main-title">ИНФОРМАЦИОННЫЙ СТЕНД СТУДИИ ТАНЦЕВ</h1>
-            <p class="subtitle">От первых па до профессиональных вершин. Танцуют все! Научим танцевать в любом возрасте!</p>
+            <p class="subtitle">От первых па до профессиональных вершин. Танцуют все!</p>
             
-            <div class="header-buttons">
-                <button class="btn-enroll pulse" onclick="openModal()">
-                    <i class="fas fa-pencil-alt"></i> ЗАПИСАТЬСЯ ОТ <span class="highlight-number">300₽</span>
-                </button>
-                <button class="btn-yclients" onclick="openYclientsWidget()">
-                    <i class="fas fa-calendar-check"></i> ОНЛАЙН-ЗАПИСЬ ЧЕРЕЗ YCLIENTS
-                </button>
-            </div>
-        </header>
+            <!-- Кнопка записи с отправкой в Telegram -->
+            <button class="btn-enroll" onclick="openModal()">
+                📝 ЗАПИСАТЬСЯ ОТ <span class="highlight-number">300₽</span>
+            </button>
+            
+            <!-- Альтернативная кнопка для быстрой записи -->
+            <button class="btn-yclients" onclick="openYclientsWidget()" style="margin-top: 10px;">
+                🎯 ОНЛАЙН-ЗАПИСЬ ЧЕРЕЗ YCLIENTS
+            </button>
+        </div>
 
         <!-- Навигационное меню -->
         <nav class="main-nav">
             <div class="nav-container">
-                <a href="#home" class="nav-logo" onclick="showTab('directions')">
-                    <i class="fas fa-home"></i> Главная
-                </a>
+                <a href="index.html" class="nav-logo">🏠 Главная</a>
                 <div class="nav-links">
-                    <a href="#directions" class="nav-link active" onclick="showTab('directions')">
-                        <i class="fas fa-directions"></i> Направления
-                    </a>
-                    <a href="#schedule" class="nav-link" onclick="showTab('schedule')">
-                        <i class="fas fa-calendar"></i> Расписание
-                    </a>
-                    <a href="#prices" class="nav-link" onclick="showTab('prices')">
-                        <i class="fas fa-tags"></i> Цены
-                    </a>
-                    <a href="#booking" class="nav-link" onclick="showTab('booking')">
-                        <i class="fas fa-calendar-check"></i> Запись
-                    </a>
-                    <a href="#staff" class="nav-link" onclick="showTab('staff')">
-                        <i class="fas fa-users"></i> Команда
-                    </a>
-                    <a href="#reviews" class="nav-link" onclick="showTab('reviews')">
-                        <i class="fas fa-star"></i> Отзывы
-                    </a>
-                    <a href="#events" class="nav-link" onclick="showTab('events')">
-                        <i class="fas fa-calendar-alt"></i> Мероприятия
-                    </a>
-                    <a href="#gallery" class="nav-link" onclick="showTab('gallery')">
-                        <i class="fas fa-images"></i> Галерея
-                    </a>
-                    <a href="#faq" class="nav-link" onclick="showTab('faq')">
-                        <i class="fas fa-question-circle"></i> FAQ
-                    </a>
-                    <a href="#contacts" class="nav-link" onclick="showTab('contacts')">
-                        <i class="fas fa-address-book"></i> Контакты
-                    </a>
-                    <a href="#rules" class="nav-link" onclick="showTab('rules')">
-                        <i class="fas fa-clipboard-list"></i> Правила
-                    </a>
+                    <a href="#directions" class="nav-link" onclick="loadPage('directions.html')">🎯 Направления</a>
+                    <a href="#schedule" class="nav-link" onclick="loadPage('schedule.html')">📅 Расписание</a>
+                    <a href="#prices" class="nav-link" onclick="loadPage('prices.html')">💰 Цены</a>
+                    <a href="#booking" class="nav-link" onclick="loadPage('booking.html')">🔄 Онлайн-запись</a>
+                    <a href="#staff" class="nav-link" onclick="loadPage('staff.html')">👥 Команда</a>
+                    <a href="#reviews" class="nav-link" onclick="loadPage('reviews.html')">⭐ Отзывы</a>
+                    <a href="#events" class="nav-link" onclick="loadPage('events.html')">🎭 Мероприятия</a>
+                    <a href="#gallery" class="nav-link" onclick="loadPage('gallery.html')">📸 Галерея</a>
+                    <a href="#faq" class="nav-link" onclick="loadPage('faq.html')">❓ FAQ</a>
+                    <a href="#contract" class="nav-link" onclick="loadPage('contract.html')">📄 Договор-оферта</a>
+                    <a href="#contacts" class="nav-link" onclick="loadPage('contacts.html')">📞 Контакты</a>
+                    <a href="#rules" class="nav-link" onclick="loadPage('rules.html')">📋 Правила</a>
                 </div>
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
             </div>
         </nav>
 
-        <!-- Слайдер галереи -->
-        <section class="gallery-slider-section">
-            <h2 class="section-title">
-                <i class="fas fa-images"></i> ГАЛЕРЕЯ НАШИХ ВЫСТУПЛЕНИЙ
-            </h2>
-            
-            <div class="gallery-slider">
-                <div class="slider-container" id="sliderContainer">
-                    <!-- Слайды будут добавлены через JavaScript -->
-                </div>
-                
-                <div class="slider-controls">
-                    <button class="slider-btn" onclick="prevSlide()">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    
-                    <div class="slider-dots" id="sliderDots">
-                        <!-- Точки будут добавлены через JavaScript -->
-                    </div>
-                    
-                    <button class="slider-btn" onclick="nextSlide()">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Секция мероприятий -->
-        <section class="events-section">
-            <h2 class="section-title" style="color: #9C27B0;">
-                <i class="fas fa-calendar-alt"></i> БЛИЖАЙШИЕ МЕРОПРИЯТИЯ
-            </h2>
-            
-            <div class="events-container">
-                <div class="events-filters" id="eventsFilters">
-                    <!-- Фильтры будут добавлены через JavaScript -->
-                </div>
-                
-                <div class="events-grid" id="eventsGrid">
-                    <!-- Мероприятия будут добавлены через JavaScript -->
-                </div>
-                
-                <div class="events-load-more">
-                    <button class="load-more-btn" onclick="loadMoreEvents()">
-                        <i class="fas fa-plus"></i> Показать больше мероприятий
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Герой-секция -->
-        <section class="hero-section">
-            <h2 class="hero-title">
-                <i class="fas fa-heart"></i> Научитесь танцевать в любом возрасте!
-            </h2>
+        <!-- Герой-секция на главной -->
+        <div class="hero-section">
+            <h2 class="hero-title">💃 Научитесь танцевать в любом возрасте!</h2>
             <p class="hero-subtitle">
                 Профессиональные педагоги, индивидуальный подход, современное оборудование. 
-                Приходите на пробное занятие всего от 300 рублей! У нас занимаются дети от 3 лет и взрослые до 65+.
+                Приходите на пробное занятие всего от 300 рублей!
             </p>
             
             <div class="stats-grid">
@@ -1612,7 +454,7 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">500+</div>
-                    <div class="stat-label">довольных учеников</div>
+                    <div class="stat-label">довольных учеников наших трениров</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">15+</div>
@@ -1626,214 +468,50 @@
             
             <div class="hero-buttons">
                 <button class="btn-enroll" onclick="openModal()">
-                    <i class="fas fa-pencil-alt"></i> ОСТАВИТЬ ЗАЯВКУ
+                    📝 ОСТАВИТЬ ЗАЯВКУ
                 </button>
                 <button class="btn-yclients" onclick="openYclientsWidget()">
-                    <i class="fas fa-calendar-check"></i> ОНЛАЙН-ЗАПИСЬ
+                    🎯 ОНЛАЙН-ЗАПИСЬ
                 </button>
                 <button class="btn-call" onclick="window.open('tel:+79041233175')">
-                    <i class="fas fa-phone"></i> Позвонить нам
+                    📞 Позвонить нам
                 </button>
             </div>
-        </section>
+        </div>
 
-        <!-- Основной контейнер для всех вкладок -->
-        <main class="page-container">
-            <!-- Направления -->
-            <section id="directions" class="tab-content active">
-                <div class="page-header">
-                    <h1 class="page-title">
-                        <i class="fas fa-directions"></i> НАПРАВЛЕНИЯ
-                    </h1>
-                    <p class="page-subtitle">Выберите направление, которое подходит именно вам</p>
-                </div>
-                <div class="page-body">
-                    <div class="grid-3" id="directionsContent">
-                        <!-- Направления будут загружены через JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Расписание -->
-            <section id="schedule" class="tab-content">
-                <div class="page-header">
-                    <h1 class="page-title">
-                        <i class="fas fa-calendar"></i> РАСПИСАНИЕ
-                    </h1>
-                    <p class="page-subtitle">Актуальное расписание занятий на текущую неделю</p>
-                </div>
-                <div class="page-body">
-                    <div id="scheduleContent">
-                        <!-- Расписание будет загружено через JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Цены -->
-            <section id="prices" class="tab-content">
-                <div class="page-header">
-                    <h1 class="page-title">
-                        <i class="fas fa-tags"></i> ЦЕНЫ И АБОНЕМЕНТЫ
-                    </h1>
-                    <p class="page-subtitle">Выберите оптимальный вариант для занятий</p>
-                </div>
-                <div class="page-body">
-                    <div class="grid-3" id="pricesContent">
-                        <!-- Цены будут загружены через JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Онлайн-запись -->
-            <section id="booking" class="tab-content">
-                <div class="page-header">
-                    <h1 class="page-title">
-                        <i class="fas fa-calendar-check"></i> ОНЛАЙН-ЗАПИСЬ
-                    </h1>
-                    <p class="page-subtitle">Запишитесь на занятие прямо сейчас через YClients</p>
-                </div>
-                <div class="page-body">
-                    <div id="bookingContent">
-                        <!-- Форма записи будет загружена через JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Команда -->
-            <section id="staff" class="tab-content">
-                <div class="page-header">
-                    <h1 class="page-title">
-                        <i class="fas fa-users"></i> НАША КОМАНДА
-                    </h1>
-                    <p class="page-subtitle">Профессиональные педагоги с многолетним опытом</p>
-                </div>
-                <div class="page-body">
-                    <div class="grid-3" id="staffContent">
-                        <!-- Команда будет загружена через JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Отзывы -->
-            <section id="reviews" class="tab-content">
-                <div class="page-header">
-                    <h1 class="page-title">
-                        <i class="fas fa-star"></i> ОТЗЫВЫ УЧЕНИКОВ
-                    </h1>
-                    <p class="page-subtitle">Что говорят о нас наши ученики и их родители</p>
-                </div>
-                <div class="page-body">
-                    <div class="grid-2" id="reviewsContent">
-                        <!-- Отзывы будут загружены через JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Мероприятия (подробная версия) -->
-            <section id="events" class="tab-content">
-                <div class="page-header">
-                    <h1 class="page-title">
-                        <i class="fas fa-calendar-alt"></i> МЕРОПРИЯТИЯ
-                    </h1>
-                    <p class="page-subtitle">Все наши события, конкурсы, концерты и мастер-классы</p>
-                </div>
-                <div class="page-body">
-                    <div id="eventsTabContent">
-                        <!-- Полный список мероприятий будет загружен через JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Галерея -->
-            <section id="gallery" class="tab-content">
-                <div class="page-header">
-                    <h1 class="page-title">
-                        <i class="fas fa-images"></i> ГАЛЕРЕЯ
-                    </h1>
-                    <p class="page-subtitle">Фотографии с занятий, выступлений и мероприятий</p>
-                </div>
-                <div class="page-body">
-                    <div id="galleryContent">
-                        <!-- Галерея будет загружена через JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- FAQ -->
-            <section id="faq" class="tab-content">
-                <div class="page-header">
-                    <h1 class="page-title">
-                        <i class="fas fa-question-circle"></i> ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
-                    </h1>
-                    <p class="page-subtitle">Ответы на самые популярные вопросы о занятиях</p>
-                </div>
-                <div class="page-body">
-                    <div id="faqContent">
-                        <!-- FAQ будет загружено через JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Контакты -->
-            <section id="contacts" class="tab-content">
-                <div class="page-header">
-                    <h1 class="page-title">
-                        <i class="fas fa-address-book"></i> КОНТАКТЫ
-                    </h1>
-                    <p class="page-subtitle">Как нас найти и связаться с нами</p>
-                </div>
-                <div class="page-body">
-                    <div id="contactsContent">
-                        <!-- Контакты будут загружены через JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Правила -->
-            <section id="rules" class="tab-content">
-                <div class="page-header">
-                    <h1 class="page-title">
-                        <i class="fas fa-clipboard-list"></i> ПРАВИЛА СТУДИИ
-                    </h1>
-                    <p class="page-subtitle">Основные правила посещения занятий</p>
-                </div>
-                <div class="page-body">
-                    <div id="rulesContent">
-                        <!-- Правила будут загружены через JavaScript -->
-                    </div>
-                </div>
-            </section>
-        </main>
+        <!-- Контейнер для контента страниц -->
+        <div class="content-container">
+            <div class="loading" id="loading">
+                Загрузка...
+            </div>
+            <iframe src="directions.html" frameborder="0" id="content-frame" 
+                    onload="document.getElementById('loading').style.display='none';"
+                    style="display:none;"></iframe>
+        </div>
 
         <!-- Футер -->
         <footer class="footer">
-            <p><strong>Студия танцев «Первый ритм Ленинского»</strong></p>
-            <p>г. Иркутск, ул. 1-й Ленинский квартал д. 1</p>
-            <p>
-                <i class="fas fa-phone"></i> Телефон: 
-                <span class="highlight-number">+7 (904) 123-31-75</span>
-            </p>
-            <p>Все направления в одном месте!</p>
+            <p><strong>Студия танцев «Первый ритм Ленинского»</strong> • г. Иркутск, ул. 1-й Ленинский квартал д. 1</p>
+            <p>📞 Телефон: <span class="highlight-number">+7 (904) 123-31-75</span> • Все направления в одном месте!</p>
             
             <div class="quick-actions">
-                <button class="btn btn-success" onclick="quickEnroll('Танцы для души')">
-                    <i class="fas fa-heart"></i> Пробное занятие
+                <button class="btn" onclick="quickEnroll('Танцы для души')">
+                    💃 Пробное занятие
                 </button>
-                <button class="btn btn-warning" onclick="subscribeNewsletter()">
-                    <i class="fas fa-envelope"></i> Подписаться
+                <button class="btn" onclick="subscribeNewsletter()">
+                    📧 Подписаться
                 </button>
-                <button class="btn btn-primary" onclick="window.open('https://vk.com/club233766207', '_blank')">
-                    <i class="fab fa-vk"></i> ВКонтакте
+                <button class="btn" onclick="window.open('https://vk.com/club233766207', '_blank')">
+                    👥 ВКонтакте
                 </button>
             </div>
             
-            <p style="margin-top: 25px;">
-                <button class="btn btn-info" onclick="showTab('contacts')" style="background: transparent; border: 2px solid #2196F3;">
-                    <i class="fas fa-map-marker-alt"></i> Как добраться?
-                </button>
+            <p style="margin-top: 15px;">
+                <a href="#contract" onclick="loadPage('contract.html')" style="color: #667eea; text-decoration: underline;">
+                    📄 Ознакомиться с Договором-офертой
+                </a>
             </p>
-            
-            <p style="font-size: 14px; color: #ccc; margin-top: 20px;">
+            <p style="font-size: 12px; color: #888; margin-top: 10px;">
                 © 2024 Студия танцев "Первый ритм Ленинского". Все права защищены.
             </p>
         </footer>
@@ -1843,36 +521,26 @@
     <div id="enrollModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h2 style="text-align: center; margin-bottom: 25px; color: #667eea; font-size: 28px;">
-                <i class="fas fa-pencil-alt"></i> ЗАПИСЬ НА ЗАНЯТИЕ
-            </h2>
+            <h2 style="text-align: center; margin-bottom: 20px; color: #667eea;">📝 ЗАПИСЬ НА ЗАНЯТИЕ</h2>
             
             <form id="enrollForm">
                 <div class="form-group">
-                    <label for="name">
-                        <i class="fas fa-user"></i> Ваше имя *
-                    </label>
+                    <label for="name">Ваше имя *</label>
                     <input type="text" id="name" name="name" required placeholder="Иван Иванов">
                 </div>
                 
                 <div class="form-group">
-                    <label for="phone">
-                        <i class="fas fa-phone"></i> Телефон *
-                    </label>
+                    <label for="phone">Телефон *</label>
                     <input type="tel" id="phone" name="phone" required placeholder="+7 (900) 123-45-67">
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">
-                        <i class="fas fa-envelope"></i> Email
-                    </label>
+                    <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="ivan@example.com">
                 </div>
                 
                 <div class="form-group">
-                    <label for="age">
-                        <i class="fas fa-child"></i> Возрастная группа
-                    </label>
+                    <label for="age">Возрастная группа</label>
                     <select id="age" name="age">
                         <option value="">Выберите возрастную группу</option>
                         <option value="3-4">Дети 3-4 года (Танцы-игра)</option>
@@ -1887,9 +555,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="direction">
-                        <i class="fas fa-dance"></i> Направление
-                    </label>
+                    <label for="direction">Направление</label>
                     <select id="direction" name="direction">
                         <option value="">Выберите направление</option>
                         <option value="trial">Пробное занятие (300 ₽)</option>
@@ -1901,1536 +567,74 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">
-                        <i class="fas fa-comment"></i> Дополнительная информация
-                    </label>
+                    <label for="message">Дополнительная информация</label>
                     <textarea id="message" name="message" rows="3" placeholder="Ваши пожелания или вопросы..."></textarea>
                 </div>
                 
-                <button type="submit" class="form-submit">
-                    <i class="fas fa-paper-plane"></i> ОТПРАВИТЬ ЗАЯВКУ
-                </button>
+                <button type="submit" class="form-submit">ОТПРАВИТЬ ЗАЯВКУ</button>
                 
-                <div style="text-align: center; margin-top: 20px; font-size: 14px; color: #666;">
-                    <i class="fas fa-clock"></i> Наш администратор свяжется с вами в течение 2 часов<br>
+                <div style="text-align: center; margin-top: 15px; font-size: 12px; color: #666;">
+                    Наш администратор свяжется с вами в течение 2 часов<br>
                     <small>Заявка также будет отправлена в наш Telegram</small>
                 </div>
             </form>
         </div>
     </div>
 
+    <script src="scripts.js"></script>
     <script>
-        // Данные для слайдера галереи
-        const gallerySlides = [
-            {
-                image: 'https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1200&q=80',
-                caption: 'Гран-при на городском фестивале танцев 2024'
-            },
-            {
-                image: 'https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1200&q=80',
-                caption: 'Занятие в детской группе "Первые шаги" (3-5 лет)'
-            },
-            {
-                image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80',
-                caption: 'Мастер-класс по contemporary dance от приглашенного хореографа'
-            },
-            {
-                image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80',
-                caption: 'Групповая растяжка для взрослых "Гибкое тело"'
-            },
-            {
-                image: 'https://images.unsplash.com/photo-1519895602389-6d87f460a5b9?auto=format&fit=crop&w=1200&q=80',
-                caption: 'Подготовка к чемпионату России по бальным танцам'
-            }
-        ];
-
-        // Данные для мероприятий
-        const eventTypes = ['Все', 'Концерты', 'Мастер-классы', 'Конкурсы', 'Открытые уроки', 'Праздники'];
-        
-        const eventsData = [
-            {
-                id: 1,
-                title: 'Новогодний отчетный концерт',
-                description: 'Ежегодный новогодний концерт с участием всех групп студии. Приглашаем родителей и друзей!',
-                date: '28.12.2024',
-                time: '18:00',
-                duration: '2 часа',
-                type: 'Концерты',
-                location: 'Большой зал студии',
-                price: 'Бесплатно',
-                image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80',
-                available: true,
-                featured: true
-            },
-            {
-                id: 2,
-                title: 'Мастер-класс по хип-хопу',
-                description: 'Уникальный мастер-класс от чемпиона России по хип-хопу для продвинутых танцоров.',
-                date: '23.12.2024',
-                time: '19:00',
-                duration: '3 часа',
-                type: 'Мастер-классы',
-                location: 'Зал №2',
-                price: '1500 ₽',
-                image: 'https://images.unsplash.com/photo-1519895602389-6d87f460a5b9?auto=format&fit=crop&w=400&q=80',
-                available: true,
-                featured: true
-            },
-            {
-                id: 3,
-                title: 'Открытый урок для родителей',
-                description: 'Родители смогут увидеть, чему научились их дети за последние 3 месяца занятий.',
-                date: '20.12.2024',
-                time: '17:00',
-                duration: '1.5 часа',
-                type: 'Открытые уроки',
-                location: 'Все залы',
-                price: 'Бесплатно',
-                image: 'https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=400&q=80',
-                available: true,
-                featured: false
-            },
-            {
-                id: 4,
-                title: 'Городской конкурс "Танцевальная осень"',
-                description: 'Участие в городском конкурсе среди детских танцевальных коллективов.',
-                date: '15.12.2024',
-                time: '12:00',
-                duration: '6 часов',
-                type: 'Конкурсы',
-                location: 'Дворец культуры',
-                price: '500 ₽ за участника',
-                image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80',
-                available: false,
-                featured: false
-            },
-            {
-                id: 5,
-                title: 'Рождественский бал для взрослых',
-                description: 'Традиционный рождественский бал с живой музыкой и профессиональными ведущими.',
-                date: '07.01.2025',
-                time: '20:00',
-                duration: '4 часа',
-                type: 'Праздники',
-                location: 'Бальный зал',
-                price: '2000 ₽',
-                image: 'https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=400&q=80',
-                available: true,
-                featured: true
-            },
-            {
-                id: 6,
-                title: 'Мастер-класс по растяжке',
-                description: 'Специальный мастер-класс по безопасной растяжке для всех уровней подготовки.',
-                date: '10.01.2025',
-                time: '19:30',
-                duration: '2 часа',
-                type: 'Мастер-классы',
-                location: 'Зал растяжки',
-                price: '1000 ₽',
-                image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=400&q=80',
-                available: true,
-                featured: false
-            }
-        ];
-
-        // Данные для направлений
-        const directionsData = [
-            { 
-                id: 1, 
-                name: 'Детские танцы (3-6 лет)', 
-                icon: 'fas fa-child', 
-                description: 'Игровая форма обучения, развитие координации и ритма. Первые шаги в мире танца.',
-                age: '3-6 лет',
-                duration: '45 минут'
-            },
-            { 
-                id: 2, 
-                name: 'Бальные танцы', 
-                icon: 'fas fa-venus-mars', 
-                description: 'Классические европейские и латиноамериканские танцы. Элегантность и грация.',
-                age: '7+ лет',
-                duration: '60 минут'
-            },
-            { 
-                id: 3, 
-                name: 'Hip-Hop', 
-                icon: 'fas fa-music', 
-                description: 'Современные уличные танцы для подростков и взрослых. Энергия и стиль.',
-                age: '10+ лет',
-                duration: '60 минут'
-            },
-            { 
-                id: 4, 
-                name: 'Contemporary', 
-                icon: 'fas fa-wind', 
-                description: 'Современная хореография, экспрессия и эмоции. Свобода самовыражения.',
-                age: '12+ лет',
-                duration: '75 минут'
-            },
-            { 
-                id: 5, 
-                name: 'Стретчинг', 
-                icon: 'fas fa-spa', 
-                description: 'Растяжка для всех уровней подготовки. Гибкость и расслабление.',
-                age: '14+ лет',
-                duration: '60 минут'
-            },
-            { 
-                id: 6, 
-                name: 'Танцы для взрослых', 
-                icon: 'fas fa-users', 
-                description: 'Группы для начинающих и продолжающих. Танцы для удовольствия и здоровья.',
-                age: '17+ лет',
-                duration: '60 минут'
-            },
-            { 
-                id: 7, 
-                name: 'Индивидуальные занятия', 
-                icon: 'fas fa-user-graduate', 
-                description: 'Персональный подход к каждому ученику. Быстрый прогресс.',
-                age: '3+ лет',
-                duration: '45-60 минут'
-            },
-            { 
-                id: 8, 
-                name: 'Подготовка к конкурсам', 
-                icon: 'fas fa-trophy', 
-                description: 'Профессиональная подготовка танцоров к выступлениям и конкурсам.',
-                age: '7+ лет',
-                duration: '90 минут'
-            },
-            { 
-                id: 9, 
-                name: 'Танцевальный фитнес', 
-                icon: 'fas fa-heartbeat', 
-                description: 'Танцы для здоровья и хорошего настроения. Кардио-нагрузка и позитив.',
-                age: '16+ лет',
-                duration: '60 минут'
-            }
-        ];
-
-        // Данные для расписания
-        const scheduleData = [
-            { day: 'Понедельник', time: '17:00-18:00', group: 'Дети 3-6 лет', direction: 'Детские танцы', teacher: 'Анна П.', room: 'Зал 1' },
-            { day: 'Понедельник', time: '18:30-19:30', group: 'Взрослые', direction: 'Hip-Hop', teacher: 'Михаил С.', room: 'Зал 2' },
-            { day: 'Вторник', time: '16:00-17:00', group: 'Дети 7-10 лет', direction: 'Бальные танцы', teacher: 'Елена К.', room: 'Зал 1' },
-            { day: 'Вторник', time: '18:00-19:30', group: 'Подростки', direction: 'Contemporary', teacher: 'Ольга М.', room: 'Зал 2' },
-            { day: 'Среда', time: '17:00-18:00', group: 'Все', direction: 'Стретчинг', teacher: 'Анна П.', room: 'Зал 3' },
-            { day: 'Четверг', time: '16:30-17:30', group: 'Дети 3-6 лет', direction: 'Детские танцы', teacher: 'Елена К.', room: 'Зал 1' },
-            { day: 'Четверг', time: '18:00-19:30', group: 'Взрослые', direction: 'Танцевальный фитнес', teacher: 'Ольга М.', room: 'Зал 2' },
-            { day: 'Пятница', time: '17:00-18:30', group: 'Подготовительная', direction: 'Бальные танцы', teacher: 'Михаил С.', room: 'Зал 1' },
-            { day: 'Суббота', time: '10:00-11:30', group: 'Дети 7-10 лет', direction: 'Contemporary', teacher: 'Ольга М.', room: 'Зал 1' },
-            { day: 'Суббота', time: '12:00-13:30', group: 'Взрослые', direction: 'Hip-Hop', teacher: 'Михаил С.', room: 'Зал 2' },
-            { day: 'Суббота', time: '14:00-15:00', group: 'Все', direction: 'Стретчинг', teacher: 'Анна П.', room: 'Зал 3' }
-        ];
-
-        // Данные для цен
-        const pricesData = [
-            { 
-                name: 'Пробное занятие', 
-                price: '300 ₽', 
-                period: '1 занятие', 
-                features: ['Первое знакомство', 'Определение уровня', 'Консультация педагога', 'Подбор группы'],
-                popular: false
-            },
-            { 
-                name: 'Разовое занятие', 
-                price: '800 ₽', 
-                period: '1 занятие', 
-                features: ['Любое направление', 'Группа по уровню', 'Оборудование включено', 'Без абонемента'],
-                popular: false
-            },
-            { 
-                name: 'Абонемент 4 занятия', 
-                price: '2 800 ₽', 
-                period: '1 месяц', 
-                features: ['4 занятия', 'Выбор направления', 'Фиксированное время', 'Перенос по болезни'],
-                popular: true
-            },
-            { 
-                name: 'Абонемент 8 занятий', 
-                price: '4 800 ₽', 
-                period: '1 месяц', 
-                features: ['8 занятий', '2 направления', 'Гибкое расписание', 'Скидка 25%'],
-                popular: false
-            },
-            { 
-                name: 'Безлимитный', 
-                price: '6 500 ₽', 
-                period: '1 месяц', 
-                features: ['Все направления', 'Неограниченно', 'Персональный коврик', 'Участие в мероприятиях'],
-                popular: false
-            },
-            { 
-                name: 'Индивидуальное занятие', 
-                price: '1 500 ₽', 
-                period: '1 час', 
-                features: ['Персональный тренер', 'Индивидуальная программа', 'Гибкое время', 'Быстрый результат'],
-                popular: false
-            }
-        ];
-
-        // Данные для команды
-        const staffData = [
-            { 
-                name: 'Анна Петрова', 
-                position: 'Основатель студии', 
-                experience: '12 лет', 
-                speciality: 'Детские танцы, растяжка', 
-                description: 'Мастер спорта по художественной гимнастике. Выпускница хореографического училища.',
-                education: 'Иркутский хореографический колледж',
-                achievements: 'Призер международных конкурсов'
-            },
-            { 
-                name: 'Михаил Смирнов', 
-                position: 'Старший педагог', 
-                experience: '8 лет', 
-                speciality: 'Hip-Hop, бальные танцы', 
-                description: 'Чемпион России по хип-хопу. Участник шоу "Танцы" на ТНТ.',
-                education: 'Московская академия хореографии',
-                achievements: 'Чемпион России 2020'
-            },
-            { 
-                name: 'Елена Кузнецова', 
-                position: 'Педагог', 
-                experience: '6 лет', 
-                speciality: 'Бальные танцы, детские группы', 
-                description: 'Призер международных конкурсов. Специалист по работе с детьми.',
-                education: 'Иркутский государственный университет',
-                achievements: 'Мастер спорта по спортивным танцам'
-            },
-            { 
-                name: 'Ольга Морозова', 
-                position: 'Педагог', 
-                experience: '5 лет', 
-                speciality: 'Contemporary, фитнес', 
-                description: 'Выпускница хореографического училища. Специалист по современной хореографии.',
-                education: 'Пермское хореографическое училище',
-                achievements: 'Участник проекта "Большой балет"'
-            },
-            { 
-                name: 'Дмитрий Иванов', 
-                position: 'Педагог по растяжке', 
-                experience: '7 лет', 
-                speciality: 'Стретчинг, йога', 
-                description: 'Сертифицированный тренер по растяжке и йоге. Мастер спорта по спортивной гимнастике.',
-                education: 'РГУФКСМиТ',
-                achievements: 'Тренер чемпионов по художественной гимнастике'
-            },
-            { 
-                name: 'Мария Сидорова', 
-                position: 'Администратор', 
-                experience: '4 года', 
-                speciality: 'Запись, консультации', 
-                description: 'Всегда поможет с выбором направления и ответит на все вопросы.',
-                education: 'Иркутский государственный университет',
-                achievements: 'Лучший сотрудник года 2023'
-            }
-        ];
-
-        // Данные для отзывов
-        const reviewsData = [
-            { 
-                name: 'Ирина С.', 
-                rating: 5, 
-                text: 'Дочь занимается уже 2 года. Видим огромный прогреск! Педагоги внимательные, профессиональные. Рекомендую!', 
-                date: '15.12.2024',
-                direction: 'Детские танцы'
-            },
-            { 
-                name: 'Алексей М.', 
-                rating: 5, 
-                text: 'Как взрослый человек, долго искал куда пойти танцевать. Здесь нашел идеальный баланс профессионализма и дружеской атмосферы.', 
-                date: '10.12.2024',
-                direction: 'Hip-Hop'
-            },
-            { 
-                name: 'Ольга К.', 
-                rating: 5, 
-                text: 'Ребенок ходит с удовольствием. Преподаватели умеют найти подход к каждому. Очень довольны результатами!', 
-                date: '05.12.2024',
-                direction: 'Бальные танцы'
-            },
-            { 
-                name: 'Дмитрий П.', 
-                rating: 5, 
-                text: 'Занимаюсь в группе для взрослых 3 месяца. Уже участвовал в отчетном концерте! Не думал, что в моем возрасте это возможно.', 
-                date: '01.12.2024',
-                direction: 'Contemporary'
-            },
-            { 
-                name: 'Елена В.', 
-                rating: 5, 
-                text: 'Отличная студия! Двое детей занимаются у разных педагогов. Оба в восторге. Особенно нравятся отчетные концерты.', 
-                date: '28.11.2024',
-                direction: 'Детские танцы'
-            },
-            { 
-                name: 'Сергей Н.', 
-                rating: 5, 
-                text: 'Пришел с нулевой подготовкой. За полгода научился танцевать лучше, чем ожидал. Преподаватели - мастера своего дела!', 
-                date: '25.11.2024',
-                direction: 'Танцы для взрослых'
-            }
-        ];
-
-        // Данные для FAQ
-        const faqData = [
-            { 
-                q: 'С какого возраста можно начинать заниматься?', 
-                a: 'Мы принимаем детей с 3 лет в группу "Танцы-игра". Для каждого возраста своя программа: 3-4 года, 5-7 лет, 8-10 лет, 11-13 лет, 14-16 лет и взрослые группы.' 
-            },
-            { 
-                q: 'Нужна ли специальная форма для занятий?', 
-                a: 'Да, для занятий нужна удобная одежда (футболка, лосины/шорты) и чешки или балетки. Конкретные требования зависят от направления. На первое занятие можно прийти в любой удобной спортивной одежде.' 
-            },
-            { 
-                q: 'Можно ли посетить пробное занятие?', 
-                a: 'Да, пробное занятие стоит 300 рублей. Вы можете выбрать любое направление и группу по возрасту. После пробного занятия педагог даст рекомендации по дальнейшим занятиям.' 
-            },
-            { 
-                q: 'Как оплачивать занятия?', 
-                a: 'Оплата принимается наличными в студии, по карте или через онлайн-банк. Можно купить разовое занятие или абонемент на 4, 8 занятий или безлимитный.' 
-            },
-            { 
-                q: 'Что если я пропустил занятие?', 
-                a: 'При наличии уважительной причины (болезнь, отъезд) мы можем перенести занятие или сделать перерасчет. Необходимо предупредить администратора за 24 часа.' 
-            },
-            { 
-                q: 'Есть ли утренние группы?', 
-                a: 'Да, у нас есть группы для взрослых в утреннее время. Точное расписание смотрите в разделе "Расписание". Также есть группы выходного дня.' 
-            },
-            { 
-                q: 'Можно ли заниматься индивидуально?', 
-                a: 'Да, мы предлагаем индивидуальные занятия с педагогом. Стоимость - 1500 рублей за час. Индивидуальные занятия позволяют быстрее достичь результатов.' 
-            },
-            { 
-                q: 'Участвуете ли вы в конкурсах?', 
-                a: 'Да, наши ученики регулярно участвуют в городских, региональных и всероссийских конкурсах. Для желающих есть специальная группа по подготовке к конкурсам.' 
-            }
-        ];
-
-        // Переменные для слайдера
-        let currentSlide = 0;
-        let slideInterval;
-
-        // Инициализация слайдера
-        function initSlider() {
-            const sliderContainer = document.getElementById('sliderContainer');
-            const sliderDots = document.getElementById('sliderDots');
-            
-            sliderContainer.innerHTML = '';
-            sliderDots.innerHTML = '';
-            
-            gallerySlides.forEach((slide, index) => {
-                const slideElement = document.createElement('div');
-                slideElement.className = 'slide';
-                slideElement.innerHTML = `
-                    <img src="${slide.image}" alt="Галерея ${index + 1}" loading="lazy">
-                    <div class="slide-caption">${slide.caption}</div>
-                `;
-                sliderContainer.appendChild(slideElement);
-                
-                const dot = document.createElement('div');
-                dot.className = `dot ${index === 0 ? 'active' : ''}`;
-                dot.onclick = () => goToSlide(index);
-                sliderDots.appendChild(dot);
-            });
-            
-            startAutoSlide();
-        }
-
-        // Функции управления слайдером
-        function nextSlide() {
-            goToSlide((currentSlide + 1) % gallerySlides.length);
-        }
-
-        function prevSlide() {
-            goToSlide((currentSlide - 1 + gallerySlides.length) % gallerySlides.length);
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            const sliderContainer = document.getElementById('sliderContainer');
-            const dots = document.querySelectorAll('.dot');
-            
-            sliderContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-            
-            resetAutoSlide();
-        }
-
-        function startAutoSlide() {
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-
-        function resetAutoSlide() {
-            clearInterval(slideInterval);
-            startAutoSlide();
-        }
-
-        // Инициализация мероприятий
-        function initEvents() {
-            const eventsFilters = document.getElementById('eventsFilters');
-            const eventsGrid = document.getElementById('eventsGrid');
-            
-            // Создаем фильтры
-            eventTypes.forEach(type => {
-                const filter = document.createElement('div');
-                filter.className = `event-filter ${type === 'Все' ? 'active' : ''}`;
-                filter.textContent = type;
-                filter.onclick = () => filterEvents(type);
-                eventsFilters.appendChild(filter);
-            });
-            
-            // Отображаем мероприятия
-            displayEvents(eventsData.filter(event => event.featured));
-        }
-
-        function filterEvents(type) {
-            // Обновляем активный фильтр
-            document.querySelectorAll('.event-filter').forEach(filter => {
-                filter.classList.toggle('active', filter.textContent === type);
-            });
-            
-            // Фильтруем мероприятия
-            let filteredEvents;
-            if (type === 'Все') {
-                filteredEvents = eventsData;
-            } else {
-                filteredEvents = eventsData.filter(event => event.type === type);
-            }
-            
-            displayEvents(filteredEvents);
-        }
-
-        function displayEvents(eventsArray) {
-            const eventsGrid = document.getElementById('eventsGrid');
-            eventsGrid.innerHTML = '';
-            
-            if (eventsArray.length === 0) {
-                eventsGrid.innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #666;">
-                        <i class="fas fa-calendar-times" style="font-size: 48px; margin-bottom: 20px; opacity: 0.5;"></i>
-                        <h3>Мероприятий пока нет</h3>
-                        <p>Следите за обновлениями!</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            eventsArray.forEach(event => {
-                const eventCard = document.createElement('div');
-                eventCard.className = 'event-card';
-                eventCard.innerHTML = `
-                    <img src="${event.image}" alt="${event.title}" class="event-image" loading="lazy">
-                    <div class="event-content">
-                        <div class="event-header">
-                            <div class="event-date">${event.date}</div>
-                            <span class="event-type">${event.type}</span>
-                        </div>
-                        <h3 class="event-title">${event.title}</h3>
-                        <p class="event-description">${event.description}</p>
-                        <div class="event-details">
-                            <div class="event-detail">
-                                <i class="fas fa-clock"></i>
-                                <span>${event.time} (${event.duration})</span>
-                            </div>
-                            <div class="event-detail">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>${event.location}</span>
-                            </div>
-                            <div class="event-detail">
-                                <i class="fas fa-ticket-alt"></i>
-                                <span>${event.price}</span>
-                            </div>
-                            <div class="event-detail">
-                                <i class="fas fa-users"></i>
-                                <span>${event.available ? 'Есть места' : 'Запись закрыта'}</span>
-                            </div>
-                        </div>
-                        <div class="event-actions">
-                            <button class="btn btn-small ${event.available ? 'btn-primary' : 'btn-danger'}" 
-                                    onclick="eventAction(${event.id})" ${!event.available ? 'disabled' : ''}>
-                                <i class="fas fa-${event.available ? 'calendar-plus' : 'ban'}"></i>
-                                ${event.available ? 'Записаться' : 'Мест нет'}
-                            </button>
-                            <button class="btn btn-small btn-warning" onclick="shareEvent(${event.id})">
-                                <i class="fas fa-share-alt"></i> Поделиться
-                            </button>
-                        </div>
-                    </div>
-                `;
-                eventsGrid.appendChild(eventCard);
-            });
-        }
-
-        function loadMoreEvents() {
-            // Показываем все мероприятия
-            displayEvents(eventsData);
-            document.querySelector('.load-more-btn').style.display = 'none';
-        }
-
-        function eventAction(eventId) {
-            const event = eventsData.find(e => e.id === eventId);
-            if (event && event.available) {
-                if (confirm(`Хотите записаться на мероприятие "${event.title}"?`)) {
-                    openModal();
-                    // Автозаполнение формы
-                    setTimeout(() => {
-                        document.getElementById('message').value = `Хочу записаться на мероприятие: ${event.title} (${event.date} в ${event.time})`;
-                    }, 100);
-                }
-            }
-        }
-
-        function shareEvent(eventId) {
-            const event = eventsData.find(e => e.id === eventId);
-            if (event) {
-                const shareText = `Приглашаю на мероприятие: ${event.title} (${event.date} в ${event.time}) - Студия танцев "Первый ритм Ленинского"`;
-                const shareUrl = window.location.href;
-                
-                if (navigator.share) {
-                    navigator.share({
-                        title: event.title,
-                        text: shareText,
-                        url: shareUrl
-                    });
-                } else {
-                    navigator.clipboard.writeText(shareText + '\n' + shareUrl).then(() => {
-                        alert('Информация о мероприятии скопирована в буфер обмена!');
-                    });
-                }
-            }
-        }
-
-        // Функции для вкладок
-        function showTab(tabId) {
-            // Скрываем все вкладки
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Убираем активный класс со всех ссылок
+        // Загрузка контента страниц
+        document.addEventListener('DOMContentLoaded', function() {
+            // Обработка кликов по навигации
             document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Показываем выбранную вкладку
-            document.getElementById(tabId).classList.add('active');
-            
-            // Добавляем активный класс к ссылке
-            document.querySelector(`[href="#${tabId}"]`).classList.add('active');
-            
-            // Загружаем контент вкладки
-            loadTabContent(tabId);
-            
-            // Закрываем мобильное меню
-            document.querySelector('.nav-links').classList.remove('show');
-            
-            // Прокрутка к вкладке
-            document.querySelector('.page-container').scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-
-        function loadTabContent(tabId) {
-            switch(tabId) {
-                case 'directions':
-                    loadDirections();
-                    break;
-                case 'schedule':
-                    loadSchedule();
-                    break;
-                case 'prices':
-                    loadPrices();
-                    break;
-                case 'staff':
-                    loadStaff();
-                    break;
-                case 'reviews':
-                    loadReviews();
-                    break;
-                case 'events':
-                    loadEventsTab();
-                    break;
-                case 'gallery':
-                    loadGallery();
-                    break;
-                case 'faq':
-                    loadFAQ();
-                    break;
-                case 'contacts':
-                    loadContacts();
-                    break;
-                case 'rules':
-                    loadRules();
-                    break;
-                case 'booking':
-                    loadBooking();
-                    break;
-            }
-        }
-
-        function loadDirections() {
-            const container = document.getElementById('directionsContent');
-            if (container.innerHTML) return;
-            
-            let html = '';
-            directionsData.forEach(direction => {
-                html += `
-                    <div class="card direction-card">
-                        <div class="direction-icon">
-                            <i class="${direction.icon}"></i>
-                        </div>
-                        <h3 class="card-title">${direction.name}</h3>
-                        <div style="margin: 15px 0;">
-                            <span style="background: #E3F2FD; color: #1976D2; padding: 5px 10px; border-radius: 15px; font-size: 14px;">
-                                <i class="fas fa-user-clock"></i> ${direction.age}
-                            </span>
-                            <span style="background: #F3E5F5; color: #7B1FA2; padding: 5px 10px; border-radius: 15px; font-size: 14px; margin-left: 10px;">
-                                <i class="fas fa-clock"></i> ${direction.duration}
-                            </span>
-                        </div>
-                        <p>${direction.description}</p>
-                        <button class="btn btn-primary" style="margin-top: 15px;" onclick="quickEnroll('${direction.name}')">
-                            <i class="fas fa-calendar-plus"></i> Записаться
-                        </button>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
-        }
-
-        function loadSchedule() {
-            const container = document.getElementById('scheduleContent');
-            if (container.innerHTML) return;
-            
-            // Группируем по дням
-            const days = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-            
-            let html = `
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-calendar-week"></i> Расписание на неделю</h3>
-                    <p style="color: #666; margin-bottom: 20px;">Актуально с 16 декабря 2024 года</p>
-            `;
-            
-            days.forEach(day => {
-                const daySchedule = scheduleData.filter(item => item.day === day);
-                if (daySchedule.length > 0) {
-                    html += `
-                        <div style="margin-bottom: 30px;">
-                            <h4 style="color: #667eea; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #667eea;">
-                                <i class="fas fa-calendar-day"></i> ${day}
-                            </h4>
-                            <table class="schedule-table">
-                                <thead>
-                                    <tr>
-                                        <th>Время</th>
-                                        <th>Группа</th>
-                                        <th>Направление</th>
-                                        <th>Педагог</th>
-                                        <th>Зал</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                    `;
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
                     
-                    daySchedule.forEach(item => {
-                        html += `
-                            <tr>
-                                <td><strong>${item.time}</strong></td>
-                                <td>${item.group}</td>
-                                <td>${item.direction}</td>
-                                <td>${item.teacher}</td>
-                                <td>${item.room}</td>
-                            </tr>
-                        `;
-                    });
-                    
-                    html += `
-                                </tbody>
-                            </table>
-                        </div>
-                    `;
-                }
-            });
-            
-            html += `
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 30px;">
-                        <h4><i class="fas fa-info-circle"></i> Важная информация</h4>
-                        <ul style="padding-left: 20px; margin: 10px 0;">
-                            <li>Расписание может меняться - следите за обновлениями</li>
-                            <li>Запись на занятия обязательна</li>
-                            <li>Приходите за 10-15 минут до начала занятия</li>
-                            <li>В случае отмены занятия администратор предупредит заранее</li>
-                        </ul>
-                    </div>
-                </div>
-            `;
-            
-            container.innerHTML = html;
-        }
-
-        function loadPrices() {
-            const container = document.getElementById('pricesContent');
-            if (container.innerHTML) return;
-            
-            let html = '';
-            pricesData.forEach(price => {
-                html += `
-                    <div class="card price-card ${price.popular ? 'pulse' : ''}" style="${price.popular ? 'border: 2px solid #4CAF50;' : ''}">
-                        ${price.popular ? `
-                            <div style="position: absolute; top: 15px; right: 15px; background: #4CAF50; color: white; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold;">
-                                <i class="fas fa-crown"></i> ПОПУЛЯРНО
-                            </div>
-                        ` : ''}
-                        <h3 class="card-title">${price.name}</h3>
-                        <div class="price-amount">${price.price}</div>
-                        <div class="price-period">${price.period}</div>
-                        <ul class="price-features">
-                `;
-                
-                price.features.forEach(feature => {
-                    html += `<li>${feature}</li>`;
-                });
-                
-                html += `
-                        </ul>
-                        <button class="btn btn-large ${price.popular ? 'btn-success' : 'btn-primary'}" onclick="quickEnroll('${price.name}')" style="margin-top: 20px;">
-                            <i class="fas fa-shopping-cart"></i> Выбрать тариф
-                        </button>
-                    </div>
-                `;
-            });
-            
-            container.innerHTML = html;
-        }
-
-        function loadStaff() {
-            const container = document.getElementById('staffContent');
-            if (container.innerHTML) return;
-            
-            let html = '';
-            staffData.forEach(staff => {
-                const initials = staff.name.split(' ').map(n => n[0]).join('');
-                html += `
-                    <div class="card staff-card">
-                        <div class="staff-photo">
-                            <span>${initials}</span>
-                        </div>
-                        <h3 class="card-title">${staff.name}</h3>
-                        <div style="color: #667eea; font-weight: bold; margin-bottom: 10px;">${staff.position}</div>
-                        <div style="color: #4CAF50; margin-bottom: 10px;">
-                            <i class="fas fa-award"></i> Опыт: ${staff.experience}
-                        </div>
-                        <div style="margin-bottom: 10px;">
-                            <strong>Специализация:</strong> ${staff.speciality}
-                        </div>
-                        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">${staff.description}</p>
-                        <div style="font-size: 12px; color: #888;">
-                            <div><i class="fas fa-graduation-cap"></i> ${staff.education}</div>
-                            <div style="margin-top: 5px;"><i class="fas fa-trophy"></i> ${staff.achievements}</div>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            container.innerHTML = html;
-        }
-
-        function loadReviews() {
-            const container = document.getElementById('reviewsContent');
-            if (container.innerHTML) return;
-            
-            let html = '';
-            reviewsData.forEach(review => {
-                const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
-                const initials = review.name.split(' ').map(n => n[0]).join('');
-                html += `
-                    <div class="card review-card">
-                        <div class="review-rating" title="${review.rating} из 5">${stars}</div>
-                        <p style="font-style: italic; color: #555; line-height: 1.6;">"${review.text}"</p>
-                        <div style="margin: 15px 0;">
-                            <span style="background: #E8F5E9; color: #2E7D32; padding: 3px 8px; border-radius: 10px; font-size: 12px;">
-                                <i class="fas fa-dance"></i> ${review.direction}
-                            </span>
-                        </div>
-                        <div class="review-author">
-                            <div class="author-avatar">${initials}</div>
-                            <div>
-                                <strong>${review.name}</strong>
-                                <div style="color: #888; font-size: 14px;">${review.date}</div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            container.innerHTML = html;
-        }
-
-        function loadEventsTab() {
-            const container = document.getElementById('eventsTabContent');
-            if (container.innerHTML) return;
-            
-            // Показываем полный календарь мероприятий
-            container.innerHTML = `
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Календарь мероприятий</h3>
-                    <p style="color: #666; margin-bottom: 20px;">Все наши события, конкурсы, концерты и мастер-классы</p>
-                    
-                    <div style="text-align: center; margin-bottom: 30px;">
-                        <button class="btn btn-primary" onclick="openModal()">
-                            <i class="fas fa-bell"></i> Подписаться на анонсы
-                        </button>
-                        <button class="btn btn-success" onclick="window.open('https://vk.com/club233766207', '_blank')" style="margin-left: 10px;">
-                            <i class="fab fa-vk"></i> Следить в VK
-                        </button>
-                    </div>
-                    
-                    <div id="fullEventsList"></div>
-                </div>
-            `;
-            
-            // Загружаем все мероприятия
-            displayFullEvents(eventsData);
-        }
-
-        function displayFullEvents(eventsArray) {
-            const container = document.getElementById('fullEventsList');
-            container.innerHTML = '';
-            
-            // Группируем по месяцам
-            const months = {};
-            eventsArray.forEach(event => {
-                const month = event.date.split('.')[1];
-                if (!months[month]) months[month] = [];
-                months[month].push(event);
-            });
-            
-            // Сортируем месяцы
-            const sortedMonths = Object.keys(months).sort();
-            
-            if (sortedMonths.length === 0) {
-                container.innerHTML = `
-                    <div style="text-align: center; padding: 40px; color: #666;">
-                        <i class="fas fa-calendar-plus" style="font-size: 48px; margin-bottom: 20px; opacity: 0.5;"></i>
-                        <h3>Мероприятий пока нет</h3>
-                        <p>Следите за обновлениями в наших соцсетях!</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            sortedMonths.forEach(month => {
-                const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-                const monthName = monthNames[parseInt(month) - 1];
-                
-                let monthHtml = `
-                    <div style="margin-bottom: 40px;">
-                        <h4 style="color: #9C27B0; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #9C27B0;">
-                            <i class="fas fa-calendar"></i> ${monthName} 2025
-                        </h4>
-                        <div class="events-month-list">
-                `;
-                
-                months[month].forEach(event => {
-                    monthHtml += `
-                        <div class="event-item" style="display: flex; gap: 20px; margin-bottom: 20px; padding: 20px; border: 1px solid #E1BEE7; border-radius: 10px; background: white;">
-                            <div style="min-width: 100px; text-align: center;">
-                                <div style="font-size: 24px; font-weight: bold; color: #9C27B0;">${event.date.split('.')[0]}</div>
-                                <div style="color: #666;">${monthName}</div>
-                            </div>
-                            <div style="flex: 1;">
-                                <h4 style="margin-bottom: 10px; color: #2C3E50;">${event.title}</h4>
-                                <p style="color: #666; margin-bottom: 10px;">${event.description}</p>
-                                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                                    <span style="background: #F3E5F5; color: #9C27B0; padding: 3px 10px; border-radius: 15px; font-size: 12px;">
-                                        ${event.type}
-                                    </span>
-                                    <span style="color: #666;">
-                                        <i class="fas fa-clock"></i> ${event.time}
-                                    </span>
-                                    <span style="color: #666;">
-                                        <i class="fas fa-map-marker-alt"></i> ${event.location}
-                                    </span>
-                                    <span style="color: #666;">
-                                        <i class="fas fa-ticket-alt"></i> ${event.price}
-                                    </span>
-                                </div>
-                            </div>
-                            <div>
-                                <button class="btn btn-small ${event.available ? 'btn-primary' : 'btn-danger'}" 
-                                        onclick="eventAction(${event.id})" ${!event.available ? 'disabled' : ''}>
-                                    ${event.available ? 'Записаться' : 'Нет мест'}
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                monthHtml += `
-                        </div>
-                    </div>
-                `;
-                
-                container.innerHTML += monthHtml;
-            });
-        }
-
-        function loadGallery() {
-            const container = document.getElementById('galleryContent');
-            if (container.innerHTML) return;
-            
-            container.innerHTML = `
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-images"></i> Фотогалерея</h3>
-                    <p style="color: #666; margin-bottom: 20px;">Наши лучшие моменты: занятия, выступления, мероприятия</p>
-                    
-                    <div class="grid-3" id="galleryGrid"></div>
-                    
-                    <div style="text-align: center; margin-top: 30px;">
-                        <button class="btn btn-primary" onclick="window.open('https://vk.com/albums-233766207', '_blank')">
-                            <i class="fab fa-vk"></i> Больше фото в VK
-                        </button>
-                    </div>
-                </div>
-            `;
-            
-            const galleryGrid = document.getElementById('galleryGrid');
-            let html = '';
-            
-            gallerySlides.forEach((slide, index) => {
-                html += `
-                    <div class="gallery-item" onclick="openGalleryImage(${index})">
-                        <img src="${slide.image}" alt="Галерея ${index + 1}" 
-                             style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.3s ease;">
-                        <div style="padding: 15px; background: white; text-align: center; border-top: 1px solid #eee;">
-                            <p style="margin: 0; font-weight: 500; color: #555;">${slide.caption}</p>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            // Добавляем дополнительные фото
-            const extraPhotos = [
-                {
-                    image: 'https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?auto=format&fit=crop&w=400&q=80',
-                    caption: 'Работа над постановкой номера'
-                },
-                {
-                    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80',
-                    caption: 'Групповая фотография после выступления'
-                },
-                {
-                    image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80',
-                    caption: 'Репетиция перед концертом'
-                }
-            ];
-            
-            extraPhotos.forEach((photo, index) => {
-                html += `
-                    <div class="gallery-item" onclick="openGalleryImage(${gallerySlides.length + index})">
-                        <img src="${photo.image}" alt="Фото ${index + 1}" 
-                             style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.3s ease;">
-                        <div style="padding: 15px; background: white; text-align: center; border-top: 1px solid #eee;">
-                            <p style="margin: 0; font-weight: 500; color: #555;">${photo.caption}</p>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            galleryGrid.innerHTML = html;
-        }
-
-        function openGalleryImage(index) {
-            let slide;
-            if (index < gallerySlides.length) {
-                slide = gallerySlides[index];
-            } else {
-                const extraPhotos = [
-                    {
-                        image: 'https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?auto=format&fit=crop&w=1200&q=80',
-                        caption: 'Работа над постановкой номера'
-                    },
-                    {
-                        image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80',
-                        caption: 'Групповая фотография после выступления'
-                    },
-                    {
-                        image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80',
-                        caption: 'Репетиция перед концертом'
+                    if (href.startsWith('#')) {
+                        const page = href.substring(1) + '.html';
+                        loadPage(page);
+                        
+                        // Обновление активного состояния
+                        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
                     }
-                ];
-                slide = extraPhotos[index - gallerySlides.length];
-            }
-            
-            const modalHtml = `
-                <div id="galleryModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 3000; display: flex; align-items: center; justify-content: center; padding: 20px; animation: fadeIn 0.3s ease;">
-                    <div style="position: relative; max-width: 90%; max-height: 90%;">
-                        <img src="${slide.image}" alt="${slide.caption}" style="max-width: 100%; max-height: 80vh; border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-                        <div style="color: white; text-align: center; margin-top: 15px; font-size: 18px;">${slide.caption}</div>
-                        <button onclick="closeGalleryImage()" style="position: absolute; top: -40px; right: 0; background: none; border: none; color: white; font-size: 30px; cursor: pointer; transition: color 0.3s ease;">
-                            <i class="fas fa-times"></i>
-                        </button>
-                        <button onclick="prevGalleryImage(${index})" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); border: none; color: white; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; cursor: pointer; transition: all 0.3s ease;">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button onclick="nextGalleryImage(${index})" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); border: none; color: white; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; cursor: pointer; transition: all 0.3s ease;">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-            `;
-            
-            const modal = document.createElement('div');
-            modal.innerHTML = modalHtml;
-            document.body.appendChild(modal);
-            
-            // Закрытие по клику на фон
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal || e.target.id === 'galleryModal') {
-                    closeGalleryImage();
-                }
-            });
-        }
-
-        function prevGalleryImage(currentIndex) {
-            closeGalleryImage();
-            const totalImages = gallerySlides.length + 3; // gallerySlides + extraPhotos
-            const newIndex = (currentIndex - 1 + totalImages) % totalImages;
-            setTimeout(() => openGalleryImage(newIndex), 10);
-        }
-
-        function nextGalleryImage(currentIndex) {
-            closeGalleryImage();
-            const totalImages = gallerySlides.length + 3; // gallerySlides + extraPhotos
-            const newIndex = (currentIndex + 1) % totalImages;
-            setTimeout(() => openGalleryImage(newIndex), 10);
-        }
-
-        function closeGalleryImage() {
-            const modal = document.getElementById('galleryModal');
-            if (modal) modal.remove();
-        }
-
-        function loadFAQ() {
-            const container = document.getElementById('faqContent');
-            if (container.innerHTML) return;
-            
-            let html = `
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-question-circle"></i> Часто задаваемые вопросы</h3>
-                    <p style="color: #666; margin-bottom: 20px;">Ответы на самые популярные вопросы о занятиях в нашей студии</p>
                     
-                    <div class="faq-list">
-            `;
-            
-            faqData.forEach((item, index) => {
-                html += `
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFAQ(${index})">
-                            <span>${item.q}</span>
-                            <i class="fas fa-chevron-down" id="faqIcon${index}"></i>
-                        </div>
-                        <div class="faq-answer" id="faqAnswer${index}">
-                            ${item.a}
-                        </div>
-                    </div>
-                `;
+                    // Закрытие мобильного меню
+                    document.querySelector('.nav-links').classList.remove('show');
+                });
             });
             
-            html += `
-                    </div>
-                    
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 30px;">
-                        <h4><i class="fas fa-comments"></i> Остались вопросы?</h4>
-                        <p style="margin: 10px 0;">Мы всегда готовы ответить на ваши вопросы:</p>
-                        <div style="display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
-                            <button class="btn btn-primary" onclick="window.open('tel:+79041233175')">
-                                <i class="fas fa-phone"></i> Позвонить
-                            </button>
-                            <button class="btn btn-success" onclick="openModal()">
-                                <i class="fas fa-envelope"></i> Написать
-                            </button>
-                            <button class="btn" onclick="window.open('https://vk.com/club233766207', '_blank')" style="background: #4C75A3; color: white;">
-                                <i class="fab fa-vk"></i> ВКонтакте
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            container.innerHTML = html;
-        }
+            // Загружаем страницу направлений по умолчанию
+            loadPage('directions.html');
+            document.querySelector('[href="#directions"]').classList.add('active');
+        });
 
-        function toggleFAQ(index) {
-            const answer = document.getElementById(`faqAnswer${index}`);
-            const icon = document.getElementById(`faqIcon${index}`);
+        function loadPage(page) {
+            const loading = document.getElementById('loading');
+            const frame = document.getElementById('content-frame');
             
-            if (answer.style.display === 'none' || !answer.style.display) {
-                answer.style.display = 'block';
-                icon.className = 'fas fa-chevron-up';
-            } else {
-                answer.style.display = 'none';
-                icon.className = 'fas fa-chevron-down';
-            }
-        }
-
-        function loadContacts() {
-            const container = document.getElementById('contactsContent');
-            if (container.innerHTML) return;
+            loading.style.display = 'flex';
+            frame.style.display = 'none';
             
-            container.innerHTML = `
-                <div class="grid-2">
-                    <div class="card">
-                        <h3 class="card-title"><i class="fas fa-map-marker-alt"></i> Адрес студии</h3>
-                        <p style="font-size: 18px; margin-bottom: 10px;">
-                            <strong>г. Иркутск</strong>
-                        </p>
-                        <p style="font-size: 16px; color: #666; margin-bottom: 20px;">
-                            ул. 1-й Ленинский квартал д. 1
-                        </p>
-                        
-                        <div style="height: 200px; background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%); border-radius: 10px; margin: 15px 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #1976D2;">
-                            <i class="fas fa-map" style="font-size: 48px; margin-bottom: 15px;"></i>
-                            <p style="text-align: center; font-size: 14px;">
-                                Район Ленинского округа<br>
-                                Остановка "Ленинский рынок"<br>
-                                Рядом ТЦ "Ленинский"
-                            </p>
-                        </div>
-                        
-                        <div style="margin-top: 20px;">
-                            <h4><i class="fas fa-directions"></i> Как добраться</h4>
-                            <ul style="padding-left: 20px; margin: 10px 0; color: #666;">
-                                <li>Автобусы: 4, 8, 11, 15, 20</li>
-                                <li>Маршрутки: 45, 67, 89, 120</li>
-                                <li>От остановки 5 минут пешком</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <h3 class="card-title"><i class="fas fa-clock"></i> Режим работы</h3>
-                        
-                        <div style="margin: 20px 0;">
-                            <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
-                                <span><strong>Понедельник - Пятница:</strong></span>
-                                <span>10:00 - 22:00</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
-                                <span><strong>Суббота:</strong></span>
-                                <span>9:00 - 20:00</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 10px 0;">
-                                <span><strong>Воскресенье:</strong></span>
-                                <span>10:00 - 18:00</span>
-                            </div>
-                        </div>
-                        
-                        <h4 style="margin-top: 30px;"><i class="fas fa-phone"></i> Контакты</h4>
-                        <div style="margin: 15px 0;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                                <i class="fas fa-phone" style="color: #4CAF50;"></i>
-                                <div>
-                                    <div style="font-weight: bold;">Телефон:</div>
-                                    <div style="color: #667eea; font-size: 18px;">+7 (904) 123-31-75</div>
-                                </div>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                                <i class="fas fa-envelope" style="color: #FF9800;"></i>
-                                <div>
-                                    <div style="font-weight: bold;">Email:</div>
-                                    <div>info@pervyiritm.ru</div>
-                                </div>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <i class="fab fa-vk" style="color: #4C75A3;"></i>
-                                <div>
-                                    <div style="font-weight: bold;">ВКонтакте:</div>
-                                    <div>vk.com/club233766207</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            frame.src = page;
+            frame.onload = function() {
+                loading.style.display = 'none';
+                frame.style.display = 'block';
                 
-                <div class="card" style="margin-top: 30px;">
-                    <h3 class="card-title"><i class="fas fa-question-circle"></i> Есть вопросы?</h3>
-                    <p style="color: #666; margin-bottom: 20px;">Задайте их нашему администратору - мы с радостью поможем!</p>
-                    
-                    <div style="text-align: center; margin-top: 20px;">
-                        <button class="btn btn-large btn-success" onclick="window.open('tel:+79041233175')">
-                            <i class="fas fa-phone"></i> Позвонить сейчас
-                        </button>
-                        <button class="btn btn-large btn-primary" onclick="openModal()" style="margin-left: 15px;">
-                            <i class="fas fa-envelope"></i> Написать сообщение
-                        </button>
-                        <button class="btn btn-large" onclick="window.open('https://vk.com/club233766207', '_blank')" style="margin-left: 15px; background: #4C75A3; color: white;">
-                            <i class="fab fa-vk"></i> Написать в VK
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        function loadRules() {
-            const container = document.getElementById('rulesContent');
-            if (container.innerHTML) return;
-            
-            container.innerHTML = `
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-clipboard-list"></i> ПРАВИЛА ПОСЕЩЕНИЯ СТУДИИ</h3>
-                    
-                    <div style="margin: 20px 0;">
-                        <div class="faq-item">
-                            <div class="faq-question" onclick="toggleRules('rules1')">
-                                <span>1. Общие правила посещения</span>
-                                <i class="fas fa-chevron-down" id="rulesIcon1"></i>
-                            </div>
-                            <div class="faq-answer" id="rules1">
-                                <ul style="padding-left: 20px; margin: 10px 0;">
-                                    <li>Запись на занятия обязательна через сайт, телефон или администратора</li>
-                                    <li>Опаздывать на занятия не более чем на 10 минут</li>
-                                    <li>Иметь при себе сменную обувь (чешки, балетки, джазовки)</li>
-                                    <li>Соблюдать тишину в коридорах во время занятий</li>
-                                    <li>Не входить в зал без разрешения педагога</li>
-                                    <li>Бережно относиться к оборудованию и имуществу студии</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <div class="faq-question" onclick="toggleRules('rules2')">
-                                <span>2. Для детей и родителей</span>
-                                <i class="fas fa-chevron-down" id="rulesIcon2"></i>
-                            </div>
-                            <div class="faq-answer" id="rules2">
-                                <ul style="padding-left: 20px; margin: 10px 0;">
-                                    <li>Родители встречают детей у раздевалки за 10 минут до окончания занятия</li>
-                                    <li>Не оставлять детей без присмотра до начала занятия</li>
-                                    <li>Сообщать педагогу о состоянии здоровья ребенка</li>
-                                    <li>Предупреждать об отсутствии ребенка на занятии</li>
-                                    <li>Не отвлекать детей во время занятия</li>
-                                    <li>Обеспечить ребенка водой для питья</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <div class="faq-question" onclick="toggleRules('rules3')">
-                                <span>3. Оплата и отмены занятий</span>
-                                <i class="fas fa-chevron-down" id="rulesIcon3"></i>
-                            </div>
-                            <div class="faq-answer" id="rules3">
-                                <ul style="padding-left: 20px; margin: 10px 0;">
-                                    <li>Оплата абонемента в течение 3 дней после покупки</li>
-                                    <li>Предупреждать об отмене занятия за 24 часа</li>
-                                    <li>Перенос пропущенных занятий возможен по уважительной причине (болезнь, отъезд)</li>
-                                    <li>Абонементы действуют 30 дней с даты покупки</li>
-                                    <li>Возврат средств за неиспользованные занятия возможен по письменному заявлению</li>
-                                    <li>Пробное занятие оплачивается отдельно и не входит в абонемент</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <div class="faq-question" onclick="toggleRules('rules4')">
-                                <span>4. Техника безопасности и гигиена</span>
-                                <i class="fas fa-chevron-down" id="rulesIcon4"></i>
-                            </div>
-                            <div class="faq-answer" id="rules4">
-                                <ul style="padding-left: 20px; margin: 10px 0;">
-                                    <li>Не входить в зал в уличной обуви</li>
-                                    <li>Снимать украшения перед занятием</li>
-                                    <li>Сообщать педагогу о травмах и противопоказаниях</li>
-                                    <li>Соблюдать личную гигиену</li>
-                                    <li>Использовать только свою бутылку с водой</li>
-                                    <li>При плохом самочувствии отменить занятие</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <div class="faq-question" onclick="toggleRules('rules5')">
-                                <span>5. Форма для занятий</span>
-                                <i class="fas fa-chevron-down" id="rulesIcon5"></i>
-                            </div>
-                            <div class="faq-answer" id="rules5">
-                                <ul style="padding-left: 20px; margin: 10px 0;">
-                                    <li>Дети: купальник/футболка, лосины/шорты, чешки/балетки</li>
-                                    <li>Взрослые: удобная спортивная одежда, не сковывающая движения</li>
-                                    <li>Волосы должны быть убраны</li>
-                                    <li>Не использовать одежду с металлическими элементами</li>
-                                    <li>Для растяжки - носки или чешки</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 30px;">
-                        <h4><i class="fas fa-camera"></i> Согласие на фото и видео съемку</h4>
-                        <p>Посещая занятия в нашей студии, вы даете согласие на фото и видео съемку для использования материалов в рекламных целях студии, на сайте и в социальных сетях.</p>
-                        <p style="margin-top: 10px;"><small>Если вы не согласны с фото/видео съемкой, пожалуйста, сообщите об этом администратору перед началом занятий.</small></p>
-                    </div>
-                </div>
-            `;
-        }
-
-        function toggleRules(rulesId) {
-            const answer = document.getElementById(rulesId);
-            const icon = document.getElementById(rulesId.replace('rules', 'rulesIcon'));
-            
-            if (answer.style.display === 'none' || !answer.style.display) {
-                answer.style.display = 'block';
-                icon.className = 'fas fa-chevron-up';
-            } else {
-                answer.style.display = 'none';
-                icon.className = 'fas fa-chevron-down';
-            }
-        }
-
-        function loadBooking() {
-            const container = document.getElementById('bookingContent');
-            if (container.innerHTML) return;
-            
-            container.innerHTML = `
-                <div class="grid-2">
-                    <div class="card">
-                        <h3 class="card-title"><i class="fas fa-calendar-check"></i> Онлайн-запись через YClients</h3>
-                        <p>Быстрая и удобная запись на занятия через нашу систему онлайн-бронирования</p>
-                        
-                        <div style="text-align: center; margin: 30px 0;">
-                            <div style="font-size: 48px; color: #4CAF50; margin-bottom: 20px;">
-                                <i class="fas fa-laptop"></i>
-                            </div>
-                            <h4>Преимущества онлайн-записи:</h4>
-                            <ul style="text-align: left; margin: 20px 0; padding-left: 20px;">
-                                <li>Выбор удобного времени</li>
-                                <li>Мгновенное подтверждение записи</li>
-                                <li>Напоминание о занятии</li>
-                                <li>История ваших посещений</li>
-                                <li>Оплата онлайн</li>
-                            </ul>
-                        </div>
-                        
-                        <div style="text-align: center;">
-                            <button class="btn btn-large btn-success" onclick="openYclientsWidget()" style="padding: 15px 30px; font-size: 18px;">
-                                <i class="fas fa-external-link-alt"></i> Перейти к записи
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <h3 class="card-title"><i class="fas fa-clock"></i> Альтернативные способы записи</h3>
-                        <p>Если онлайн-запись вам не подходит, воспользуйтесь другими способами:</p>
-                        
-                        <div style="margin: 30px 0;">
-                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 10px;">
-                                <div style="font-size: 24px; color: #667eea;">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div>
-                                    <h4 style="margin: 0;">По телефону</h4>
-                                    <p style="margin: 5px 0 0 0;">Позвоните нам и администратор запишет вас на удобное время</p>
-                                    <button class="btn btn-primary btn-small" onclick="window.open('tel:+79041233175')" style="margin-top: 10px;">
-                                        <i class="fas fa-phone"></i> +7 (904) 123-31-75
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 10px;">
-                                <div style="font-size: 24px; color: #4CAF50;">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <h4 style="margin: 0;">Через форму на сайте</h4>
-                                    <p style="margin: 5px 0 0 0;">Заполните форму обратной связи и мы перезвоним вам</p>
-                                    <button class="btn btn-success btn-small" onclick="openModal()" style="margin-top: 10px;">
-                                        <i class="fas fa-pencil-alt"></i> Заполнить форму
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: #f8f9fa; border-radius: 10px;">
-                                <div style="font-size: 24px; color: #4C75A3;">
-                                    <i class="fab fa-vk"></i>
-                                </div>
-                                <div>
-                                    <h4 style="margin: 0;">ВКонтакте</h4>
-                                    <p style="margin: 5px 0 0 0;">Напишите нам в сообщения группы ВКонтакте</p>
-                                    <button class="btn btn-small" onclick="window.open('https://vk.com/club233766207', '_blank')" style="margin-top: 10px; background: #4C75A3; color: white;">
-                                        <i class="fab fa-vk"></i> Написать в VK
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card" style="margin-top: 30px;">
-                    <h3 class="card-title"><i class="fas fa-info-circle"></i> Важная информация</h3>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
-                        <div style="text-align: center; padding: 15px; background: #E8F5E9; border-radius: 10px;">
-                            <div style="font-size: 32px; color: #2E7D32; margin-bottom: 10px;">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <h4 style="margin: 0;">Рабочее время</h4>
-                            <p style="margin: 5px 0;">Пн-Пт: 10:00-22:00<br>Сб-Вс: 9:00-20:00</p>
-                        </div>
-                        
-                        <div style="text-align: center; padding: 15px; background: #E3F2FD; border-radius: 10px;">
-                            <div style="font-size: 32px; color: #1976D2; margin-bottom: 10px;">
-                                <i class="fas fa-calendar-alt"></i>
-                            </div>
-                            <h4 style="margin: 0;">Отмена занятий</h4>
-                            <p style="margin: 5px 0;">Предупредите за 24 часа для переноса занятия</p>
-                        </div>
-                        
-                        <div style="text-align: center; padding: 15px; background: #FFF3E0; border-radius: 10px;">
-                            <div style="font-size: 32px; color: #F57C00; margin-bottom: 10px;">
-                                <i class="fas fa-first-aid"></i>
-                            </div>
-                            <h4 style="margin: 0;">Пробное занятие</h4>
-                            <p style="margin: 5px 0;">Всего 300 рублей!<br>Определение уровня, консультация</p>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Основные функции
-        function openModal() {
-            document.getElementById('enrollModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('enrollModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        function openYclientsWidget() {
-            try {
-                yWidgetBook();
-            } catch (e) {
-                alert('Виджет записи временно недоступен. Пожалуйста, позвоните нам по телефону +7 (904) 123-31-75 или заполните форму на сайте.');
-                openModal();
-            }
+                // Плавная прокрутка к началу
+                window.scrollTo({ 
+                    top: document.querySelector('.content-container').offsetTop - 20, 
+                    behavior: 'smooth' 
+                });
+            };
         }
 
         function toggleMobileMenu() {
             document.querySelector('.nav-links').classList.toggle('show');
         }
         
+        // Закрытие мобильного меню при клике вне его
         document.addEventListener('click', function(event) {
             const navLinks = document.querySelector('.nav-links');
             const mobileBtn = document.querySelector('.mobile-menu-btn');
@@ -3442,29 +646,18 @@
             }
         });
         
+        // Функции для быстрых действий
         function quickEnroll(direction) {
-            if (confirm(`Хотите записаться на пробное занятие "${direction}" всего за 300 рублей?`)) {
+            if (confirm(`Хотите записаться на пробное занятие по направлению "${direction}"?`)) {
                 openModal();
-                // Автозаполнение направления
-                setTimeout(() => {
-                    const directionSelect = document.getElementById('direction');
-                    if (direction.includes('Пробное')) {
-                        directionSelect.value = 'trial';
-                    } else if (direction.includes('Индивидуальное')) {
-                        directionSelect.value = 'individual';
-                    } else {
-                        directionSelect.value = 'dance';
-                    }
-                    document.getElementById('message').value = `Интересующее направление: ${direction}`;
-                }, 100);
             }
         }
         
         function subscribeNewsletter() {
-            const email = prompt('Введите ваш email для подписки на новости и акции студии:');
+            const email = prompt('Введите ваш email для подписки на новости:');
             if (email && validateEmail(email)) {
-                alert('Спасибо за подписку! Теперь вы будете первыми узнавать о наших мероприятиях, акциях и новостях.');
-                // В реальном приложении здесь будет отправка на сервер
+                // Здесь можно добавить отправку на сервер
+                alert('Спасибо за подписку! Теперь вы будете получать уведомления о наших мероприятиях.');
             } else if (email) {
                 alert('Пожалуйста, введите корректный email адрес.');
             }
@@ -3474,131 +667,6 @@
             const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return re.test(email);
         }
-        
-        // Обработка формы записи
-        document.getElementById('enrollForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                age: document.getElementById('age').value,
-                direction: document.getElementById('direction').value,
-                message: document.getElementById('message').value,
-                timestamp: new Date().toISOString()
-            };
-            
-            // В реальном приложении здесь будет отправка на сервер
-            // Например: fetch('/api/enroll', { method: 'POST', body: JSON.stringify(formData) })
-            
-            // Сохраняем в localStorage для демонстрации
-            const enrollments = JSON.parse(localStorage.getItem('enrollments') || '[]');
-            enrollments.push(formData);
-            localStorage.setItem('enrollments', JSON.stringify(enrollments));
-            
-            // Показываем сообщение об успехе
-            alert(`Спасибо, ${formData.name}!\n\nВаша заявка на запись принята.\nМы свяжемся с вами в ближайшее время по телефону ${formData.phone}\n\nЖдем вас на занятиях!`);
-            
-            // Отправляем в Telegram (в реальном приложении)
-            sendToTelegram(formData);
-            
-            closeModal();
-            document.getElementById('enrollForm').reset();
-        });
-
-        function sendToTelegram(formData) {
-            // В реальном приложении здесь будет отправка в Telegram бот
-            const telegramMessage = `
-📝 Новая заявка с сайта:
-
-👤 Имя: ${formData.name}
-📞 Телефон: ${formData.phone}
-📧 Email: ${formData.email || 'не указан'}
-🎂 Возраст: ${formData.age || 'не указана'}
-💃 Направление: ${formData.direction || 'не указано'}
-💬 Сообщение: ${formData.message || 'нет'}
-⏰ Время: ${new Date().toLocaleString('ru-RU')}
-            `;
-            
-            console.log('Отправка в Telegram:', telegramMessage);
-            // fetch(`https://api.telegram.org/botYOUR_TOKEN/sendMessage?chat_id=YOUR_CHAT_ID&text=${encodeURIComponent(telegramMessage)}`);
-        }
-
-        // Инициализация при загрузке страницы
-        document.addEventListener('DOMContentLoaded', function() {
-            initSlider();
-            initEvents();
-            loadDirections(); // Загружаем первую вкладку по умолчанию
-            
-            // Останавливаем автослайд при наведении
-            document.querySelector('.gallery-slider').addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-
-            document.querySelector('.gallery-slider').addEventListener('mouseleave', () => {
-                startAutoSlide();
-            });
-            
-            // Закрытие модального окна при клике вне его
-            window.addEventListener('click', function(event) {
-                const modal = document.getElementById('enrollModal');
-                if (event.target === modal) {
-                    closeModal();
-                }
-            });
-            
-            // Закрытие модального окна на Escape
-            document.addEventListener('keydown', function(event) {
-                if (event.key === 'Escape') {
-                    closeModal();
-                    closeGalleryImage();
-                }
-            });
-            
-            // Плавная прокрутка для якорей
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    if (targetId === 'home') {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else if (document.getElementById(targetId)) {
-                        document.getElementById(targetId).scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-            
-            // Анимация при скролле
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-            
-            // Наблюдаем за карточками
-            document.querySelectorAll('.card, .stat-card, .event-card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(card);
-            });
-            
-            // Показываем количество заявок в консоли (для демонстрации)
-            const enrollments = JSON.parse(localStorage.getItem('enrollments') || '[]');
-            console.log(`Заявок в localStorage: ${enrollments.length}`);
-        });
     </script>
 </body>
 </html>
