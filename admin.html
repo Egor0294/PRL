@@ -3,551 +3,493 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Панель управления - Студия "Первый ритм Ленинского"</title>
-    <link rel="stylesheet" href="admin-styles.css">
+    <title>Панель управления - Первый ритм Ленинского</title>
+    <link rel="stylesheet" href="editor-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="editor-scripts.js" defer></script>
 </head>
 <body>
-    <div class="admin-container">
-        <!-- Шапка админки -->
-        <div class="admin-header">
-            <h1>🛠️ Панель управления сайтом</h1>
-            <p>Студия танцев "Первый ритм Ленинского" - редактирование всех страниц</p>
-        </div>
-        
-        <!-- Верхняя навигация -->
-        <div class="top-nav">
-            <div>
-                <button class="btn btn-primary" onclick="saveAllChanges()">
-                    💾 Сохранить все изменения
-                </button>
-                <button class="btn btn-success" onclick="previewSite()" style="margin-left: 10px;">
-                    👁️ Предпросмотр сайта
-                </button>
-            </div>
-            <div class="nav-buttons">
-                <button class="btn btn-warning" onclick="exportAllData()">
-                    📤 Экспорт всех данных
-                </button>
-                <button class="btn" onclick="backToSite()" style="background: #6c757d; color: white;">
-                    ← Вернуться на сайт
-                </button>
-            </div>
-        </div>
-        
-        <!-- Основные табы -->
-        <div class="tabs">
-            <button class="tab active" onclick="openTab('content')">
-                📝 Редактирование контента
-            </button>
-            <button class="tab" onclick="openTab('prices')">
-                💰 Управление ценами
-            </button>
-            <button class="tab" onclick="openTab('schedule')">
-                📅 Расписание
-            </button>
-            <button class="tab" onclick="openTab('staff')">
-                👥 Сотрудники
-            </button>
-            <button class="tab" onclick="openTab('gallery')">
-                📸 Галерея (Яндекс.Диск)
-            </button>
-            <button class="tab" onclick="openTab('events')">
-                🎭 Мероприятия
-            </button>
-            <button class="tab" onclick="openTab('settings')">
-                ⚙️ Настройки
-            </button>
-        </div>
-        
-        <!-- Контент: Редактирование страниц -->
-        <div id="content" class="tab-content active">
-            <div class="content-header">
-                <h2>📝 Редактирование контента страниц</h2>
-                <div>
-                    <select id="pageSelector" onchange="loadPageContent()" style="padding: 10px; border-radius: 6px; font-size: 16px;">
-                        <option value="directions">🎯 Направления обучения</option>
-                        <option value="schedule">📅 Расписание занятий</option>
-                        <option value="prices">💰 Стоимость занятий</option>
-                        <option value="booking">🔄 Онлайн-запись</option>
-                        <option value="staff">👥 Наша команда</option>
-                        <option value="gallery">📸 Галерея студии</option>
-                        <option value="faq">❓ Правила и FAQ</option>
-                        <option value="contract">📄 Договор-оферта</option>
-                        <option value="contacts">📞 Контакты</option>
-                        <option value="events">🎭 Мероприятия</option>
-                        <option value="index">🏠 Главная страница</option>
-                    </select>
-                </div>
+    <!-- Шапка админки -->
+    <header class="editor-header">
+        <div class="container">
+            <div class="editor-logo">
+                <h1><i class="fas fa-cog"></i> Панель управления сайтом</h1>
+                <p>Студия танцев "Первый ритм Ленинского"</p>
             </div>
             
-            <div class="form-container">
-                <h3>✏️ Редактор страницы: <span id="currentPageName">Направления обучения</span></h3>
-                
-                <div class="form-group">
-                    <label>Заголовок страницы</label>
-                    <input type="text" id="pageTitle" placeholder="Заголовок страницы" class="form-control-large">
-                </div>
-                
-                <div class="form-group">
-                    <label>HTML контент страницы</label>
-                    <div class="editor-toolbar">
-                        <button onclick="formatText('bold')" title="Жирный">B</button>
-                        <button onclick="formatText('italic')" title="Курсив">I</button>
-                        <button onclick="formatText('underline')" title="Подчеркнутый">U</button>
-                        <button onclick="insertLink()" title="Вставить ссылку">🔗</button>
-                        <button onclick="insertImage()" title="Вставить изображение">🖼️</button>
-                        <button onclick="insertList('ul')" title="Маркированный список">•</button>
-                        <button onclick="insertList('ol')" title="Нумерованный список">1.</button>
-                    </div>
-                    <textarea id="pageContent" rows="20" placeholder="HTML содержимое страницы..."></textarea>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Мета-описание (SEO)</label>
-                        <textarea id="pageMetaDescription" rows="3" placeholder="Описание для поисковых систем..."></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Ключевые слова (SEO)</label>
-                        <input type="text" id="pageKeywords" placeholder="танцы, иркутск, студия, обучение">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>Превью для предпросмотра</label>
-                    <div id="pagePreview" class="page-preview">
-                        <!-- Предпросмотр будет здесь -->
-                    </div>
-                </div>
-                
-                <div style="display: flex; gap: 15px; margin-top: 20px;">
-                    <button class="btn btn-success" onclick="savePageContent()">
-                        💾 Сохранить страницу
-                    </button>
-                    <button class="btn btn-primary" onclick="previewPage()">
-                        👁️ Предпросмотр
-                    </button>
-                    <button class="btn btn-warning" onclick="resetPageContent()">
-                        🔄 Сбросить изменения
-                    </button>
-                </div>
+            <div class="editor-actions">
+                <button class="btn btn-success" onclick="saveAllChanges()">
+                    <i class="fas fa-save"></i> Сохранить все
+                </button>
+                <button class="btn btn-secondary" onclick="previewSite()">
+                    <i class="fas fa-eye"></i> Просмотр сайта
+                </button>
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> На сайт
+                </a>
             </div>
-            
-            <div class="form-container">
-                <h3>📄 Список всех страниц</h3>
-                <div class="pages-grid" id="pagesList">
+        </div>
+    </header>
+
+    <!-- Основной интерфейс редактора -->
+    <div class="editor-container">
+        <!-- Левая панель - навигация -->
+        <aside class="editor-sidebar">
+            <div class="sidebar-section">
+                <h3><i class="fas fa-sitemap"></i> Страницы сайта</h3>
+                <div class="pages-list" id="pages-list">
                     <!-- Страницы будут загружены через JS -->
                 </div>
-            </div>
-        </div>
-        
-        <!-- Контент: Управление ценами -->
-        <div id="prices" class="tab-content">
-            <div class="content-header">
-                <h2>💰 Управление ценами и абонементами</h2>
-                <button class="btn btn-primary" onclick="addPriceCategory()">
-                    ➕ Добавить категорию цен
+                
+                <button class="btn btn-block" onclick="createNewPage()">
+                    <i class="fas fa-plus"></i> Создать страницу
                 </button>
             </div>
             
-            <div class="form-container">
-                <h3>📋 Добавить/редактировать категорию цен</h3>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Название категории</label>
-                        <select id="priceCategoryType" onchange="loadPriceTemplate()">
-                            <option value="trial">🎁 Пробное занятие</option>
-                            <option value="kids">👶 Детские направления</option>
-                            <option value="adults">👩‍🦱 Взрослые направления</option>
-                            <option value="stretching">🧘 Растяжка</option>
-                            <option value="individual">💫 Индивидуальные занятия</option>
-                            <option value="packages">🏆 Комплексные пакеты</option>
-                            <option value="other">📋 Другие услуги</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Заголовок блока</label>
-                        <input type="text" id="priceCategoryTitle" placeholder="ДЕТСКИЕ НАПРАВЛЕНИЯ">
-                    </div>
-                    <div class="form-group">
-                        <label>Подзаголовок</label>
-                        <input type="text" id="priceCategorySubtitle" placeholder="(3-16 лет)">
-                    </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-images"></i> Медиа-библиотека</h3>
+                <div class="media-actions">
+                    <button class="btn btn-sm btn-block" onclick="openMediaUpload()">
+                        <i class="fas fa-upload"></i> Загрузить изображение
+                    </button>
+                    <button class="btn btn-sm btn-block" onclick="openYandexDisk()">
+                        <i class="fab fa-yandex"></i> Яндекс.Диск
+                    </button>
                 </div>
-                
-                <div id="priceItemsContainer">
-                    <!-- Цены будут добавляться динамически -->
-                    <div class="price-item-editor">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Название услуги</label>
-                                <input type="text" class="price-name" placeholder="Пробное занятие">
-                            </div>
-                            <div class="form-group">
-                                <label>Цена (₽)</label>
-                                <input type="number" class="price-value" placeholder="300" min="0">
-                            </div>
-                            <div class="form-group">
-                                <label>Период/количество</label>
-                                <input type="text" class="price-period" placeholder="1 занятие">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Описание</label>
-                                <input type="text" class="price-description" placeholder="Любое направление • Консультация преподавателя">
-                            </div>
-                            <div class="form-group">
-                                <label>Скидка/акция</label>
-                                <input type="text" class="price-discount" placeholder="ВЫГОДА 15%">
-                            </div>
-                        </div>
-                        <button class="btn btn-danger btn-sm" onclick="removePriceItem(this)" style="margin-top: 10px;">
-                            🗑️ Удалить эту цену
-                        </button>
-                    </div>
+                <div class="media-gallery" id="media-gallery">
+                    <!-- Медиафайлы будут загружены -->
                 </div>
-                
-                <button class="btn" onclick="addPriceItem()" style="background: #6c757d; color: white; margin: 15px 0;">
-                    ➕ Добавить еще одну цену
-                </button>
-                
-                <div class="form-group">
-                    <label>Дополнительная информация (акции, условия)</label>
-                    <textarea id="priceAdditionalInfo" rows="4" placeholder="Акция! При покупке абонемента в день пробного занятия - скидка 15%"></textarea>
-                </div>
-                
-                <button class="btn btn-success" onclick="savePriceCategory()">
-                    💾 Сохранить категорию цен
-                </button>
             </div>
             
-            <h3>💰 Текущие цены</h3>
-            <div class="prices-grid" id="pricesList">
-                <!-- Категории цен будут загружены через JS -->
+            <div class="sidebar-section">
+                <h3><i class="fas fa-chart-line"></i> Статистика</h3>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="pages-count">0</span>
+                        <span class="stat-label">Страниц</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="images-count">0</span>
+                        <span class="stat-label">Изображений</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="products-count">0</span>
+                        <span class="stat-label">Товаров/услуг</span>
+                    </div>
+                </div>
             </div>
-            
-            <div class="form-container">
-                <h3>⚡ Быстрые настройки цен</h3>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Процентное увеличение цен</label>
-                        <div style="display: flex; gap: 10px;">
-                            <input type="number" id="priceIncreasePercent" placeholder="10" min="0" max="100" style="flex: 1;">
-                            <button class="btn btn-warning" onclick="increaseAllPrices()">
-                                📈 Увеличить все цены на %
+        </aside>
+
+        <!-- Центральная панель - редактор -->
+        <main class="editor-main">
+            <!-- Вкладки редактора -->
+            <div class="editor-tabs">
+                <button class="editor-tab active" data-tab="content">
+                    <i class="fas fa-edit"></i> Контент
+                </button>
+                <button class="editor-tab" data-tab="design">
+                    <i class="fas fa-paint-brush"></i> Дизайн
+                </button>
+                <button class="editor-tab" data-tab="settings">
+                    <i class="fas fa-cogs"></i> Настройки
+                </button>
+                <button class="editor-tab" data-tab="seo">
+                    <i class="fas fa-search"></i> SEO
+                </button>
+            </div>
+
+            <!-- Контент редактора -->
+            <div class="editor-content">
+                <!-- Вкладка контента -->
+                <div class="tab-pane active" id="content-tab">
+                    <div class="toolbar">
+                        <div class="toolbar-group">
+                            <button class="toolbar-btn" onclick="formatText('bold')" title="Жирный">
+                                <i class="fas fa-bold"></i>
+                            </button>
+                            <button class="toolbar-btn" onclick="formatText('italic')" title="Курсив">
+                                <i class="fas fa-italic"></i>
+                            </button>
+                            <button class="toolbar-btn" onclick="formatText('underline')" title="Подчеркнутый">
+                                <i class="fas fa-underline"></i>
                             </button>
                         </div>
+                        
+                        <div class="toolbar-group">
+                            <button class="toolbar-btn" onclick="insertLink()" title="Вставить ссылку">
+                                <i class="fas fa-link"></i>
+                            </button>
+                            <button class="toolbar-btn" onclick="insertImage()" title="Вставить изображение">
+                                <i class="fas fa-image"></i>
+                            </button>
+                            <button class="toolbar-btn" onclick="insertList('ul')" title="Маркированный список">
+                                <i class="fas fa-list-ul"></i>
+                            </button>
+                            <button class="toolbar-btn" onclick="insertList('ol')" title="Нумерованный список">
+                                <i class="fas fa-list-ol"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="toolbar-group">
+                            <select class="font-size-select" onchange="changeFontSize(this.value)">
+                                <option value="">Размер текста</option>
+                                <option value="12px">Маленький</option>
+                                <option value="16px" selected>Обычный</option>
+                                <option value="20px">Большой</option>
+                                <option value="24px">Заголовок</option>
+                                <option value="32px">Большой заголовок</option>
+                            </select>
+                            
+                            <select class="font-family-select" onchange="changeFontFamily(this.value)">
+                                <option value="">Шрифт</option>
+                                <option value="Arial, sans-serif" selected>Arial</option>
+                                <option value="'Georgia', serif">Georgia</option>
+                                <option value="'Times New Roman', serif">Times New Roman</option>
+                                <option value="'Courier New', monospace">Courier New</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Установить валюту</label>
-                        <select id="currencySelector" onchange="updateCurrency()">
-                            <option value="₽">Рубли (₽)</option>
-                            <option value="$">Доллары ($)</option>
-                            <option value="€">Евро (€)</option>
-                        </select>
+
+                    <!-- Область редактирования -->
+                    <div class="editor-area" id="editor-area" contenteditable="true">
+                        <!-- Сюда будет загружен контент для редактирования -->
+                        <h2>Заголовок страницы</h2>
+                        <p>Начните редактировать текст здесь...</p>
                     </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Контент: Галерея с Яндекс.Диском -->
-        <div id="gallery" class="tab-content">
-            <div class="content-header">
-                <h2>📸 Управление галереей с Яндекс.Диском</h2>
-                <button class="btn btn-primary" onclick="addGalleryItem()">
-                    ➕ Добавить фото
-                </button>
-            </div>
-            
-            <div class="form-container">
-                <h3>🌐 Подключение Яндекс.Диска</h3>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>OAuth-токен Яндекс.Диска</label>
-                        <input type="password" id="yandexToken" placeholder="Введите токен для доступа к Яндекс.Диску">
-                        <p class="help-text">
-                            <a href="https://yandex.ru/dev/disk/rest/" target="_blank">Как получить токен?</a>
-                            | Токен нужен для загрузки фото прямо с Яндекс.Диска
-                        </p>
-                    </div>
-                    <div class="form-group">
-                        <label>Папка на Яндекс.Диске</label>
-                        <input type="text" id="yandexFolder" placeholder="studio-gallery" value="studio-gallery">
-                        <p class="help-text">Название папки на Яндекс.Диске, где хранятся фото</p>
-                    </div>
-                </div>
-                
-                <button class="btn btn-success" onclick="connectYandexDisk()">
-                    🔗 Подключить Яндекс.Диск
-                </button>
-                
-                <div id="yandexStatus" style="margin-top: 15px; padding: 10px; border-radius: 6px; display: none;"></div>
-            </div>
-            
-            <div class="form-container">
-                <h3>📁 Загрузка нового фото</h3>
-                <div class="upload-methods">
-                    <div class="upload-method active" onclick="setUploadMethod('yandex')">
-                        <div class="method-icon">🌐</div>
-                        <div class="method-title">Яндекс.Диск</div>
-                        <div class="method-description">Выбрать из Яндекс.Диска</div>
-                    </div>
-                    <div class="upload-method" onclick="setUploadMethod('url')">
-                        <div class="method-icon">🔗</div>
-                        <div class="method-title">По ссылке</div>
-                        <div class="method-description">Указать URL фото</div>
-                    </div>
-                    <div class="upload-method" onclick="setUploadMethod('file')">
-                        <div class="method-icon">📁</div>
-                        <div class="method-title">Файл</div>
-                        <div class="method-description">Загрузить с компьютера</div>
-                    </div>
-                </div>
-                
-                <div id="uploadYandex" class="upload-section active">
-                    <h4>Выбор фото с Яндекс.Диска</h4>
-                    <div class="form-group">
-                        <label>Выберите фото</label>
-                        <div id="yandexFiles" class="yandex-files">
-                            <div class="empty-state">
-                                <div>🌐</div>
-                                <p>Подключите Яндекс.Диск, чтобы увидеть файлы</p>
+
+                    <!-- Предпросмотр на мобильных устройствах -->
+                    <div class="preview-section">
+                        <h4><i class="fas fa-mobile-alt"></i> Предпросмотр</h4>
+                        <div class="device-preview">
+                            <div class="device-screen">
+                                <div id="mobile-preview">
+                                    <!-- Предпросмотр будет здесь -->
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div id="uploadUrl" class="upload-section">
-                    <h4>Загрузка по ссылке</h4>
-                    <div class="form-group">
-                        <label>URL фото</label>
-                        <input type="url" id="imageUrl" placeholder="https://example.com/photo.jpg">
-                    </div>
-                </div>
-                
-                <div id="uploadFile" class="upload-section">
-                    <h4>Загрузка файла</h4>
-                    <div class="form-group">
-                        <label>Выберите файл</label>
-                        <input type="file" id="imageFile" accept="image/*" onchange="previewSelectedImage(this)">
-                    </div>
-                    <div id="filePreview" style="display: none; margin-top: 15px;">
-                        <img id="selectedImage" src="" style="max-width: 200px; border-radius: 8px;">
-                    </div>
-                </div>
-                
-                <div class="form-row" style="margin-top: 20px;">
-                    <div class="form-group">
-                        <label>Название фото</label>
-                        <input type="text" id="galleryImageTitle" placeholder="Зал для занятий 1">
-                    </div>
-                    <div class="form-group">
-                        <label>Категория</label>
-                        <select id="galleryImageCategory">
-                            <option value="halls">🏛️ Залы студии</option>
-                            <option value="classes">💃 Занятия</option>
-                            <option value="events">🎭 Мероприятия</option>
-                            <option value="team">👥 Команда</option>
-                            <option value="studio">🏢 Студия</option>
-                            <option value="other">📷 Другое</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>Описание фото</label>
-                    <textarea id="galleryImageDescription" rows="3" placeholder="Основной зал для групповых занятий"></textarea>
-                </div>
-                
-                <button class="btn btn-success" onclick="saveGalleryImage()">
-                    💾 Сохранить фото в галерею
-                </button>
-            </div>
-            
-            <h3>🖼️ Галерея студии</h3>
-            <div class="gallery-filters">
-                <select id="galleryFilter" onchange="filterGallery()">
-                    <option value="all">Все фото</option>
-                    <option value="halls">🏛️ Залы студии</option>
-                    <option value="classes">💃 Занятия</option>
-                    <option value="events">🎭 Мероприятия</option>
-                    <option value="team">👥 Команда</option>
-                    <option value="studio">🏢 Студия</option>
-                </select>
-                <button class="btn btn-sm" onclick="refreshGallery()">🔄 Обновить</button>
-            </div>
-            
-            <div class="gallery-grid-admin" id="galleryImages">
-                <!-- Фото будут загружены через JS -->
-            </div>
-        </div>
-        
-        <!-- Контент: Настройки -->
-        <div id="settings" class="tab-content">
-            <div class="content-header">
-                <h2>⚙️ Настройки системы</h2>
-            </div>
-            
-            <div class="form-container">
-                <h3>🔧 Основные настройки</h3>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Название студии</label>
-                        <input type="text" id="studioName" value="Первый ритм Ленинского">
-                    </div>
-                    <div class="form-group">
-                        <label>Телефон для связи</label>
-                        <input type="tel" id="studioPhone" value="+7 (904) 123-31-75">
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Email студии</label>
-                        <input type="email" id="studioEmail" value="egor.denunn@yandex.ru">
-                    </div>
-                    <div class="form-group">
-                        <label>Адрес студии</label>
-                        <input type="text" id="studioAddress" value="г. Иркутск, ул. 1-й Ленинский квартал д. 1">
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>ID компании в YClients</label>
-                        <input type="text" id="yclientsId" value="1729530">
-                    </div>
-                    <div class="form-group">
-                        <label>Telegram для заявок</label>
-                        <input type="text" id="telegramBot" placeholder="@bot_username">
-                    </div>
-                </div>
-                
-                <h3>🌐 SEO настройки</h3>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Заголовок сайта (Title)</label>
-                        <input type="text" id="siteTitle" value="Студия танцев Первый ритм Ленинского | Иркутск">
-                    </div>
-                    <div class="form-group">
-                        <label>Описание сайта (Description)</label>
-                        <textarea id="siteDescription" rows="3">Студия танцев Первый ритм Ленинского в Иркутске. Детские и взрослые группы, растяжка, фитнес. Профессиональные педагоги. Запись на пробное занятие.</textarea>
-                    </div>
-                </div>
-                
-                <h3>🎨 Внешний вид</h3>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Основной цвет</label>
-                        <input type="color" id="primaryColor" value="#667eea">
-                    </div>
-                    <div class="form-group">
-                        <label>Вторичный цвет</label>
-                        <input type="color" id="secondaryColor" value="#764ba2">
-                    </div>
-                    <div class="form-group">
-                        <label>Акцентный цвет</label>
-                        <input type="color" id="accentColor" value="#FF6B6B">
-                    </div>
-                </div>
-                
-                <button class="btn btn-success" onclick="saveSettings()">
-                    💾 Сохранить настройки
-                </button>
-            </div>
-            
-            <div class="form-container">
-                <h3>📊 Статистика и аналитика</h3>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalPages">12</div>
-                        <div class="stat-label">Страниц сайта</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalPhotos">8</div>
-                        <div class="stat-label">Фото в галерее</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalPrices">25</div>
-                        <div class="stat-label">Позиций в прайсе</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalStaff">6</div>
-                        <div class="stat-label">Сотрудников</div>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 20px;">
-                    <button class="btn btn-primary" onclick="generateSiteMap()">
-                        🗺️ Сгенерировать Sitemap
-                    </button>
-                    <button class="btn" onclick="clearCache()" style="margin-left: 10px; background: #6c757d; color: white;">
-                        🧹 Очистить кэш
-                    </button>
-                </div>
-            </div>
-            
-            <div class="form-container">
-                <h3>⚠️ Опасная зона</h3>
-                <div class="danger-zone">
-                    <div class="danger-item">
-                        <h4>🗑️ Очистить все данные</h4>
-                        <p>Удаляет все настройки и контент сайта</p>
-                        <button class="btn btn-danger" onclick="clearAllData()">
-                            УДАЛИТЬ ВСЕ ДАННЫЕ
+
+                <!-- Вкладка дизайна -->
+                <div class="tab-pane" id="design-tab">
+                    <h3>Настройки дизайна</h3>
+                    
+                    <div class="design-options">
+                        <div class="color-picker">
+                            <h4>Цветовая схема</h4>
+                            <div class="color-grid">
+                                <div class="color-option">
+                                    <label>Основной цвет</label>
+                                    <input type="color" id="primary-color" value="#667eea">
+                                </div>
+                                <div class="color-option">
+                                    <label>Вторичный цвет</label>
+                                    <input type="color" id="secondary-color" value="#764ba2">
+                                </div>
+                                <div class="color-option">
+                                    <label>Акцентный цвет</label>
+                                    <input type="color" id="accent-color" value="#FF6B6B">
+                                </div>
+                                <div class="color-option">
+                                    <label>Цвет текста</label>
+                                    <input type="color" id="text-color" value="#333333">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="font-settings">
+                            <h4>Настройки шрифтов</h4>
+                            <div class="form-group">
+                                <label>Основной шрифт</label>
+                                <select id="main-font">
+                                    <option value="Arial, sans-serif" selected>Arial</option>
+                                    <option value="'Roboto', sans-serif">Roboto</option>
+                                    <option value="'Open Sans', sans-serif">Open Sans</option>
+                                    <option value="'Montserrat', sans-serif">Montserrat</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Размер основного текста</label>
+                                <input type="range" id="font-size" min="12" max="24" value="16">
+                                <span id="font-size-value">16px</span>
+                            </div>
+                        </div>
+                        
+                        <div class="layout-settings">
+                            <h4>Макет сайта</h4>
+                            <div class="layout-options">
+                                <label class="layout-option">
+                                    <input type="radio" name="layout" value="boxed" checked>
+                                    <span>С отступами</span>
+                                </label>
+                                <label class="layout-option">
+                                    <input type="radio" name="layout" value="fullwidth">
+                                    <span>Во всю ширину</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="applyDesignSettings()">
+                            <i class="fas fa-check"></i> Применить дизайн
                         </button>
+                    </div>
+                </div>
+
+                <!-- Вкладка настроек -->
+                <div class="tab-pane" id="settings-tab">
+                    <h3>Настройки сайта</h3>
+                    
+                    <div class="settings-grid">
+                        <div class="settings-section">
+                            <h4>Основная информация</h4>
+                            <div class="form-group">
+                                <label>Название сайта</label>
+                                <input type="text" id="site-name" value="Первый ритм Ленинского">
+                            </div>
+                            <div class="form-group">
+                                <label>Слоган/описание</label>
+                                <input type="text" id="site-tagline" value="Студия танцев в Иркутске">
+                            </div>
+                            <div class="form-group">
+                                <label>Логотип (URL)</label>
+                                <input type="text" id="site-logo" placeholder="https://example.com/logo.png">
+                            </div>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h4>Контакты</h4>
+                            <div class="form-group">
+                                <label>Телефон</label>
+                                <input type="tel" id="contact-phone" value="+7 (904) 123-31-75">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="contact-email" value="egor.denunn@yandex.ru">
+                            </div>
+                            <div class="form-group">
+                                <label>Адрес</label>
+                                <input type="text" id="contact-address" value="г. Иркутск, ул. 1-й Ленинский квартал д. 1">
+                            </div>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h4>Социальные сети</h4>
+                            <div class="form-group">
+                                <label>ВКонтакте</label>
+                                <input type="url" id="social-vk" placeholder="https://vk.com/...">
+                            </div>
+                            <div class="form-group">
+                                <label>Telegram</label>
+                                <input type="url" id="social-telegram" placeholder="https://t.me/...">
+                            </div>
+                            <div class="form-group">
+                                <label>Instagram</label>
+                                <input type="url" id="social-instagram" placeholder="https://instagram.com/...">
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="danger-item">
-                        <h4>🔙 Восстановить по умолчанию</h4>
-                        <p>Вернуть все настройки к исходным</p>
-                        <button class="btn btn-warning" onclick="resetToDefaults()">
-                            ВОССТАНОВИТЬ ПО УМОЛЧАНИЮ
+                    <button class="btn btn-success" onclick="saveSiteSettings()">
+                        <i class="fas fa-save"></i> Сохранить настройки
+                    </button>
+                </div>
+
+                <!-- Вкладка SEO -->
+                <div class="tab-pane" id="seo-tab">
+                    <h3>SEO оптимизация</h3>
+                    
+                    <div class="seo-settings">
+                        <div class="form-group">
+                            <label>Мета-заголовок (Title)</label>
+                            <input type="text" id="seo-title" placeholder="Студия танцев в Иркутске">
+                            <small>До 60 символов</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Мета-описание (Description)</label>
+                            <textarea id="seo-description" rows="3" placeholder="Описание для поисковых систем"></textarea>
+                            <small>До 160 символов</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Ключевые слова</label>
+                            <input type="text" id="seo-keywords" placeholder="танцы, иркутск, студия, обучение">
+                            <small>Через запятую</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Канонический URL</label>
+                            <input type="url" id="seo-canonical" placeholder="https://ваш-сайт.ru/">
+                        </div>
+                        
+                        <div class="seo-preview">
+                            <h4>Предпросмотр в поиске:</h4>
+                            <div class="search-preview">
+                                <div class="search-title" id="preview-title">Заголовок страницы</div>
+                                <div class="search-url" id="preview-url">https://ваш-сайт.ru/</div>
+                                <div class="search-description" id="preview-description">Описание страницы для поисковых систем...</div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="saveSeoSettings()">
+                            <i class="fas fa-search"></i> Сохранить SEO настройки
                         </button>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Остальные вкладки (schedule, staff, events) будут аналогичны предыдущей версии -->
-        <!-- Для экономии места оставляю их структуру, но без полного кода -->
-        
-        <div id="schedule" class="tab-content">
-            <div class="content-header">
-                <h2>📅 Управление расписанием</h2>
-                <button class="btn btn-primary" onclick="addScheduleItem()">
-                    ➕ Добавить занятие
+        </main>
+
+        <!-- Правая панель - блоки и компоненты -->
+        <aside class="editor-components">
+            <h3><i class="fas fa-cube"></i> Готовые блоки</h3>
+            
+            <div class="components-list">
+                <div class="component" draggable="true" onclick="insertComponent('hero')">
+                    <div class="component-icon"><i class="fas fa-star"></i></div>
+                    <div class="component-info">
+                        <strong>Главный баннер</strong>
+                        <small>Большой заголовок с кнопками</small>
+                    </div>
+                </div>
+                
+                <div class="component" draggable="true" onclick="insertComponent('services')">
+                    <div class="component-icon"><i class="fas fa-list-alt"></i></div>
+                    <div class="component-info">
+                        <strong>Услуги/Цены</strong>
+                        <small>Таблица с ценами</small>
+                    </div>
+                </div>
+                
+                <div class="component" draggable="true" onclick="insertComponent('gallery')">
+                    <div class="component-icon"><i class="fas fa-images"></i></div>
+                    <div class="component-info">
+                        <strong>Галерея</strong>
+                        <small>Сетка изображений</small>
+                    </div>
+                </div>
+                
+                <div class="component" draggable="true" onclick="insertComponent('team')">
+                    <div class="component-icon"><i class="fas fa-users"></i></div>
+                    <div class="component-info">
+                        <strong>Команда</strong>
+                        <small>Карточки сотрудников</small>
+                    </div>
+                </div>
+                
+                <div class="component" draggable="true" onclick="insertComponent('contact-form')">
+                    <div class="component-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="component-info">
+                        <strong>Форма обратной связи</strong>
+                        <small>Форма для заявок</small>
+                    </div>
+                </div>
+                
+                <div class="component" draggable="true" onclick="insertComponent('map')">
+                    <div class="component-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="component-info">
+                        <strong>Карта</strong>
+                        <small>Карта проезда</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quick-actions">
+                <h4>Быстрые действия</h4>
+                <button class="btn btn-sm btn-block" onclick="exportSite()">
+                    <i class="fas fa-download"></i> Экспорт сайта
+                </button>
+                <button class="btn btn-sm btn-block" onclick="importSite()">
+                    <i class="fas fa-upload"></i> Импорт сайта
+                </button>
+                <button class="btn btn-sm btn-block btn-warning" onclick="clearCache()">
+                    <i class="fas fa-broom"></i> Очистить кэш
                 </button>
             </div>
-            <!-- Форма редактирования расписания -->
-        </div>
-        
-        <div id="staff" class="tab-content">
-            <div class="content-header">
-                <h2>👥 Управление сотрудниками</h2>
-                <button class="btn btn-primary" onclick="addStaffMember()">
-                    ➕ Добавить сотрудника
-                </button>
-            </div>
-            <!-- Форма редактирования сотрудников -->
-        </div>
-        
-        <div id="events" class="tab-content">
-            <div class="content-header">
-                <h2>🎭 Управление мероприятиями</h2>
-                <button class="btn btn-primary" onclick="addEvent()">
-                    ➕ Добавить мероприятие
-                </button>
-            </div>
-            <!-- Форма редактирования мероприятий -->
-        </div>
-        
+        </aside>
     </div>
-    
+
+    <!-- Модальные окна -->
+    <div class="modal" id="media-modal">
+        <div class="modal-content large">
+            <span class="close-modal" onclick="closeMediaModal()">&times;</span>
+            <h3>Медиа-библиотека</h3>
+            <div class="media-upload">
+                <div class="upload-area" id="drop-area">
+                    <i class="fas fa-cloud-upload-alt fa-3x"></i>
+                    <p>Перетащите файлы сюда или</p>
+                    <button class="btn btn-primary" onclick="document.getElementById('file-input').click()">
+                        Выберите файлы
+                    </button>
+                    <input type="file" id="file-input" multiple accept="image/*" style="display: none;">
+                </div>
+                
+                <div class="yandex-integration">
+                    <h4><i class="fab fa-yandex"></i> Яндекс.Диск</h4>
+                    <div class="form-group">
+                        <label>OAuth токен</label>
+                        <input type="password" id="yandex-token" placeholder="Введите токен">
+                        <small><a href="https://yandex.ru/dev/disk/" target="_blank">Как получить токен?</a></small>
+                    </div>
+                    <button class="btn btn-secondary" onclick="connectYandexDisk()">
+                        Подключить Яндекс.Диск
+                    </button>
+                </div>
+                
+                <div class="media-grid" id="media-grid">
+                    <!-- Загруженные медиафайлы -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Уведомления -->
-    <div id="notification" class="notification" style="display: none;"></div>
-    
-    <script src="admin-scripts.js"></script>
+    <div class="notifications" id="notifications"></div>
+
+    <script>
+        // Инициализация редактора
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeEditor();
+            loadSiteData();
+            updateStats();
+            
+            // Настройка перетаскивания
+            setupDragAndDrop();
+            
+            // Автосохранение каждые 30 секунд
+            setInterval(autoSave, 30000);
+        });
+        
+        function initializeEditor() {
+            // Настройка вкладок
+            document.querySelectorAll('.editor-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    openTab(tabName);
+                });
+            });
+            
+            // Настройка редактора
+            setupEditorArea();
+        }
+        
+        function openTab(tabName) {
+            // Скрыть все вкладки
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            
+            // Убрать активность со всех табов
+            document.querySelectorAll('.editor-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Показать выбранную вкладку
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            
+            // Активировать таб
+            document.querySelector(`.editor-tab[data-tab="${tabName}"]`).classList.add('active');
+        }
+    </script>
 </body>
 </html>
