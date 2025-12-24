@@ -375,6 +375,26 @@
             transform: translateY(-2px);
         }
         
+        .btn-admin {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #ff9800;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255,152,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-admin:hover {
+            background: #f57c00;
+            transform: translateY(-2px);
+        }
+        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 24px;
@@ -394,6 +414,13 @@
             
             #content-frame {
                 min-height: 600px;
+            }
+            
+            .btn-admin {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 14px;
             }
         }
     </style>
@@ -517,6 +544,11 @@
         </footer>
     </div>
 
+    <!-- Кнопка перехода в админку -->
+    <a href="admin.html" class="btn-admin" target="_blank">
+        ⚙️ Панель управления
+    </a>
+
     <!-- Модальное окно записи -->
     <div id="enrollModal" class="modal">
         <div class="modal-content">
@@ -608,6 +640,12 @@
             // Загружаем страницу направлений по умолчанию
             loadPage('directions.html');
             document.querySelector('[href="#directions"]').classList.add('active');
+            
+            // Проверяем параметр для автоматического открытия админки
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('admin') === 'true') {
+                window.open('admin.html', '_blank');
+            }
         });
 
         function loadPage(page) {
